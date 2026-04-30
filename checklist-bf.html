@@ -1,0 +1,2089 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>引っ越しまでの道のり 〜第二章 彼氏篇〜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #e6d8b9;
+    --paper-deep:   #d8c79e;
+    --card:         #f1e7c9;
+    --card-warm:    #ede0bc;
+    --ink:          #1a140d;
+    --ink-soft:     #4a3a25;
+    --ink-mute:     #8a7654;
+    --rule:         #b09668;
+    --vermilion:    #a8392c;
+    --vermilion-d:  #842c22;
+    --moss:         #5a6b3c;
+    --moss-d:       #3e4a26;
+    --shadow:       0 1px 0 rgba(26, 20, 13, 0.04), 0 4px 18px rgba(74, 58, 37, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    /* paper grain */
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(168, 57, 44, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(90, 107, 60, 0.05) 0%, transparent 38%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-attachment: fixed;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 12px 80px;
+  }
+
+  /* ============ HERO / CD JACKET ============ */
+  .jacket {
+    margin: 12px 0 14px;
+    padding: 14px 14px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: var(--shadow), 3px 3px 0 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .jacket::before {
+    content: '';
+    position: absolute; inset: 5px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .jacket-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .jacket-meta .left { color: var(--vermilion); font-weight: 600; }
+
+  .jacket-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* big vertical title */
+  .vtitle {
+    writing-mode: vertical-rl;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    padding-left: 0;
+    border-right: 1.5px solid var(--ink);
+    padding-right: 8px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vtitle .rt {
+    color: var(--vermilion);
+    font-size: 36px;
+    margin: -1px 0;
+  }
+
+  .htitle-block { padding-top: 0; }
+
+  .htitle {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .htitle-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .verse {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--vermilion);
+    padding: 1px 0 1px 8px;
+    margin-bottom: 0;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 8.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    transform: rotate(-8deg);
+    background: rgba(168, 57, 44, 0.04);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ PROGRESS / METER ============ */
+  .meter {
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 14px 16px;
+    position: relative;
+  }
+  .meter::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--rule);
+    border-color: transparent;
+    border-top-color: var(--rule);
+    border-bottom-color: var(--rule);
+    pointer-events: none;
+  }
+
+  .meter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .meter-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+  .meter-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .meter-count .total {
+    color: var(--ink-mute);
+    font-size: 14px;
+  }
+  .meter-sub {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    display: none;
+  }
+  .meter-sub.show { display: block; }
+  .meter-sub strong { color: var(--ink); font-weight: 600; }
+
+  .meter-bar {
+    height: 6px;
+    background: var(--paper-deep);
+    position: relative;
+    border: 1px solid var(--rule);
+  }
+  .meter-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--vermilion);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .meter-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0) 0 4px,
+      rgba(0,0,0,0.12) 4px 5px
+    );
+  }
+
+  /* ============ TABS / TRACKS NAV ============ */
+  nav.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 22px;
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+  }
+
+  /* 5 tabs: 2 short (red) + 3 long (normal) in single row */
+  nav.tabs.tabs-5 {
+    grid-template-columns: 1fr 1fr 0.95fr 0.95fr 0.95fr;
+  }
+  nav.tabs.tabs-5 button {
+    padding: 9px 2px 8px;
+  }
+  nav.tabs.tabs-5 button[data-tab="today"],
+  nav.tabs.tabs-5 button[data-tab="tomorrow"] {
+    background: rgba(168, 57, 44, 0.08);
+  }
+  nav.tabs.tabs-5 button[data-tab="today"] .tk,
+  nav.tabs.tabs-5 button[data-tab="tomorrow"] .tk {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+  nav.tabs.tabs-5 button[data-tab="today"].active,
+  nav.tabs.tabs-5 button[data-tab="tomorrow"].active {
+    background: var(--vermilion);
+  }
+  nav.tabs.tabs-5 button[data-tab="today"].active .tk,
+  nav.tabs.tabs-5 button[data-tab="tomorrow"].active .tk {
+    color: var(--card);
+  }
+  nav.tabs.tabs-5 button[data-tab="tomorrow"] {
+    border-right: 2px solid var(--ink);
+  }
+
+  nav.tabs button {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  nav.tabs button:last-child { border-right: none; }
+
+  nav.tabs button .tk {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 2px;
+  }
+  nav.tabs button .badge {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-mute);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  nav.tabs button.active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  nav.tabs button.active .tk { color: var(--card-warm); }
+  nav.tabs button.active .badge { color: var(--card-warm); }
+
+  nav.tabs button.complete:not(.active)::before {
+    content: '済';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 9px;
+    color: var(--vermilion);
+    background: var(--card);
+    border: 1px solid var(--vermilion);
+    padding: 0 3px;
+    line-height: 1.4;
+  }
+
+  /* ============ SECTION ============ */
+  section {
+    display: none;
+    animation: rise 0.4s ease;
+  }
+  section.active { display: block; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter {
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    padding: 14px 0;
+  }
+  .chapter::before, .chapter::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--ink);
+  }
+  .chapter::before { top: 0; }
+  .chapter::after { bottom: 0; }
+  .chapter .ch-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .chapter h2 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    margin: 4px 0 2px;
+  }
+  .chapter .ch-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.15em;
+  }
+
+  .liner-note {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    background: rgba(168, 57, 44, 0.06);
+    border-left: 3px solid var(--vermilion);
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .liner-note strong {
+    color: var(--vermilion);
+    font-weight: 600;
+  }
+
+  /* ============ TASK CARDS ============ */
+  .task-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .task-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    transition: all 0.25s ease;
+  }
+  .task-card.checked { background: var(--card-warm); }
+  .task-card.checked .task-num,
+  .task-card.checked .task-title { opacity: 0.45; }
+  .task-card.checked .task-title { text-decoration: line-through; }
+
+  .task-head {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--rule);
+    min-height: 40px;
+  }
+
+  .task-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--vermilion);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .task-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .check-box {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .check-box svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    stroke: var(--card);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5) rotate(-15deg);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .checked .check-box,
+  .done .check-box {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .checked .check-box svg,
+  .done .check-box svg {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  /* 無かった (unavailable) state */
+  .unavailable .check-box {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .unavailable .check-box::after {
+    content: '×';
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    position: absolute;
+  }
+  .unavailable .check-box svg { opacity: 0; }
+  .shop-item.unavailable { background: rgba(26, 20, 13, 0.06); }
+  .shop-item.unavailable .item-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ink-mute);
+  }
+  .shop-item.unavailable .item-num { opacity: 0.4; }
+
+  /* "無" stamp on unavailable items */
+  .shop-item.unavailable::before {
+    content: '無';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-12deg);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(241, 231, 201, 0.85);
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* 無 button */
+  .nai-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    min-width: 26px;
+  }
+  .nai-btn:hover, .nai-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .shop-item.unavailable .nai-btn {
+    background: var(--ink);
+    color: var(--card);
+  }
+
+  .item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .task-detail {
+    padding: 12px 16px 14px;
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+
+  .lyric-block {
+    margin: 6px 0;
+    padding: 10px 12px;
+    background: var(--paper);
+    border-left: 2px solid var(--moss);
+    position: relative;
+  }
+  .lyric-block:not(:last-child) { margin-bottom: 8px; }
+
+  .lyric-block.sp { border-left-color: var(--vermilion); background: rgba(168, 57, 44, 0.05); }
+
+  .lyric-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .lyric-block.sp .lyric-label { color: var(--vermilion); }
+
+  .lyric-block .body { color: var(--ink); }
+
+  .accent-mark {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+
+  /* ===== INFO CARD ===== */
+  .info-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 14px;
+    padding: 14px 14px 12px;
+    box-shadow: 3px 3px 0 0 var(--ink);
+  }
+  .info-card.accent {
+    border-color: var(--vermilion);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+  }
+  .info-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4px;
+  }
+  .info-list li {
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .info-tag {
+    display: inline-block;
+    padding: 2px 7px;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .info-tag.tag-rec {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .info-tag.tag-warn {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+  .info-note {
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 8px 0 0;
+    padding: 8px 10px;
+    background: var(--paper);
+    border-left: 2px solid var(--vermilion);
+    line-height: 1.6;
+  }
+
+  /* ===== RANK CARD ===== */
+  .rank-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 14px;
+    box-shadow: 3px 3px 0 0 var(--ink);
+    overflow: hidden;
+  }
+  .rank-card.rank-1 {
+    border-color: var(--vermilion);
+    box-shadow: 4px 4px 0 0 var(--vermilion);
+  }
+  .rank-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+  }
+  .rank-1 .rank-head {
+    background: rgba(168, 57, 44, 0.06);
+  }
+  .rank-medal {
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .rank-title-block {
+    flex: 1;
+    min-width: 0;
+  }
+  .rank-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.2em;
+    line-height: 1.2;
+  }
+  .rank-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-top: 2px;
+  }
+  .rank-body {
+    padding: 10px 14px 12px;
+  }
+  .rank-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--rule);
+    align-items: baseline;
+  }
+  .rank-row:last-child { border-bottom: none; }
+  .rank-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.1em;
+  }
+  .rank-val {
+    font-family: 'Klee One', serif;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .empty-note {
+    text-align: center;
+    color: var(--ink-mute);
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    padding: 24px 16px;
+    border: 1px dashed var(--rule);
+    background: rgba(255,255,255,0.3);
+    margin: 0;
+  }
+
+  /* ===== SHOP LIST (買い物リスト型) ===== */
+  .shop-list-bf {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .shop-item-bf {
+    display: grid;
+    grid-template-columns: 24px 22px 1fr auto;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 11px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .shop-item-bf:active { transform: scale(0.99); }
+  .shop-item-bf.done {
+    background: var(--card-warm);
+    border-color: var(--vermilion);
+  }
+  .shop-item-bf.done .item-name-bf {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  .shop-item-bf.done .item-num-bf { opacity: 0.5; }
+
+  .item-num-bf {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .shop-item-bf .check-box-sm {
+    width: 20px;
+    height: 20px;
+  }
+
+  .item-info-bf {
+    min-width: 0;
+  }
+  .item-name-bf {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .item-note-bf {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+
+  /* 枚数プルダウン */
+  .count-select-bf {
+    margin-top: 4px;
+    padding: 4px 6px;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 600;
+    font-size: 11px;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='%231a140d' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    padding-right: 18px;
+    min-width: 56px;
+  }
+  .count-select-bf:focus {
+    outline: 2px solid var(--vermilion);
+    outline-offset: -1px;
+  }
+  .shop-item-bf.done .count-select-bf {
+    background-color: var(--card);
+    color: var(--vermilion);
+    border-color: var(--vermilion);
+    font-weight: 700;
+    opacity: 1;
+  }
+  .shop-item-bf.skipped .count-select-bf {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .img-btn-bf {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 28px;
+  }
+  .img-btn-bf:hover, .img-btn-bf:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .img-btn-bf svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  /* item-actions wrapper */
+  .item-actions-bf {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* LINE報告ボタン */
+  .report-row {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+    display: flex;
+    justify-content: flex-end;
+  }
+  .line-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #06c755;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    border: 1.5px solid #06c755;
+    transition: all 0.2s ease;
+    box-shadow: 2px 2px 0 0 var(--ink);
+  }
+  .line-btn:hover, .line-btn:active {
+    background: #04a847;
+    border-color: #04a847;
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 0 var(--ink);
+  }
+  .line-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* 不要ボタン */
+  .skip-btn-bf {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 32px;
+  }
+  .skip-btn-bf:hover, .skip-btn-bf:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .shop-item-bf.skipped .skip-btn-bf {
+    background: var(--ink);
+    color: var(--card);
+  }
+
+  /* skipped 状態 */
+  .shop-item-bf.skipped {
+    background: rgba(26, 20, 13, 0.06);
+    border-color: var(--ink-mute);
+  }
+  .shop-item-bf.skipped .check-box-sm {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .shop-item-bf.skipped .check-box-sm::after {
+    content: '×';
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1;
+    position: absolute;
+  }
+  .shop-item-bf.skipped .check-box-sm svg { opacity: 0; }
+  .shop-item-bf.skipped .item-name-bf {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ink-mute);
+  }
+  .shop-item-bf.skipped .item-num-bf { opacity: 0.4; }
+  .shop-item-bf.skipped .item-note-bf { opacity: 0.5; }
+
+  .check-box-sm {
+    position: relative;
+  }
+
+  /* multi-task with subtasks */
+  .task-card.multi { display: block; }
+  .task-card.multi .task-detail { display: block; }
+  .task-card.multi.all-done { background: var(--card-warm); }
+  .task-head.no-toggle { cursor: default; }
+
+  .task-desc {
+    margin: 0 0 10px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .task-progress {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .subtask-group {
+    margin-top: 12px;
+    display: block;
+  }
+  .subtask-group:first-of-type { margin-top: 4px; }
+
+  .subtask-group-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+    display: block;
+  }
+
+  .subtask {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .subtask:active { background: var(--card-warm); transform: scale(0.99); }
+  .subtask.done {
+    background: var(--card-warm);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .subtask-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  .subtask.done .subtask-side {
+    opacity: 0.5;
+  }
+
+  .subtask-text {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .check-box-sm {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .check-box-sm svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    stroke: var(--card);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .subtask.done .check-box-sm {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .check-box-sm svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .subtask-side {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--vermilion);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .subtask-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .subtask-skip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px 6px 30px;
+    margin-bottom: 4px;
+    opacity: 0.45;
+  }
+  .subtask-skip .subtask-side {
+    font-style: italic;
+  }
+  .subtask-skip .subtask-name {
+    text-decoration: line-through;
+    font-size: 12px;
+  }
+
+  /* ============ SHOPPING / TRACK LIST ============ */
+  .shop-list { border: 1.5px solid var(--ink); background: var(--card); }
+
+  .shop-item {
+    display: grid;
+    grid-template-columns: 24px 22px 1fr auto;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-item:active { background: var(--card-warm); }
+  .shop-item.checked, .shop-item.done { background: var(--card-warm); }
+  .shop-item.checked .item-name,
+  .shop-item.done .item-name { opacity: 0.45; text-decoration: line-through; }
+  .shop-item.checked .item-num,
+  .shop-item.done .item-num { opacity: 0.45; }
+
+  .item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .shop-item .check-box { width: 22px; height: 22px; }
+  .shop-item .check-box svg { width: 13px; height: 13px; }
+
+  .item-info { min-width: 0; }
+  .item-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .item-note {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+
+  .img-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 28px;
+  }
+  .img-btn:hover, .img-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .img-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  /* ============ FOOTER ============ */
+  .colophon {
+    margin-top: 32px;
+    padding: 14px 16px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.2em;
+  }
+  .colophon .div { display: inline-block; padding: 0 8px; color: var(--vermilion); }
+
+  .reset-btn {
+    margin: 14px auto 0;
+    display: block;
+    background: transparent;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 8px 18px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reset-btn:hover {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+    color: var(--card);
+  }
+
+  /* ============ CELEBRATE ============ */
+  .celebrate {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .celebrate.show { display: flex; animation: rise 0.3s ease; }
+
+  .celebrate-card {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 8px 8px 0 var(--vermilion);
+    animation: pop 0.5s cubic-bezier(0.34, 1.6, 0.64, 1);
+    position: relative;
+  }
+  @keyframes pop {
+    from { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .celebrate-card .seal {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 56px;
+    height: 56px;
+    background: var(--vermilion);
+    color: var(--card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    transform: rotate(8deg);
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card h3 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card p {
+    font-family: 'Klee One', serif;
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .celebrate-card button {
+    background: var(--ink);
+    color: var(--card);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
+
+  /* narrow */
+  @media (max-width: 380px) {
+    .app { padding: 0 10px 80px; }
+    .jacket { padding: 12px 10px; }
+    .jacket-meta { font-size: 9px; margin-bottom: 10px; padding-bottom: 5px; }
+    .jacket-body { gap: 10px; }
+    .vtitle { font-size: 28px; padding-right: 7px; }
+    .vtitle .rt { font-size: 32px; }
+    .htitle { font-size: 14.5px; }
+    .htitle-en { font-size: 9px; margin-bottom: 6px; }
+    .verse { font-size: 10.5px; padding-left: 7px; }
+    .stamp { width: 38px; height: 38px; font-size: 8px; top: 8px; right: 8px; border-width: 1.5px; }
+    nav.tabs button { font-size: 11px; padding: 8px 1px 7px; }
+    nav.tabs button .tk { font-size: 9px; }
+    nav.tabs button .badge { font-size: 9px; }
+    .item-name { font-size: 13px; }
+    .item-note { font-size: 10px; }
+    .img-btn { padding: 6px 6px; font-size: 9.5px; min-width: 24px; }
+    .nai-btn { padding: 6px 7px; font-size: 11.5px; min-width: 24px; }
+    .shop-item { gap: 5px; padding: 9px 9px; }
+    .item-num { font-size: 13px; }
+    .task-detail { padding: 10px 12px 12px; font-size: 12px; }
+    .lyric-block { padding: 9px 10px; }
+    .chapter h2 { font-size: 18px; letter-spacing: 0.06em; }
+    .meter { padding: 12px 12px; }
+    .meter-count { font-size: 19px; }
+  }
+</style>
+<link rel="stylesheet" href="shared.css">
+<script src="firebase-config.js"></script>
+<script src="firebase-bootstrap.js"></script>
+<script src="shared-storage.js"></script>
+<script src="permission-helper.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ JACKET HEADER ============ -->
+  <div class="jacket">
+    <div class="jacket-meta">
+      <span class="left">VOL. 02 ・ HIS TASKS</span>
+      <span>2026 ・ TILL SUNDAY</span>
+    </div>
+
+    <div class="jacket-body">
+      <div class="vtitle">
+        <span>第</span><span class="rt">二</span><span>章</span>
+      </div>
+      <div class="htitle-block">
+        <div class="htitle">引っ越しまでの<br>道のり ─ 彼氏篇</div>
+        <div class="htitle-en">CH. II ─ HIS TASKS</div>
+        <div class="verse">
+          頼れる手があるから ──<br>
+          ありがとう。
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp">よろしく<br>頼みます</div>
+  </div>
+
+  <!-- ============ PROGRESS METER ============ -->
+  <div class="meter">
+    <div class="meter-head">
+      <span class="meter-label">進　捗　率</span>
+      <span class="meter-count"><span id="done">0</span><span class="total"> / <span id="total">0</span></span></span>
+    </div>
+    <div class="meter-bar"><div class="meter-fill" id="bar"></div></div>
+    <div class="meter-sub" id="naiSub">店に <strong id="naiCount">0</strong> 個 無かったって</div>
+  </div>
+
+  <!-- ============ TABS ============ -->
+  <nav class="tabs tabs-5" id="tabs">
+    <button data-tab="today" class="active">
+      <span class="tk">SHORT 1</span>今日
+      <span class="badge" id="b-today">0/0</span>
+    </button>
+    <button data-tab="tomorrow">
+      <span class="tk">SHORT 2</span>明日
+      <span class="badge" id="b-tomorrow">0/0</span>
+    </button>
+    <button data-tab="overview">
+      <span class="tk">LONG 1</span>概要
+      <span class="badge" id="b-overview">0/0</span>
+    </button>
+    <button data-tab="select">
+      <span class="tk">LONG 2</span>業者選定
+      <span class="badge" id="b-select">0/0</span>
+    </button>
+    <button data-tab="contact">
+      <span class="tk">LONG 3</span>見積〜本番
+      <span class="badge" id="b-contact">0/0</span>
+    </button>
+  </nav>
+
+  <!-- ============ TODAY (4/30 木) ============ -->
+  <section id="today" class="active">
+    <div class="chapter">
+      <div class="ch-num">— Short Term · Day 1 —</div>
+      <h2>今　日　篇</h2>
+      <div class="ch-en">today ─ thursday 4/30</div>
+    </div>
+    <div class="liner-note">
+      <strong>今日の主役 </strong>ホームセンターに買い出し。明日のリネット集荷の段ボール調達も兼ねてる。
+    </div>
+    <div class="task-list" id="today-list"></div>
+  </section>
+
+  <!-- ============ TOMORROW (5/1 金) ============ -->
+  <section id="tomorrow">
+    <div class="chapter">
+      <div class="ch-num">— Short Term · Day 2 —</div>
+      <h2>明　日　篇</h2>
+      <div class="ch-en">tomorrow ─ friday 5/1</div>
+    </div>
+    <div class="liner-note">
+      <strong>明日の主役 </strong>午前中にお水の受け取り、12-14時にリネットの佐川集荷。在宅で受け渡すだけ。
+    </div>
+    <div class="task-list" id="tomorrow-list"></div>
+  </section>
+
+  <!-- ============ LONG 1 OVERVIEW ============ -->
+  <section id="overview">
+    <div class="chapter">
+      <div class="ch-num">— Long Term · Track 01 —</div>
+      <h2>概　要　篇</h2>
+      <div class="ch-en">the mission</div>
+    </div>
+    <div class="liner-note">
+      <strong>ミッション </strong>引っ越し（葛飾区→台東区）で出る大型ゴミの処分業者を、日曜までに決めて手配。
+    </div>
+
+    <div class="info-card">
+      <div class="info-title">処分するもの</div>
+      <ul class="info-list">
+        <li><span class="info-tag tag-rec">手配済</span>PC（5/1リネット集荷／12-14時／支払い済）</li>
+        <li><span class="info-tag">家電</span>洗濯機・冷蔵庫・電子レンジ</li>
+        <li><span class="info-tag">家具</span>ベッドフレーム・デスク・ゲーミングチェア・姿見</li>
+        <li><span class="info-tag">寝具</span>敷布団</li>
+      </ul>
+    </div>
+
+    <div class="info-card accent">
+      <div class="info-title">予算の目安</div>
+      <ul class="info-list">
+        <li><span class="info-tag tag-rec">本命</span>2tトラック積み放題：<strong>35,000〜80,000円</strong></li>
+        <li><span class="info-tag">参考</span>軽トラ積み放題：15,000〜35,000円（量入り切らない可能性）</li>
+        <li><span class="info-tag">参考</span>単品合算：50,000〜80,000円（割高になりがち）</li>
+      </ul>
+      <p class="info-note">📦 8点・大型家具家電多めなので、2tトラック積み放題プランが妥当。買取対応で更に安くなる可能性も。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title">業者選びの絶対ルール</div>
+      <ul class="info-list">
+        <li><span class="info-tag tag-warn">必須</span><strong>「一般廃棄物収集運搬業」の許可</strong>を持つ業者のみ</li>
+        <li><span class="info-tag tag-warn">必須</span>無許可業者は違法・依頼者にも罰則の可能性</li>
+        <li><span class="info-tag">推奨</span>必ず<strong>3社相見積もり</strong>を取る</li>
+        <li><span class="info-tag">推奨</span>会社情報（住所・電話・代表者名）がHPに明記されている</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ LONG 2 SELECT ============ -->
+  <section id="select">
+    <div class="chapter">
+      <div class="ch-num">— Long Term · Track 02 —</div>
+      <h2>業 者 選 定 篇</h2>
+      <div class="ch-en">picking the company</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>3社の中から「相見積もり用」として全社にコンタクト推奨。料金感を比較してから決める。
+    </div>
+
+    <div class="rank-card rank-1">
+      <div class="rank-head">
+        <span class="rank-medal">🥇</span>
+        <div class="rank-title-block">
+          <div class="rank-num">1ST PLACE</div>
+          <div class="rank-name">粗大ゴミ回収サービス</div>
+        </div>
+      </div>
+      <div class="rank-body">
+        <div class="rank-row"><span class="rank-label">料金</span><span class="rank-val">軽トラ 9,800円〜／2t 35,000円〜</span></div>
+        <div class="rank-row"><span class="rank-label">対応</span><span class="rank-val">一都三県・最短25分到着・24時間年中無休</span></div>
+        <div class="rank-row"><span class="rank-label">強み</span><span class="rank-val">引っ越し割引／家電買取／追加料金なし</span></div>
+        <div class="rank-row"><span class="rank-label">こんな時</span><span class="rank-val">スピード重視・とにかく安く済ませたい</span></div>
+      </div>
+    </div>
+
+    <div class="rank-card rank-2">
+      <div class="rank-head">
+        <span class="rank-medal">🥈</span>
+        <div class="rank-title-block">
+          <div class="rank-num">2ND PLACE</div>
+          <div class="rank-name">リユース本舗</div>
+        </div>
+      </div>
+      <div class="rank-body">
+        <div class="rank-row"><span class="rank-label">料金</span><span class="rank-val">2t積み放題 35,000円〜</span></div>
+        <div class="rank-row"><span class="rank-label">対応</span><span class="rank-val">最短25分到着／立ち会い不要対応も可</span></div>
+        <div class="rank-row"><span class="rank-label">強み</span><span class="rank-val">買取＋回収併用 ─ チェア・姿見など買取で減額狙える</span></div>
+        <div class="rank-row"><span class="rank-label">こんな時</span><span class="rank-val">少しでも査定で減額したい</span></div>
+      </div>
+    </div>
+
+    <div class="rank-card rank-3">
+      <div class="rank-head">
+        <span class="rank-medal">🥉</span>
+        <div class="rank-title-block">
+          <div class="rank-num">3RD PLACE</div>
+          <div class="rank-name">不用品回収ラクエコ</div>
+        </div>
+      </div>
+      <div class="rank-body">
+        <div class="rank-row"><span class="rank-label">料金</span><span class="rank-val">業界最安水準（要見積もり）</span></div>
+        <div class="rank-row"><span class="rank-label">対応</span><span class="rank-val">1〜2時間で回収完了</span></div>
+        <div class="rank-row"><span class="rank-label">強み</span><span class="rank-val">年間1万件超の実績／コスパ重視</span></div>
+        <div class="rank-row"><span class="rank-label">こんな時</span><span class="rank-val">最安値を引き出したい・3社相見積もりの値下げ交渉用</span></div>
+      </div>
+    </div>
+
+    <div class="task-list" id="select-list"></div>
+  </section>
+
+  <!-- ============ LONG 3 CONTACT (見積〜本番統合) ============ -->
+  <section id="contact">
+    <div class="chapter">
+      <div class="ch-num">— Long Term · Track 03 —</div>
+      <h2>見 積 〜 本 番 篇</h2>
+      <div class="ch-en">quotes to execution</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>3社に同じ条件で見積もり依頼 → 1社決定 → 本番。日曜までに完了させる。
+    </div>
+    <div class="task-list" id="contact-list"></div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <div class="colophon">
+    第二章 彼氏篇 <span class="div">·</span> 葛飾区 → 台東区 <span class="div">·</span> WITH GRATITUDE
+  </div>
+  <button class="reset-btn" id="reset">CHECK 全リセット</button>
+</div>
+
+<!-- ============ CELEBRATE ============ -->
+<div class="celebrate" id="celebrate">
+  <div class="celebrate-card">
+    <div class="seal">完</div>
+    <h3>第 二 章 ・ 彼 氏 篇 ・ 完</h3>
+    <p>ぜんぶ終わったね。<br>本当にありがとう、助かった。<br>残りも一緒にがんばろう。</p>
+    <button onclick="document.getElementById('celebrate').classList.remove('show')">閉じる</button>
+  </div>
+</div>
+
+<script>
+// ============================================
+// HIS TASKS DATA
+// ============================================
+const TASKS = {
+  // ========== 今日 4/30(木) ==========
+  today: [
+    {
+      id: 'td-shop',
+      title: 'ホームセンターに買い出し',
+      desc: 'ダンボールはサイズ確認しながら買う。140サイズが大きすぎる場合は、PC梱包用の1枚だけ140サイズで、それ以外は一回り小さく。',
+      shopItems: [
+        {
+          id: 'sh-1',
+          name: 'アリエール 洗濯用洗剤（部屋干し用・緑）',
+          q: 'アリエール 洗濯用洗剤 部屋干し 緑',
+          note: 'パッケージ緑系'
+        },
+        {
+          id: 'sh-2',
+          name: 'ダンボール 140サイズ × 1枚',
+          q: 'ダンボール 140サイズ',
+          note: 'PC梱包用（3辺合計140cm）',
+          countField: { min: 0, max: 5, suffix: '枚' }
+        },
+        {
+          id: 'sh-3',
+          name: 'ダンボール 一回り小さめ × 1〜2枚',
+          q: 'ダンボール 120サイズ',
+          note: '140が大きすぎたら一回り小さいやつ',
+          optional: true,
+          countField: { min: 0, max: 5, suffix: '枚' }
+        },
+        {
+          id: 'sh-4',
+          name: 'ガムテープ',
+          q: 'ガムテープ 引っ越し用',
+          note: 'ダンボール梱包用',
+          noImage: true
+        }
+      ]
+    }
+  ],
+
+  // ========== 明日 5/1(金) ==========
+  tomorrow: [
+    {
+      id: 'tm0',
+      title: '【午前中】お水受け取り完了',
+      desc: 'プレミアムウォーターのお水が届くから受け取って、玄関のいつものところに置く。'
+    },
+    {
+      id: 'tm1',
+      title: '【12-14時】リネット集荷完了',
+      desc: '梱包・申込・支払いぜんぶ彼女が済ませてある。佐川急便のドライバーに梱包済みダンボールを渡すだけ。集荷は「しんた」の名前で来る。'
+    }
+  ],
+
+  // ========== 長期タスク ==========
+  overview: [], // 概要は静的HTML、タスクなし
+
+  select: [
+    {
+      id: 's1',
+      title: '3社の許可番号を確認',
+      desc: '一般廃棄物収集運搬業の許可がない業者は違法。HPで必ず確認。',
+      subtasks: [
+        { id: 's1-a', name: '粗大ゴミ回収サービスのHPで許可番号確認' },
+        { id: 's1-b', name: 'リユース本舗のHPで許可番号確認' },
+        { id: 's1-c', name: '不用品回収ラクエコのHPで許可番号確認' }
+      ]
+    },
+    {
+      id: 's2',
+      title: '会社情報の確認（住所・電話・代表者名）',
+      desc: 'HPに会社情報が書かれていない業者はNG。最低限ここでフィルタ。',
+      subtasks: [
+        { id: 's2-a', name: '3社それぞれのHPで会社情報を確認' },
+        { id: 's2-b', name: '気になる点があればGoogleマップで住所確認' },
+        { id: 's2-c', name: '怪しい場合は法人番号検索サイトで照合' }
+      ]
+    }
+  ],
+
+  contact: [
+    {
+      id: 'c1',
+      title: '見積もり依頼の準備',
+      desc: '同じ条件で3社に伝えるためのテンプレ作成。',
+      subtasks: [
+        { id: 'c1-a', name: '処分品リストをメモ：洗濯機・冷蔵庫・電子レンジ・ベッドフレーム・デスク・ゲーミングチェア・姿見・敷布団' },
+        { id: 'c1-b', name: '希望日時：日曜まで／引っ越し当日に合わせて' },
+        { id: 'c1-c', name: '回収場所：葛飾区（住所メモ）' },
+        { id: 'c1-d', name: 'マンション情報：階数・エレベーター有無・道幅' },
+        { id: 'c1-e', name: '買取希望品：ゲーミングチェア・姿見（状態いいなら）' }
+      ]
+    },
+    {
+      id: 'c2',
+      title: '【1社目】粗大ゴミ回収サービスに見積依頼',
+      desc: '電話 or LINE or WEBフォーム。最初の基準値を取る。',
+      subtasks: [
+        { id: 'c2-a', name: 'HPから見積もり依頼（電話 or フォーム）' },
+        { id: 'c2-b', name: '処分品リストを伝える' },
+        { id: 'c2-c', name: '見積金額をメモ：______ 円' },
+        { id: 'c2-d', name: '回収可能日をメモ：______' },
+        { id: 'c2-e', name: '担当者の対応・印象をメモ' }
+      ]
+    },
+    {
+      id: 'c3',
+      title: '【2社目】リユース本舗に見積依頼',
+      desc: '買取査定もまとめて頼むと総額が下がる可能性。',
+      subtasks: [
+        { id: 'c3-a', name: 'HPから見積もり依頼' },
+        { id: 'c3-b', name: '処分品リストを伝える＋買取希望品を伝える' },
+        { id: 'c3-c', name: '見積金額をメモ：______ 円' },
+        { id: 'c3-d', name: '買取見込み額をメモ：______ 円' },
+        { id: 'c3-e', name: '回収可能日をメモ：______' }
+      ]
+    },
+    {
+      id: 'c4',
+      title: '【3社目】不用品回収ラクエコに見積依頼',
+      desc: '相見積もり＆値下げ交渉用。前2社の額を伝えて引き出す。',
+      subtasks: [
+        { id: 'c4-a', name: 'HPから見積もり依頼' },
+        { id: 'c4-b', name: '処分品リストを伝える' },
+        { id: 'c4-c', name: '「他社で○○円って言われた」と伝えて値下げ交渉' },
+        { id: 'c4-d', name: '見積金額をメモ：______ 円' },
+        { id: 'c4-e', name: '回収可能日をメモ：______' }
+      ]
+    },
+    {
+      id: 'c5',
+      title: '回収日までの準備',
+      desc: '搬出をスムーズにするためにできること。',
+      subtasks: [
+        { id: 'c5-a', name: '処分品の中身を空にする（冷蔵庫・洗濯機の水抜き等）' },
+        { id: 'c5-b', name: '解体できる家具（ベッド・デスク）は事前に解体しておくと安くなる場合あり' },
+        { id: 'c5-c', name: '搬出経路（玄関〜エレベーター〜出入口）を確認' },
+        { id: 'c5-d', name: '当日の在宅時間を業者と最終確認' }
+      ]
+    },
+    {
+      id: 'c6',
+      title: '回収日当日',
+      desc: '立ち会い＆精算。',
+      subtasks: [
+        { id: 'c6-a', name: '業者到着・処分品を確認してもらう' },
+        { id: 'c6-b', name: '見積もり通りの金額か確認（追加請求があれば必ず内訳を聞く）' },
+        { id: 'c6-c', name: '搬出立ち会い' },
+        { id: 'c6-d', name: '支払い（領収書は必ずもらう）' },
+        { id: 'c6-e', name: '完了 ─ 彼女に報告 🌿' }
+      ]
+    }
+  ]
+};
+
+const TAB_CONFIG = [
+  { key: 'today',    badge: 'b-today' },
+  { key: 'tomorrow', badge: 'b-tomorrow' },
+  { key: 'overview', badge: 'b-overview' },
+  { key: 'select',   badge: 'b-select' },
+  { key: 'contact',  badge: 'b-contact' }
+];
+
+const STORAGE_KEY = 'hikkoshi-bf-v3';
+let state = {};
+let storageWorks = true;
+
+async function loadState() {
+  if (window.FIREBASE_READY_PROMISE) {
+    try { await window.FIREBASE_READY_PROMISE; } catch (e) {}
+  }
+  state = await SharedStorage.init(STORAGE_KEY, {
+    onUpdate: (newState) => {
+      state = newState;
+      try {
+        renderAll();
+        updateProgress();
+      } catch (e) {}
+    }
+  });
+}
+async function saveState() {
+  try {
+    await SharedStorage.setAll(state);
+  } catch (e) {
+    storageWorks = false;
+  }
+}
+window.addEventListener('unhandledrejection', (e) => {
+  const msg = String(e.reason && (e.reason.message || e.reason));
+  if (msg.includes('Storage') || msg.includes('storage')) {
+    e.preventDefault();
+    storageWorks = false;
+  }
+});
+
+const ROMAN = ['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii'];
+function isDone(s) { return s === 'done' || s === true; }
+function isSkipped(s) { return s === 'skipped'; }
+function isResolved(s) { return isDone(s) || isSkipped(s); }
+function stateClass(s) {
+  if (isDone(s)) return 'done';
+  if (isSkipped(s)) return 'skipped';
+  return '';
+}
+
+function renderRoom(roomKey) {
+  const tasks = TASKS[roomKey];
+  const container = document.getElementById(roomKey + '-list');
+  if (!container) return;
+  if (!tasks || tasks.length === 0) {
+    return; // 概要タブは静的HTMLなのでスキップ
+  }
+  container.innerHTML = tasks.map((task, idx) => {
+    const num = ROMAN[idx + 1] || (idx + 1);
+    // 買い物リスト型タスク（shopItems）
+    if (task.shopItems && task.shopItems.length) {
+      const shopDone = task.shopItems.filter(it => isResolved(state[it.id])).length;
+      const allDone = shopDone === task.shopItems.length ? 'all-done' : '';
+      // LINE報告メッセージ：買ったものリスト＋枚数
+      const lineLines = task.shopItems.map(it => {
+        const status = isDone(state[it.id]) ? '✅' : isSkipped(state[it.id]) ? '✗' : '⬜';
+        const count = state[it.id + '-count'];
+        const countTxt = count != null && count !== '' ? `（${count}${(it.countField && it.countField.suffix) || ''}）` : '';
+        return `${status} ${it.name}${countTxt}`;
+      }).join('\n');
+      const lineMsg = `🛒 ${task.title} 完了したよ！\n\n${lineLines}`;
+      return `
+        <div class="task-card multi ${allDone}" data-multi="${task.id}">
+          <div class="task-head no-toggle">
+            <div class="task-num">${num}.</div>
+            <div class="task-title">${task.title}</div>
+            <div class="task-progress" data-multi-progress="${task.id}">${shopDone}/${task.shopItems.length}</div>
+          </div>
+          <div class="task-detail">
+            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
+            <div class="shop-list-bf">
+              ${task.shopItems.map((item, i) => {
+                const countKey = item.id + '-count';
+                const currentCount = state[countKey] != null ? state[countKey] : '';
+                let countOptions = '';
+                if (item.countField) {
+                  countOptions = `<option value="">枚数</option>`;
+                  for (let n = item.countField.min; n <= item.countField.max; n++) {
+                    const sel = String(n) === String(currentCount) ? ' selected' : '';
+                    countOptions += `<option value="${n}"${sel}>${n}${item.countField.suffix || ''}</option>`;
+                  }
+                }
+                return `
+                <div class="shop-item-bf ${stateClass(state[item.id])}" data-id="${item.id}">
+                  <div class="item-num-bf">${String(i + 1).padStart(2, '0')}.</div>
+                  <div class="check-box-sm"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <div class="item-info-bf">
+                    <div class="item-name-bf">${item.name}</div>
+                    ${item.note ? `<div class="item-note-bf">${item.note}</div>` : ''}
+                    ${item.countField ? `
+                      <select class="count-select-bf" data-count-id="${item.id}">
+                        ${countOptions}
+                      </select>
+                    ` : ''}
+                  </div>
+                  <div class="item-actions-bf">
+                    ${item.noImage ? '' : `
+                      <a class="img-btn-bf" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(item.q)}" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-1 16H6V5h12v14zM10 14l-2-2.5L4 17h16l-5-7z"/></svg>
+                        画像
+                      </a>
+                    `}
+                    ${item.optional ? `<button class="skip-btn-bf" data-skip="${item.id}">不要</button>` : ''}
+                  </div>
+                </div>
+                `;
+              }).join('')}
+            </div>
+            <div class="report-row">
+              <a class="line-btn" href="https://line.me/R/share?text=${encodeURIComponent(lineMsg)}" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                LINEで報告
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    if (task.subtasks && task.subtasks.length) {
+      const subDone = task.subtasks.filter(st => isDone(state[st.id])).length;
+      const allDone = subDone === task.subtasks.length ? 'all-done' : '';
+      return `
+        <div class="task-card multi ${allDone}" data-multi="${task.id}">
+          <div class="task-head no-toggle">
+            <div class="task-num">${num}.</div>
+            <div class="task-title">${task.title}</div>
+            <div class="task-progress" data-multi-progress="${task.id}">${subDone}/${task.subtasks.length}</div>
+          </div>
+          <div class="task-detail">
+            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
+            <div class="subtask-group">
+              ${task.subtasks.map(st => `
+                <div class="subtask ${stateClass(state[st.id])}" data-id="${st.id}">
+                  <div class="check-box-sm"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <div class="subtask-text"><span class="subtask-name">${st.name}</span></div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="report-row">
+              <a class="line-btn" href="https://line.me/R/share?text=${encodeURIComponent('✅ ' + task.title + ' 完了したよ！')}" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                LINEで報告
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    return `
+      <div class="task-card ${stateClass(state[task.id])}" data-id="${task.id}">
+        <div class="task-head">
+          <div class="task-num">${num}.</div>
+          <div class="task-title">${task.title}</div>
+          <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+        </div>
+        ${task.desc ? `<div class="task-detail"><p class="task-desc">${task.desc}</p></div>` : ''}
+        <div class="report-row">
+          <a class="line-btn" href="https://line.me/R/share?text=${encodeURIComponent('✅ ' + task.title + ' 完了したよ！')}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            LINEで報告
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderAll() {
+  TAB_CONFIG.forEach(t => renderRoom(t.key));
+}
+
+function allTaskIds() {
+  const ids = [];
+  Object.values(TASKS).forEach(list => {
+    list.forEach(task => {
+      if (task.subtasks && task.subtasks.length) {
+        task.subtasks.forEach(st => ids.push(st.id));
+      } else if (task.shopItems && task.shopItems.length) {
+        task.shopItems.forEach(it => ids.push(it.id));
+      } else {
+        ids.push(task.id);
+      }
+    });
+  });
+  return ids;
+}
+function roomTaskIds(roomKey) {
+  const ids = [];
+  TASKS[roomKey].forEach(task => {
+    if (task.subtasks && task.subtasks.length) {
+      task.subtasks.forEach(st => ids.push(st.id));
+    } else if (task.shopItems && task.shopItems.length) {
+      task.shopItems.forEach(it => ids.push(it.id));
+    } else {
+      ids.push(task.id);
+    }
+  });
+  return ids;
+}
+
+function applyState(el, id) {
+  el.classList.remove('done', 'checked', 'skipped');
+  if (isDone(state[id])) el.classList.add('done');
+  else if (isSkipped(state[id])) el.classList.add('skipped');
+}
+
+function setDone(id, el) {
+  state[id] = isDone(state[id]) ? null : 'done';
+  applyState(el, id);
+  if (isDone(state[id])) {
+    el.style.transform = 'scale(0.985)';
+    setTimeout(() => el.style.transform = '', 130);
+  }
+  saveState();
+  updateProgress();
+  checkAllDone();
+}
+
+function setSkipped(id, el) {
+  state[id] = isSkipped(state[id]) ? null : 'skipped';
+  applyState(el, id);
+  saveState();
+  updateProgress();
+  checkAllDone();
+}
+
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const tab = btn.dataset.tab;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('active', s.id === tab));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.addEventListener('click', (e) => {
+  // プルダウン押下は親のチェック処理に伝播させない
+  if (e.target.closest('.count-select-bf')) {
+    return;
+  }
+  // 不要ボタン
+  const skipBtn = e.target.closest('.skip-btn-bf');
+  if (skipBtn) {
+    const id = skipBtn.dataset.skip;
+    const item = skipBtn.closest('.shop-item-bf');
+    if (item) setSkipped(id, item);
+    return;
+  }
+  // 買い物リスト（画像ボタン・不要ボタン・プルダウン以外をタップでチェック）
+  const shopItemBf = e.target.closest('.shop-item-bf');
+  if (shopItemBf && !e.target.closest('.img-btn-bf') && !e.target.closest('.skip-btn-bf') && !e.target.closest('.count-select-bf')) {
+    setDone(shopItemBf.dataset.id, shopItemBf);
+    return;
+  }
+  const subtask = e.target.closest('.subtask');
+  if (subtask) {
+    setDone(subtask.dataset.id, subtask);
+    return;
+  }
+  const taskCard = e.target.closest('.task-card');
+  if (taskCard && taskCard.dataset.id) {
+    const head = e.target.closest('.task-head');
+    if (head && !head.classList.contains('no-toggle')) {
+      setDone(taskCard.dataset.id, taskCard);
+    }
+  }
+});
+
+// プルダウンのchange
+document.addEventListener('change', (e) => {
+  const sel = e.target.closest('.count-select-bf');
+  if (sel) {
+    const id = sel.dataset.countId;
+    const countKey = id + '-count';
+    state[countKey] = sel.value === '' ? null : sel.value;
+    saveState();
+  }
+});
+
+function updateProgress() {
+  const all = allTaskIds();
+  const total = all.length;
+  const done = all.filter(k => isResolved(state[k])).length;
+  document.getElementById('done').textContent = done;
+  document.getElementById('total').textContent = total;
+  document.getElementById('bar').style.width = total > 0 ? (done / total * 100) + '%' : '0%';
+
+  const naiSub = document.getElementById('naiSub');
+  if (naiSub) naiSub.classList.remove('show');
+
+  TAB_CONFIG.forEach((t, i) => {
+    const ids = roomTaskIds(t.key);
+    const roomDone = ids.filter(k => isResolved(state[k])).length;
+    const badge = document.getElementById(t.badge);
+    if (badge) badge.textContent = ids.length > 0 ? `${roomDone}/${ids.length}` : '─';
+    const tabBtn = document.querySelectorAll('nav.tabs button')[i];
+    if (tabBtn) tabBtn.classList.toggle('complete', ids.length > 0 && roomDone === ids.length);
+  });
+
+  document.querySelectorAll('[data-multi-progress]').forEach(el => {
+    const multiId = el.dataset.multiProgress;
+    let task = null;
+    Object.values(TASKS).forEach(list => list.forEach(t => { if (t.id === multiId) task = t; }));
+    if (task && task.subtasks) {
+      const sd = task.subtasks.filter(st => isResolved(state[st.id])).length;
+      el.textContent = `${sd}/${task.subtasks.length}`;
+      const card = document.querySelector(`[data-multi="${multiId}"]`);
+      if (card) card.classList.toggle('all-done', sd === task.subtasks.length);
+    } else if (task && task.shopItems) {
+      const sd = task.shopItems.filter(it => isResolved(state[it.id])).length;
+      el.textContent = `${sd}/${task.shopItems.length}`;
+      const card = document.querySelector(`[data-multi="${multiId}"]`);
+      if (card) card.classList.toggle('all-done', sd === task.shopItems.length);
+    }
+  });
+}
+
+let alreadyCelebrated = false;
+function checkAllDone() {
+  const all = allTaskIds();
+  if (all.length === 0) return;
+  const allDone = all.every(k => isResolved(state[k]));
+  if (allDone && !alreadyCelebrated) {
+    alreadyCelebrated = true;
+    document.getElementById('celebrate').classList.add('show');
+  }
+  if (!allDone) alreadyCelebrated = false;
+}
+
+document.getElementById('reset').addEventListener('click', async () => {
+  if (!confirm('チェックを全部リセット…ほんとに？')) return;
+  state = {};
+  await saveState();
+  renderAll();
+  alreadyCelebrated = false;
+  updateProgress();
+});
+
+(async () => {
+  // 権限バナー（彼氏篇=しんたのみ編集可）
+  PermissionHelper.init({ owner: 'shinta', label: '彼氏篇' });
+  await loadState();
+  renderAll();
+  updateProgress();
+  PermissionHelper.applyReadonly();
+  setTimeout(() => PermissionHelper.updateSyncIndicator(), 1500);
+})();
+</script>
+</body>
+</html>

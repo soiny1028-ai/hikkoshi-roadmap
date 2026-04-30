@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>引っ越しまでの道のり 〜第二章〜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #e6d8b9;
+    --paper-deep:   #d8c79e;
+    --card:         #f1e7c9;
+    --card-warm:    #ede0bc;
+    --ink:          #1a140d;
+    --ink-soft:     #4a3a25;
+    --ink-mute:     #8a7654;
+    --rule:         #b09668;
+    --vermilion:    #a8392c;
+    --vermilion-d:  #842c22;
+    --moss:         #5a6b3c;
+    --moss-d:       #3e4a26;
+    --shadow:       0 1px 0 rgba(26, 20, 13, 0.04), 0 4px 18px rgba(74, 58, 37, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    /* paper grain */
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(168, 57, 44, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(90, 107, 60, 0.05) 0%, transparent 38%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-attachment: fixed;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 12px 80px;
+  }
+
+  /* ============ HERO / CD JACKET ============ */
+  .jacket {
+    margin: 12px 0 14px;
+    padding: 14px 14px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: var(--shadow), 3px 3px 0 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .jacket::before {
+    content: '';
+    position: absolute; inset: 5px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .jacket-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .jacket-meta .left { color: var(--vermilion); font-weight: 600; }
+
+  .jacket-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* big vertical title */
+  .vtitle {
+    writing-mode: vertical-rl;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    padding-left: 0;
+    border-right: 1.5px solid var(--ink);
+    padding-right: 8px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vtitle .rt {
+    color: var(--vermilion);
+    font-size: 36px;
+    margin: -1px 0;
+  }
+
+  .htitle-block { padding-top: 0; }
+
+  .htitle {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .htitle-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .verse {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--vermilion);
+    padding: 1px 0 1px 8px;
+    margin-bottom: 0;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 8.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    transform: rotate(-8deg);
+    background: rgba(168, 57, 44, 0.04);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ PROGRESS / METER ============ */
+  .meter {
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 14px 16px;
+    position: relative;
+  }
+  .meter::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--rule);
+    border-color: transparent;
+    border-top-color: var(--rule);
+    border-bottom-color: var(--rule);
+    pointer-events: none;
+  }
+
+  .meter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .meter-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+  .meter-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .meter-count .total {
+    color: var(--ink-mute);
+    font-size: 14px;
+  }
+  .meter-sub {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    display: none;
+  }
+  .meter-sub.show { display: block; }
+  .meter-sub strong { color: var(--ink); font-weight: 600; }
+
+  .meter-bar {
+    height: 6px;
+    background: var(--paper-deep);
+    position: relative;
+    border: 1px solid var(--rule);
+  }
+  .meter-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--vermilion);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .meter-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0) 0 4px,
+      rgba(0,0,0,0.12) 4px 5px
+    );
+  }
+
+  /* ============ TABS / TRACKS NAV ============ */
+  nav.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 22px;
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+  }
+
+  /* 8 tabs in 2 rows of 4 */
+  nav.tabs.tabs-8 {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+  }
+  nav.tabs.tabs-8 button {
+    border-bottom: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+  }
+  nav.tabs.tabs-8 button:nth-child(4n) { border-right: none; }
+  nav.tabs.tabs-8 button:nth-child(n+5) { border-bottom: none; }
+
+  /* 9 tabs in 3 rows of 3 */
+  nav.tabs.tabs-9 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+  }
+  nav.tabs.tabs-9 button {
+    border-bottom: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+  }
+  nav.tabs.tabs-9 button:nth-child(3n) { border-right: none; }
+  nav.tabs.tabs-9 button:nth-child(n+7) { border-bottom: none; }
+
+  nav.tabs button {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  nav.tabs button:last-child { border-right: none; }
+
+  nav.tabs button .tk {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 2px;
+  }
+  nav.tabs button .badge {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-mute);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  nav.tabs button.active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  nav.tabs button.active .tk { color: var(--card-warm); }
+  nav.tabs button.active .badge { color: var(--card-warm); }
+
+  nav.tabs button.complete:not(.active)::before {
+    content: '済';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 9px;
+    color: var(--vermilion);
+    background: var(--card);
+    border: 1px solid var(--vermilion);
+    padding: 0 3px;
+    line-height: 1.4;
+  }
+
+  /* ============ SECTION ============ */
+  section {
+    display: none;
+    animation: rise 0.4s ease;
+  }
+  section.active { display: block; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter {
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    padding: 14px 0;
+  }
+  .chapter::before, .chapter::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--ink);
+  }
+  .chapter::before { top: 0; }
+  .chapter::after { bottom: 0; }
+  .chapter .ch-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .chapter h2 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    margin: 4px 0 2px;
+  }
+  .chapter .ch-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.15em;
+  }
+
+  .liner-note {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    background: rgba(168, 57, 44, 0.06);
+    border-left: 3px solid var(--vermilion);
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .liner-note strong {
+    color: var(--vermilion);
+    font-weight: 600;
+  }
+
+  /* ============ TASK CARDS ============ */
+  .task-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .task-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    transition: all 0.25s ease;
+  }
+  .task-card.checked { background: var(--card-warm); }
+  .task-card.checked .task-num,
+  .task-card.checked .task-title { opacity: 0.45; }
+  .task-card.checked .task-title { text-decoration: line-through; }
+
+  .task-head {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--rule);
+    min-height: 40px;
+  }
+
+  .task-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--vermilion);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .task-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .check-box {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .check-box svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    stroke: var(--card);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5) rotate(-15deg);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .checked .check-box,
+  .done .check-box {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .checked .check-box svg,
+  .done .check-box svg {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  /* 無かった (unavailable) state */
+  .unavailable .check-box {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .unavailable .check-box::after {
+    content: '×';
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    position: absolute;
+  }
+  .unavailable .check-box svg { opacity: 0; }
+  .shop-item.unavailable { background: rgba(26, 20, 13, 0.06); }
+  .shop-item.unavailable .item-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ink-mute);
+  }
+  .shop-item.unavailable .item-num { opacity: 0.4; }
+
+  /* "無" stamp on unavailable items */
+  .shop-item.unavailable::before {
+    content: '無';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-12deg);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(241, 231, 201, 0.85);
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* 無 button */
+  .nai-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    min-width: 26px;
+  }
+  .nai-btn:hover, .nai-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .shop-item.unavailable .nai-btn {
+    background: var(--ink);
+    color: var(--card);
+  }
+
+  .item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .task-detail {
+    padding: 12px 16px 14px;
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+
+  .lyric-block {
+    margin: 6px 0;
+    padding: 10px 12px;
+    background: var(--paper);
+    border-left: 2px solid var(--moss);
+    position: relative;
+  }
+  .lyric-block:not(:last-child) { margin-bottom: 8px; }
+
+  .lyric-block.sp { border-left-color: var(--vermilion); background: rgba(168, 57, 44, 0.05); }
+
+  .lyric-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .lyric-block.sp .lyric-label { color: var(--vermilion); }
+
+  .lyric-block .body { color: var(--ink); }
+
+  .accent-mark {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+
+  .empty-note {
+    text-align: center;
+    color: var(--ink-mute);
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    padding: 24px 16px;
+    border: 1px dashed var(--rule);
+    background: rgba(255,255,255,0.3);
+    margin: 0;
+  }
+
+  /* ===== SELECTOR (ルート選択カード) ===== */
+  .selector-card {
+    border-color: var(--vermilion) !important;
+    box-shadow: 3px 3px 0 0 rgba(168, 57, 44, 0.15);
+  }
+
+  .selector-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .selector-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 12px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .selector-option:active { transform: scale(0.99); }
+  .selector-option:hover { border-color: var(--ink-mute); }
+
+  .selector-option.selected {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .selector-option.selected .selector-name {
+    color: var(--card);
+    font-weight: 700;
+  }
+  .selector-option.selected .selector-dot {
+    background: var(--card);
+    border-color: var(--card);
+  }
+  .selector-option.selected .selector-dot::after {
+    transform: scale(1);
+    background: var(--vermilion);
+  }
+
+  .selector-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    background: var(--paper);
+    flex-shrink: 0;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  .selector-dot::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: transparent;
+    transform: scale(0);
+    transition: transform 0.2s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+
+  .selector-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.35;
+    flex: 1;
+  }
+
+  /* ===== ルートハイライト (選択された処分カードを強調) ===== */
+  .task-card.route-on {
+    border-color: var(--vermilion);
+    box-shadow: 3px 3px 0 0 rgba(168, 57, 44, 0.2);
+    position: relative;
+  }
+  .task-card.route-on::before {
+    content: '該当';
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    background: var(--vermilion);
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 10px;
+    padding: 2px 8px;
+    letter-spacing: 0.1em;
+    z-index: 2;
+  }
+  .task-card.route-on .task-num {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+
+  .task-card.route-off {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+  .task-card.route-off:hover {
+    opacity: 0.7;
+  }
+
+  /* multi-task with subtasks */
+  .task-card.multi { display: block; }
+  .task-card.multi .task-detail { display: block; }
+  .task-card.multi.all-done { background: var(--card-warm); }
+  .task-head.no-toggle { cursor: default; }
+
+  .task-desc {
+    margin: 0 0 10px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .task-progress {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .subtask-group {
+    margin-top: 12px;
+    display: block;
+  }
+  .subtask-group:first-of-type { margin-top: 4px; }
+
+  .subtask-group-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+    display: block;
+  }
+
+  .subtask {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .subtask:active { background: var(--card-warm); transform: scale(0.99); }
+  .subtask.done {
+    background: var(--card-warm);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .subtask-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  .subtask.done .subtask-side {
+    opacity: 0.5;
+  }
+
+  .subtask-text {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .check-box-sm {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .check-box-sm svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    stroke: var(--card);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .subtask.done .check-box-sm {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .check-box-sm svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .subtask-side {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--vermilion);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .subtask-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .subtask-skip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px 6px 30px;
+    margin-bottom: 4px;
+    opacity: 0.45;
+  }
+  .subtask-skip .subtask-side {
+    font-style: italic;
+  }
+  .subtask-skip .subtask-name {
+    text-decoration: line-through;
+    font-size: 12px;
+  }
+
+  /* ============ SHOPPING / TRACK LIST ============ */
+  .shop-list { border: 1.5px solid var(--ink); background: var(--card); }
+
+  .shop-item {
+    display: grid;
+    grid-template-columns: 24px 22px 1fr auto;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-item:active { background: var(--card-warm); }
+  .shop-item.checked, .shop-item.done { background: var(--card-warm); }
+  .shop-item.checked .item-name,
+  .shop-item.done .item-name { opacity: 0.45; text-decoration: line-through; }
+  .shop-item.checked .item-num,
+  .shop-item.done .item-num { opacity: 0.45; }
+
+  .item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .shop-item .check-box { width: 22px; height: 22px; }
+  .shop-item .check-box svg { width: 13px; height: 13px; }
+
+  .item-info { min-width: 0; }
+  .item-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .item-note {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+
+  .img-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 28px;
+  }
+  .img-btn:hover, .img-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .img-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  /* ============ FOOTER ============ */
+  .colophon {
+    margin-top: 32px;
+    padding: 14px 16px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.2em;
+  }
+  .colophon .div { display: inline-block; padding: 0 8px; color: var(--vermilion); }
+
+  .reset-btn {
+    margin: 14px auto 0;
+    display: block;
+    background: transparent;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 8px 18px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reset-btn:hover {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+    color: var(--card);
+  }
+
+  /* ============ CELEBRATE ============ */
+  .celebrate {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .celebrate.show { display: flex; animation: rise 0.3s ease; }
+
+  .celebrate-card {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 8px 8px 0 var(--vermilion);
+    animation: pop 0.5s cubic-bezier(0.34, 1.6, 0.64, 1);
+    position: relative;
+  }
+  @keyframes pop {
+    from { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .celebrate-card .seal {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 56px;
+    height: 56px;
+    background: var(--vermilion);
+    color: var(--card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    transform: rotate(8deg);
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card h3 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card p {
+    font-family: 'Klee One', serif;
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .celebrate-card button {
+    background: var(--ink);
+    color: var(--card);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
+
+  /* narrow */
+  @media (max-width: 380px) {
+    .app { padding: 0 10px 80px; }
+    .jacket { padding: 12px 10px; }
+    .jacket-meta { font-size: 9px; margin-bottom: 10px; padding-bottom: 5px; }
+    .jacket-body { gap: 10px; }
+    .vtitle { font-size: 28px; padding-right: 7px; }
+    .vtitle .rt { font-size: 32px; }
+    .htitle { font-size: 14.5px; }
+    .htitle-en { font-size: 9px; margin-bottom: 6px; }
+    .verse { font-size: 10.5px; padding-left: 7px; }
+    .stamp { width: 38px; height: 38px; font-size: 8px; top: 8px; right: 8px; border-width: 1.5px; }
+    nav.tabs button { font-size: 11px; padding: 8px 1px 7px; }
+    nav.tabs button .tk { font-size: 9px; }
+    nav.tabs button .badge { font-size: 9px; }
+    .item-name { font-size: 13px; }
+    .item-note { font-size: 10px; }
+    .img-btn { padding: 6px 6px; font-size: 9.5px; min-width: 24px; }
+    .nai-btn { padding: 6px 7px; font-size: 11.5px; min-width: 24px; }
+    .shop-item { gap: 5px; padding: 9px 9px; }
+    .item-num { font-size: 13px; }
+    .task-detail { padding: 10px 12px 12px; font-size: 12px; }
+    .lyric-block { padding: 9px 10px; }
+    .chapter h2 { font-size: 18px; letter-spacing: 0.06em; }
+    .meter { padding: 12px 12px; }
+    .meter-count { font-size: 19px; }
+  }
+</style>
+<link rel="stylesheet" href="shared.css">
+<script src="firebase-config.js"></script>
+<script src="firebase-bootstrap.js"></script>
+<script src="shared-storage.js"></script>
+<script src="permission-helper.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ JACKET HEADER ============ -->
+  <div class="jacket">
+    <div class="jacket-meta">
+      <span class="left">VOL. 02 ・ CHAPTER TWO</span>
+      <span>2026 ・ CLEANING JOURNEY</span>
+    </div>
+
+    <div class="jacket-body">
+      <div class="vtitle">
+        <span>第</span><span class="rt">二</span><span>章</span>
+      </div>
+      <div class="htitle-block">
+        <div class="htitle">引っ越しまでの<br>道のり</div>
+        <div class="htitle-en">CLEANING NOTES ─ CH. II</div>
+        <div class="verse">
+          ひと部屋ずつ、<br>
+          見送っていく ──
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp">作 業<br>覚え書</div>
+  </div>
+
+  <!-- ============ PROGRESS METER ============ -->
+  <div class="meter">
+    <div class="meter-head">
+      <span class="meter-label">進　捗　率</span>
+      <span class="meter-count"><span id="done">0</span><span class="total"> / <span id="total">0</span></span></span>
+    </div>
+    <div class="meter-bar"><div class="meter-fill" id="bar"></div></div>
+    <div class="meter-sub" id="naiSub">店に <strong id="naiCount">0</strong> 個 無かったって</div>
+  </div>
+
+  <!-- ============ TABS ============ -->
+  <nav class="tabs tabs-9" id="tabs">
+    <button data-tab="genkan" class="active">
+      <span class="tk">TR.01</span>玄関
+      <span class="badge" id="b-genkan">0/0</span>
+    </button>
+    <button data-tab="kitchen">
+      <span class="tk">TR.02</span>キッチン
+      <span class="badge" id="b-kitchen">0/0</span>
+    </button>
+    <button data-tab="toilet">
+      <span class="tk">TR.03</span>トイレ
+      <span class="badge" id="b-toilet">0/0</span>
+    </button>
+    <button data-tab="senmen">
+      <span class="tk">TR.04</span>洗面所
+      <span class="badge" id="b-senmen">0/0</span>
+    </button>
+    <button data-tab="ofuro">
+      <span class="tk">TR.05</span>お風呂
+      <span class="badge" id="b-ofuro">0/0</span>
+    </button>
+    <button data-tab="rouka">
+      <span class="tk">TR.06</span>廊下
+      <span class="badge" id="b-rouka">0/0</span>
+    </button>
+    <button data-tab="heya">
+      <span class="tk">TR.07</span>部屋
+      <span class="badge" id="b-heya">0/0</span>
+    </button>
+    <button data-tab="veranda">
+      <span class="tk">TR.08</span>ベランダ
+      <span class="badge" id="b-veranda">0/0</span>
+    </button>
+    <button data-tab="gomi">
+      <span class="tk">TR.09</span>ゴミ捨て
+      <span class="badge" id="b-gomi">0/0</span>
+    </button>
+  </nav>
+
+  <!-- ============ TRACK 01 GENKAN ============ -->
+  <section id="genkan" class="active">
+    <div class="chapter">
+      <div class="ch-num">— Track 01 —</div>
+      <h2>玄　関　篇</h2>
+      <div class="ch-en">at the entrance</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>家を出る最初の場所。靴・たたき・ドア周り。
+    </div>
+    <div class="task-list" id="genkan-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 02 KITCHEN ============ -->
+  <section id="kitchen">
+    <div class="chapter">
+      <div class="ch-num">— Track 02 —</div>
+      <h2>キ ッ チ ン 篇</h2>
+      <div class="ch-en">in the kitchen</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>油・水アカ・コンロ周り。重曹／セスキ／クエン酸を使い分け。
+    </div>
+    <div class="task-list" id="kitchen-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 03 TOILET ============ -->
+  <section id="toilet">
+    <div class="chapter">
+      <div class="ch-num">— Track 03 —</div>
+      <h2>ト　イ　レ　篇</h2>
+      <div class="ch-en">restroom</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>便器・床・タンク・換気扇。
+    </div>
+    <div class="task-list" id="toilet-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 04 SENMEN ============ -->
+  <section id="senmen">
+    <div class="chapter">
+      <div class="ch-num">— Track 04 —</div>
+      <h2>洗 面 所 篇</h2>
+      <div class="ch-en">washroom</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>鏡・蛇口・洗面ボウル・収納まわり。
+    </div>
+    <div class="task-list" id="senmen-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 05 OFURO ============ -->
+  <section id="ofuro">
+    <div class="chapter">
+      <div class="ch-num">— Track 05 —</div>
+      <h2>お　風　呂　篇</h2>
+      <div class="ch-en">bathroom ─ light maintenance</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>退去までまだ使うので、本格掃除は最終週。今はホコリ取り・カビ予防など、使いながらできる軽メンテだけ。
+    </div>
+    <div class="task-list" id="ofuro-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 06 ROUKA ============ -->
+  <section id="rouka">
+    <div class="chapter">
+      <div class="ch-num">— Track 06 —</div>
+      <h2>廊　下　篇</h2>
+      <div class="ch-en">hallway</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>床・巾木・ドア・スイッチプレート。
+    </div>
+    <div class="task-list" id="rouka-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 07 HEYA ============ -->
+  <section id="heya">
+    <div class="chapter">
+      <div class="ch-num">— Track 07 —</div>
+      <h2>部　屋　篇</h2>
+      <div class="ch-en">living quarters</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>まずは服の断捨離から。冬服はパッキング。カーペット部分は物がどかせないので今回はパス。
+    </div>
+    <div class="task-list" id="heya-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 08 VERANDA ============ -->
+  <section id="veranda">
+    <div class="chapter">
+      <div class="ch-num">— Track 08 —</div>
+      <h2>ベ ラ ン ダ 篇</h2>
+      <div class="ch-en">balcony</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>紙巻きの灰・ヤニ汚れがメイン。乾いた灰は先に物理で回収 → アルカリで拭く。下階への水落ちに注意。
+    </div>
+    <div class="task-list" id="veranda-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+
+  <!-- ============ TRACK 09 GOMI ============ -->
+  <section id="gomi">
+    <div class="chapter">
+      <div class="ch-num">— Track 09 —</div>
+      <h2>ゴ ミ 捨 て 篇</h2>
+      <div class="ch-en">disposal ─ katsushika ward</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>葛飾区のルール。パソコンは資源有効利用促進法、家電4品目（エアコン・テレビ・冷蔵庫・洗濯機）は家電リサイクル法、敷布団・その他家電は粗大ごみ。
+    </div>
+    <div class="task-list" id="gomi-list">
+      <p class="empty-note">タスクは追って書き込み中…</p>
+    </div>
+  </section>
+  <div class="colophon">
+    第二章 ・ 掃除 篇 <span class="div">·</span> 八つの場所 <span class="div">·</span> ONE ROOM AT A TIME
+  </div>
+  <button class="reset-btn" id="reset">CHECK 全リセット</button>
+</div>
+
+<!-- ============ CELEBRATE ============ -->
+<div class="celebrate" id="celebrate">
+  <div class="celebrate-card">
+    <div class="seal">完</div>
+    <h3>第 二 章 ・ 完</h3>
+    <p>八つの場所、ぜんぶ見送れた。<br>本当にお疲れさま。<br>第三章へ。</p>
+    <button onclick="document.getElementById('celebrate').classList.remove('show')">閉じる</button>
+  </div>
+</div>
+
+<script>
+// ============================================
+// CLEANING TASKS DATA (Chapter 2)
+// 各場所のサブタスクは追って追加していく
+// ============================================
+const TASKS = {
+  // ========== 玄関 ==========
+  genkan: [
+    {
+      id: 'g1',
+      title: 'ドアの靴跡落とし',
+      desc: '黒い靴跡 = ゴム汚れ。アルカリで浮かす。',
+      subtasks: [
+        { id: 'g1-a', name: 'セスキスプレーを靴跡部分に吹きかける' },
+        { id: 'g1-b', name: '激落ちくんスポンジで擦る（水で湿らせる）' },
+        { id: 'g1-c', name: 'ウタマロクリーナーで仕上げ拭き' },
+        { id: 'g1-d', name: '乾いた布で水気を拭き取る' }
+      ]
+    },
+    {
+      id: 'g2',
+      title: '靴箱掃除（断捨離含む）',
+      desc: '中身を全部出す → 仕分け → 拭く → 戻す。',
+      subtasks: [
+        { id: 'g2-a', name: '靴を全部出す' },
+        { id: 'g2-b', name: '断捨離：履いてない／壊れてる靴を処分' },
+        { id: 'g2-c', name: 'アルカリ電解水スプレーで棚板を拭く' },
+        { id: 'g2-d', name: '気になる汚れは重曹スプレー＋激落ちくん' },
+        { id: 'g2-e', name: '乾かしてから靴を戻す' }
+      ]
+    },
+    {
+      id: 'g3',
+      title: '床（たたき）掃除',
+      desc: '砂・泥は乾いてる時に。汚れはアルカリで。',
+      subtasks: [
+        { id: 'g3-a', name: 'ホウキで砂・ほこりを掃く' },
+        { id: 'g3-b', name: 'セスキスプレーを全体に吹きかける' },
+        { id: 'g3-c', name: '激落ちくんで擦る' },
+        { id: 'g3-d', name: '頑固な汚れは多目的クレンザー' },
+        { id: 'g3-e', name: '水拭き → 乾拭き' }
+      ]
+    },
+    {
+      id: 'g4',
+      title: '棚の中の書類整理',
+      desc: '紙ものは要・不要の仕分けが命。',
+      subtasks: [
+        { id: 'g4-a', name: '全ての書類を出す' },
+        { id: 'g4-b', name: '要・不要・保留に仕分け' },
+        { id: 'g4-c', name: '不要なものはシュレッダーor処分' },
+        { id: 'g4-d', name: 'アルカリ電解水で棚を拭く' },
+        { id: 'g4-e', name: '残すものをカテゴリ別に戻す' }
+      ]
+    }
+  ],
+
+  // ========== キッチン ==========
+  kitchen: [
+    {
+      id: 'k1',
+      title: 'コンロ掃除（油・五徳・天板）',
+      desc: '油汚れはアルカリ性で分解。重曹漬け置きが効く。',
+      subtasks: [
+        { id: 'k1-a', name: '五徳を外して、お湯＋過炭酸ナトリウムで漬け置き（30分〜1時間）' },
+        { id: 'k1-b', name: '天板にセスキスプレーを吹いて5分放置' },
+        { id: 'k1-c', name: '激落ちくんで天板を擦る' },
+        { id: 'k1-d', name: '頑固な焦げは重曹（粉）＋少量の水でペースト → 擦る' },
+        { id: 'k1-e', name: '五徳をスポンジで洗って乾かす' },
+        { id: 'k1-f', name: '全体をアルカリ電解水で仕上げ拭き' }
+      ]
+    },
+    {
+      id: 'k2',
+      title: '壁掃除（油はね・べたべた）',
+      desc: '飛び散った油はアルカリで浮かす。',
+      subtasks: [
+        { id: 'k2-a', name: 'セスキスプレーを壁に吹きかける（広範囲）' },
+        { id: 'k2-b', name: '5分放置して油を浮かす' },
+        { id: 'k2-c', name: '激落ちくんで上から下へ拭き取る' },
+        { id: 'k2-d', name: 'ベタつき残りはウタマロクリーナーで再度拭く' },
+        { id: 'k2-e', name: 'アルカリ電解水で仕上げ拭き' }
+      ]
+    },
+    {
+      id: 'k3',
+      title: '調味料・棚の消費期限＆べたべた掃除',
+      desc: '中身を全部出す → 仕分け → 棚を拭く → 容器を拭いて戻す。',
+      subtasks: [
+        { id: 'k3-a', name: '調味料を全部出す' },
+        { id: 'k3-b', name: '消費期限切れを処分' },
+        { id: 'k3-c', name: '棚にセスキスプレーを吹きかけて拭く' },
+        { id: 'k3-d', name: '調味料の容器をアルカリ電解水＋激落ちくんで拭く' },
+        { id: 'k3-e', name: '乾かしてから戻す' }
+      ]
+    },
+    {
+      id: 'k4',
+      title: 'シンク掃除（水垢）',
+      desc: '水垢はアルカリ性 → 酸（クエン酸）で中和して落とす。',
+      subtasks: [
+        { id: 'k4-a', name: 'シンク全体を水で濡らす' },
+        { id: 'k4-b', name: 'クエン酸スプレーをまんべんなく吹きかける' },
+        { id: 'k4-c', name: 'キッチンペーパーで湿布（10〜30分）' },
+        { id: 'k4-d', name: '激落ちくんで擦る' },
+        { id: 'k4-e', name: '頑固な水垢は多目的クレンザーでこすり洗い' },
+        { id: 'k4-f', name: '水で流して、乾拭き' }
+      ]
+    },
+    {
+      id: 'k5',
+      title: '換気扇掃除',
+      desc: '油まみれ。過炭酸ナトリウム漬け置きが最強。',
+      subtasks: [
+        { id: 'k5-a', name: 'フィルター・シロッコファンを外す' },
+        { id: 'k5-b', name: '大きめの容器にお湯＋過炭酸ナトリウムを溶かす（40〜50℃）' },
+        { id: 'k5-c', name: 'パーツを1時間以上漬け置き' },
+        { id: 'k5-d', name: '本体カバー内側にセスキスプレー → 激落ちくんで拭く' },
+        { id: 'k5-e', name: '漬け置きしたパーツをスポンジで擦り洗い' },
+        { id: 'k5-f', name: 'よく乾かしてから戻す' }
+      ]
+    }
+  ],
+
+  // ========== トイレ ==========
+  toilet: [
+    {
+      id: 't1',
+      title: '天井・換気扇',
+      desc: '上から下が掃除の鉄則。ホコリ落としから。',
+      subtasks: [
+        { id: 't1-a', name: '換気扇カバーを外す' },
+        { id: 't1-b', name: 'カバーのホコリを払う／水洗い' },
+        { id: 't1-c', name: 'アルカリ電解水を含ませた布で天井を拭く' },
+        { id: 't1-d', name: '換気扇本体周りも拭く' },
+        { id: 't1-e', name: 'カバーを乾かして戻す' }
+      ]
+    },
+    {
+      id: 't2',
+      title: 'タンク掃除',
+      desc: 'タンク表面のホコリ汚れ。中の水アカは別途。',
+      subtasks: [
+        { id: 't2-a', name: 'タンク表面のホコリを乾拭き' },
+        { id: 't2-b', name: 'アルカリ電解水で全体を拭く' },
+        { id: 't2-c', name: '手洗い部分の水垢にはクエン酸スプレー' },
+        { id: 't2-d', name: '激落ちくんで水垢を擦る' },
+        { id: 't2-e', name: '乾拭きで仕上げ' }
+      ]
+    },
+    {
+      id: 't3',
+      title: '便座・蓋',
+      desc: '皮脂汚れ＝弱アルカリ。便座は塩素NG（変色・劣化）。',
+      subtasks: [
+        { id: 't3-a', name: '蓋の表・裏にセスキスプレー' },
+        { id: 't3-b', name: '激落ちくん or 布で拭き取り' },
+        { id: 't3-c', name: '便座（座面・裏）も同様に' },
+        { id: 't3-d', name: '便座の付け根（隙間）を綿棒や歯ブラシで' },
+        { id: 't3-e', name: 'アルカリ電解水で仕上げ拭き' }
+      ]
+    },
+    {
+      id: 't4',
+      title: '便器内掃除（茶色い汚れ）',
+      desc: '茶色＝尿石（アルカリ性）。クエン酸の酸で溶かす。',
+      subtasks: [
+        { id: 't4-a', name: '便器内の水位を下げる（コップで汲む or バケツで一気に流す）' },
+        { id: 't4-b', name: 'クエン酸スプレーを汚れ部分にたっぷり' },
+        { id: 't4-c', name: 'トイレットペーパーで湿布' },
+        { id: 't4-d', name: 'さらにクエン酸スプレーをかけて30分〜1時間放置' },
+        { id: 't4-e', name: '湿布を剥がす' }
+      ]
+    },
+    {
+      id: 't5',
+      title: '便器内 こすり掃除',
+      desc: '湿布で浮いた汚れを物理で落とす。',
+      subtasks: [
+        { id: 't5-a', name: 'トイレブラシでフチ裏まで擦る' },
+        { id: 't5-b', name: '頑固な汚れは多目的クレンザーを少量' },
+        { id: 't5-c', name: '激落ちくん（トイレ用に分けたもの）で擦る' },
+        { id: 't5-d', name: '水を流して仕上げ' }
+      ]
+    },
+    {
+      id: 't6',
+      title: '床・壁掃除',
+      desc: '尿の飛び散り＝アンモニア（アルカリ）。クエン酸で中和。',
+      subtasks: [
+        { id: 't6-a', name: '床・壁にクエン酸スプレー（特に便器周り）' },
+        { id: 't6-b', name: '激落ちくんで拭き取る' },
+        { id: 't6-c', name: '巾木・床の隅も忘れずに' },
+        { id: 't6-d', name: 'アルカリ電解水で仕上げ拭き（除菌）' }
+      ]
+    }
+  ],
+
+  // ========== 洗面所 ==========
+  senmen: [
+    {
+      id: 's1',
+      title: '汚れ落とし（全体の下準備）',
+      desc: '皮脂・石鹸カスはアルカリで。まず広く緩める。',
+      subtasks: [
+        { id: 's1-a', name: '洗面台まわりの物をどける' },
+        { id: 's1-b', name: 'セスキスプレーを全体に吹きかける' },
+        { id: 's1-c', name: '5分放置' },
+        { id: 's1-d', name: '激落ちくんで全体を拭く' },
+        { id: 's1-e', name: '水でざっと流す' }
+      ]
+    },
+    {
+      id: 's2',
+      title: '水垢・硬い汚れ掃除',
+      desc: '白い水垢＝アルカリ性。クエン酸で中和して溶かす。',
+      subtasks: [
+        { id: 's2-a', name: 'クエン酸スプレーを水垢部分にたっぷり' },
+        { id: 's2-b', name: 'キッチンペーパーで湿布（30分）' },
+        { id: 's2-c', name: '湿布を剥がして激落ちくんで擦る' },
+        { id: 's2-d', name: '蛇口の根本は歯ブラシで' },
+        { id: 's2-e', name: '頑固な部分は多目的クレンザー' },
+        { id: 's2-f', name: '水で流す' }
+      ]
+    },
+    {
+      id: 's3',
+      title: '排水溝・黒ずみ掃除',
+      desc: '黒ずみ＝皮脂＋カビ。過炭酸ナトリウムで分解。',
+      subtasks: [
+        { id: 's3-a', name: '排水溝のフタ・ゴミ受けを外す' },
+        { id: 's3-b', name: '排水溝に過炭酸ナトリウム（粉）をふりかける' },
+        { id: 's3-c', name: 'お湯（40〜50℃）をゆっくり注ぐ → 泡で分解' },
+        { id: 's3-d', name: '30分〜1時間放置' },
+        { id: 's3-e', name: 'ブラシで擦って水で流す' },
+        { id: 's3-f', name: 'フタ・ゴミ受けは激落ちくんで擦って戻す' }
+      ]
+    },
+    {
+      id: 's4',
+      title: '鏡掃除',
+      desc: '水垢＝白い跡。クエン酸で落とす。',
+      subtasks: [
+        { id: 's4-a', name: '鏡全体にクエン酸スプレー' },
+        { id: 's4-b', name: 'キッチンペーパーで湿布（10〜20分）' },
+        { id: 's4-c', name: '激落ちくんで優しく擦る' },
+        { id: 's4-d', name: '水拭き' },
+        { id: 's4-e', name: '乾いたマイクロファイバーor新聞紙で乾拭き（拭き跡防止）' }
+      ]
+    },
+    {
+      id: 's5',
+      title: '洗面台の棚 掃除',
+      desc: '化粧品の油分＋ホコリの混合汚れ。',
+      subtasks: [
+        { id: 's5-a', name: '棚の中身を全部出す' },
+        { id: 's5-b', name: '使ってない化粧品・期限切れを処分' },
+        { id: 's5-c', name: '棚にアルカリ電解水を吹いて拭く' },
+        { id: 's5-d', name: 'ベタつきはセスキスプレー＋激落ちくん' },
+        { id: 's5-e', name: '残す物の容器も拭く' },
+        { id: 's5-f', name: '乾かしてから戻す' }
+      ]
+    }
+  ],
+
+  // ========== 残りの場所（後で書き込み） ==========
+  ofuro: [
+    {
+      id: 'o1',
+      title: 'ドア・ドア枠のホコリ取り',
+      desc: '通気口やドアの溝にホコリが溜まりやすい。乾いた状態で取るのがコツ。',
+      subtasks: [
+        { id: 'o1-a', name: 'ドア下の通気スリット（ガラリ）のホコリを古歯ブラシで掻き出す' },
+        { id: 'o1-b', name: 'ドア枠の上の段（鴨居）を乾拭き → ホコリ落とす' },
+        { id: 'o1-c', name: 'ドアの取っ手・パッキン部分も拭く' },
+        { id: 'o1-d', name: 'アルカリ電解水を吹いて仕上げ拭き' }
+      ]
+    },
+    {
+      id: 'o2',
+      title: '換気扇のホコリ取り',
+      desc: 'カバー外しは退去前まで取っておく。今は表面だけ。',
+      subtasks: [
+        { id: 'o2-a', name: '換気扇の電源を切る' },
+        { id: 'o2-b', name: 'カバー表面のホコリを乾いた布で拭く' },
+        { id: 'o2-c', name: '掃除機の細ノズルで吸えると尚良し' }
+      ]
+    },
+    {
+      id: 'o3',
+      title: '棚・小物の整理',
+      desc: '使ってないボトル類は今のうちに減らす。退去時にラク。',
+      subtasks: [
+        { id: 'o3-a', name: 'シャンプー類の在庫チェック・古いものを処分' },
+        { id: 'o3-b', name: '棚をどかして、底の水アカ・ぬめりに気付いたらメモ（退去時にやる）' },
+        { id: 'o3-c', name: '使うボトルだけ戻す' }
+      ]
+    },
+    {
+      id: 'o4',
+      title: 'カビ予防（毎日〜週1の習慣化）',
+      desc: 'カビは生やさないが正解。お湯シャワー＆換気が最強。防カビくんは新居用なので使わない。',
+      subtasks: [
+        { id: 'o4-a', name: '入浴後に壁・床に冷水シャワー（温度を下げる）' },
+        { id: 'o4-b', name: 'スクイージー or タオルで水気を切る' },
+        { id: 'o4-c', name: '換気扇を回し続ける（24時間つけっぱOK）' },
+        { id: 'o4-d', name: '週1で全体に熱めのシャワー（50℃以上）→ 換気' }
+      ]
+    }
+  ],
+  rouka: [
+    {
+      id: 'r1',
+      title: 'キッチン棚の外側 汚れ落とし',
+      desc: '油＋ホコリの混合汚れ。アルカリで浮かして拭く。',
+      subtasks: [
+        { id: 'r1-a', name: 'まず乾拭きでホコリを落とす' },
+        { id: 'r1-b', name: 'セスキスプレーを棚の外側全体に吹きかける' },
+        { id: 'r1-c', name: '5分放置して油を浮かす' },
+        { id: 'r1-d', name: '激落ちくんスポンジで拭き取る' },
+        { id: 'r1-e', name: 'ベタつき残りはウタマロクリーナーで再度拭く' },
+        { id: 'r1-f', name: 'アルカリ電解水で仕上げ拭き' }
+      ]
+    },
+    {
+      id: 'r2',
+      title: '壁掃除（食べ物の飛び散り・変色）',
+      desc: '茶色い変色 = 油や醤油などの酸化汚れ。アルカリ→酸の二段で攻める。',
+      subtasks: [
+        { id: 'r2-a', name: '壁紙の素材確認（ビニールクロスなら水OK／紙クロスは控えめに）' },
+        { id: 'r2-b', name: '目立たない場所でセスキスプレーを試し拭き（変色しないか確認）' },
+        { id: 'r2-c', name: '飛び散り部分にセスキスプレーを吹きかける' },
+        { id: 'r2-d', name: '5〜10分放置' },
+        { id: 'r2-e', name: '激落ちくんを軽く湿らせて優しく擦る（強く擦ると壁紙傷む）' },
+        { id: 'r2-f', name: '残った変色にはクエン酸スプレー（酸で別の汚れ層を狙う）' },
+        { id: 'r2-g', name: 'それでも残るならウタマロクリーナーで仕上げ' },
+        { id: 'r2-h', name: '水拭き → 乾拭きで仕上げ' }
+      ]
+    },
+    {
+      id: 'r3',
+      title: '床の拭き掃除（べたべた）',
+      desc: 'べたつき = 油＋皮脂。アルカリで分解 → 拭き上げ。',
+      subtasks: [
+        { id: 'r3-a', name: '掃除機 or ホウキでホコリ・髪の毛を除去' },
+        { id: 'r3-b', name: 'セスキスプレーを床にまんべんなく吹きかける' },
+        { id: 'r3-c', name: '5分放置' },
+        { id: 'r3-d', name: '雑巾 or 激落ちくんで拭く（広範囲は雑巾、頑固な所はスポンジ）' },
+        { id: 'r3-e', name: '頑固なベタつきはウタマロクリーナーを再投入' },
+        { id: 'r3-f', name: 'アルカリ電解水で仕上げ拭き' },
+        { id: 'r3-g', name: '乾拭きで水気を取る' }
+      ]
+    }
+  ],
+  heya: [
+    {
+      id: 'h1',
+      title: '服の断捨離',
+      desc: 'まず仕分け。新居に持ってくものを減らすのが最優先。',
+      subtasks: [
+        { id: 'h1-a', name: '全ての服をクローゼットから出す' },
+        { id: 'h1-b', name: '「残す／捨てる／売る・譲る」で仕分け' },
+        { id: 'h1-c', name: '迷うものは1年着てなければ処分の方向で' },
+        { id: 'h1-d', name: '処分する服を袋にまとめる' },
+        { id: 'h1-e', name: '売る・譲るものは別袋で保管' }
+      ]
+    },
+    {
+      id: 'h2',
+      title: '冬服のパッキング',
+      desc: 'もう着ない冬服はダンボールへ。新居までしばしお別れ。',
+      subtasks: [
+        { id: 'h2-a', name: 'ダンボールを用意' },
+        { id: 'h2-b', name: '冬服をたたむ／圧縮袋があれば使う' },
+        { id: 'h2-c', name: 'ダンボールに詰める（隙間に小物入れてもOK）' },
+        { id: 'h2-d', name: '中身をマジックで明記（例：冬服・コート類）' },
+        { id: 'h2-e', name: 'ガムテープで封' }
+      ]
+    },
+    {
+      id: 'h3',
+      title: '床掃除（カーペット以外）',
+      desc: 'カーペット部分は物どかせないので今回はパス。フローリング部分だけ。',
+      subtasks: [
+        { id: 'h3-a', name: '掃除機でホコリ・髪の毛を除去' },
+        { id: 'h3-b', name: 'セスキスプレーを床にまんべんなく' },
+        { id: 'h3-c', name: '5分放置' },
+        { id: 'h3-d', name: '雑巾で拭き上げ' },
+        { id: 'h3-e', name: '頑固な汚れは激落ちくん＋ウタマロクリーナー' },
+        { id: 'h3-f', name: 'アルカリ電解水で仕上げ拭き' }
+      ]
+    },
+    {
+      id: 'h4',
+      title: '窓掃除',
+      desc: 'ガラスはアルカリ電解水が拭き跡残らず最適。',
+      subtasks: [
+        { id: 'h4-a', name: 'まず乾いた布でホコリ・砂を払う' },
+        { id: 'h4-b', name: 'サッシ・レールの砂を古歯ブラシで掻き出す' },
+        { id: 'h4-c', name: '濡れた雑巾でサッシを拭く' },
+        { id: 'h4-d', name: 'ガラスにアルカリ電解水スプレー' },
+        { id: 'h4-e', name: '激落ちくん or マイクロファイバーで拭く' },
+        { id: 'h4-f', name: '乾いた布で乾拭き（拭き跡防止）' }
+      ]
+    },
+    {
+      id: 'h5',
+      title: '窓際の床のカビ取り',
+      desc: '黒っぽいカビは塩素なしだと完全には落ちないけど、できる範囲で。素材次第で深追いしない。',
+      subtasks: [
+        { id: 'h5-a', name: '床素材を確認（フローリング／クッションフロアは漂白厳禁）' },
+        { id: 'h5-b', name: 'まずアルカリ電解水を吹きかけて拭く（軽い汚れならこれで落ちる）' },
+        { id: 'h5-c', name: '残ったら過炭酸ナトリウム（粉）＋少量のお湯でペースト' },
+        { id: 'h5-d', name: 'カビ部分にペーストをのせて15〜30分放置（目立たない所で試してから）' },
+        { id: 'h5-e', name: '激落ちくんで優しく擦る' },
+        { id: 'h5-f', name: '水拭き → 乾拭きでしっかり乾かす' },
+        { id: 'h5-g', name: '※落ちきらなくてもOK。深追いして床材傷めない' }
+      ]
+    },
+    {
+      id: 'h6',
+      title: 'インターホンのホコリ取り',
+      desc: '電子機器なので水分は最小限で。',
+      subtasks: [
+        { id: 'h6-a', name: '乾いた布 or ハンディモップでホコリを払う' },
+        { id: 'h6-b', name: 'ボタンの隙間は綿棒で' },
+        { id: 'h6-c', name: 'アルカリ電解水を布に少しだけ含ませて表面を拭く（直接スプレーNG）' },
+        { id: 'h6-d', name: '乾いた布で仕上げ拭き' }
+      ]
+    }
+  ],
+  veranda: [
+    {
+      id: 'v1',
+      title: '灰皿の処理',
+      desc: '中身は燃えないゴミへ。灰皿自体もきれいにする。',
+      subtasks: [
+        { id: 'v1-a', name: '吸い殻が完全に消火してるか確認（不安なら水を入れて1日放置）' },
+        { id: 'v1-b', name: '中身を新聞紙orビニール袋に空ける' },
+        { id: 'v1-c', name: '燃えないゴミとして処分（自治体のルール確認）' },
+        { id: 'v1-d', name: '灰皿にセスキスプレー＋激落ちくんで擦る（ヤニはアルカリで落ちる）' },
+        { id: 'v1-e', name: 'ヤニが頑固なら多目的クレンザー' },
+        { id: 'v1-f', name: '水で流して乾燥' }
+      ]
+    },
+    {
+      id: 'v2',
+      title: '床の灰・吸い殻拾い',
+      desc: 'まず大きいゴミを物理で回収。水を撒く前が鉄則（濡らすと泥化する）。',
+      subtasks: [
+        { id: 'v2-a', name: '落ちてる吸い殻を拾う' },
+        { id: 'v2-b', name: 'ホウキで灰・砂・落ち葉を集める' },
+        { id: 'v2-c', name: 'チリトリで集めて燃えないゴミへ' },
+        { id: 'v2-d', name: '隅・排水口周りも忘れずに' }
+      ]
+    },
+    {
+      id: 'v3',
+      title: '床の水洗い',
+      desc: 'ヤニ汚れはアルカリで分解。下の階に水が落ちないよう量に注意。',
+      subtasks: [
+        { id: 'v3-a', name: '下階に洗濯物が干されてないか確認' },
+        { id: 'v3-b', name: 'バケツに水＋過炭酸ナトリウム（粉）を溶かす（お湯ならなお良し）' },
+        { id: 'v3-c', name: '床全体に撒く（量は控えめに）' },
+        { id: 'v3-d', name: '15分放置してヤニを浮かす' },
+        { id: 'v3-e', name: 'デッキブラシ or 激落ちくんで擦る' },
+        { id: 'v3-f', name: '頑固なシミは玄関・ベランダクリーナーを直接' },
+        { id: 'v3-g', name: '雑巾で水気を拭き取る（流せないので吸い取り）' }
+      ]
+    },
+    {
+      id: 'v4',
+      title: '手すり・壁の拭き掃除',
+      desc: 'ヤニで茶色くなりやすい場所。アルカリで拭く。',
+      subtasks: [
+        { id: 'v4-a', name: '手すりにセスキスプレー' },
+        { id: 'v4-b', name: '激落ちくんで拭き取る' },
+        { id: 'v4-c', name: '壁の灰皿周辺・手の届く範囲も拭く' },
+        { id: 'v4-d', name: 'アルカリ電解水で仕上げ拭き' }
+      ]
+    },
+    {
+      id: 'v5',
+      title: '排水口・溝の掃除',
+      desc: '灰やゴミが詰まってると次の住人にも迷惑。',
+      subtasks: [
+        { id: 'v5-a', name: '排水口のフタを外す' },
+        { id: 'v5-b', name: '溜まった灰・ゴミを取り除く' },
+        { id: 'v5-c', name: '過炭酸ナトリウム（粉）を排水口にふりかける' },
+        { id: 'v5-d', name: 'お湯を注いで15分放置' },
+        { id: 'v5-e', name: 'ブラシで擦って水で流す' },
+        { id: 'v5-f', name: '排水溝の周りの溝もホウキで掃く' }
+      ]
+    }
+  ],
+
+  // ========== ゴミ捨て ==========
+  gomi: [
+    {
+      id: 'gm1',
+      title: '壊れたPCの処分（5/1回収予定）',
+      desc: 'リネットジャパンで予約済み・支払い済み。5/1（金）12-14時に佐川急便が集荷。',
+      subtasks: [
+        { id: 'gm1-d', name: '【4/30まで】ダンボールにPC本体＋周辺機器を詰める（3辺合計140cm／20kg以内）' },
+        { id: 'gm1-e', name: 'マウス・キーボード・ケーブル類も同梱OK（PC本体があれば一緒に無料）' },
+        { id: 'gm1-f', name: 'データ消去はリネットにおまかせ（消去証明書付き）' },
+        { id: 'gm1-g', name: '【5/1（金）12-14時】佐川急便が集荷 → 引渡し完了' },
+        { id: 'gm1-h', name: '【後日】マイページからデータ消去証明書をダウンロードして保管' }
+      ]
+    },
+    {
+      id: 'gm2',
+      title: '処分する物の仕分け',
+      desc: 'タップで選択。該当するルート（下の項目）だけハイライトされます。複数選択OK。',
+      selector: {
+        groupId: 'gm2-route',
+        options: [
+          { id: 'route-pc',     name: '壊れたPC',                                    target: 'gm1' },
+          { id: 'route-kaden4', name: '家電4品目（エアコン・テレビ・冷蔵庫・洗濯機など）', target: 'gm3' },
+          { id: 'route-sodai',  name: 'その他家電・敷布団・家具など（30cm超）',       target: 'gm4' },
+          { id: 'route-small',  name: '小型家電（30cm以下）',                        target: 'gm5' }
+        ]
+      }
+    },
+    {
+      id: 'gm3',
+      title: '【家電4品目】家電リサイクル法ルート',
+      desc: 'エアコン・テレビ・冷蔵庫・冷凍庫・洗濯機・衣類乾燥機。リサイクル料金＋運搬料がかかる。',
+      subtasks: [
+        { id: 'gm3-a', name: '購入店 or 買い替え店に引取依頼するか決める（一番ラク）' },
+        { id: 'gm3-b', name: '購入店不明・引っ越しなら「家電リサイクル受付センター」に申込（電話 0570-087200／月-金 9-17時）' },
+        { id: 'gm3-c', name: 'またはネット申込：家電リサイクル受付センター（24時間）' },
+        { id: 'gm3-d', name: 'リサイクル料金＋収集運搬料を確認' },
+        { id: 'gm3-e', name: '指定日に引き取り or 指定取場所への持ち込み' }
+      ]
+    },
+    {
+      id: 'gm4',
+      title: '【粗大ごみ】葛飾区粗大ごみ受付センター',
+      desc: '電子レンジ・掃除機・プリンターなど30cm超の家電 ＋ 敷布団（1枚300円）。ネット申込が早い。',
+      subtasks: [
+        { id: 'gm4-a', name: '処分する物のリスト・サイズを確認（敷布団は1枚300円）' },
+        { id: 'gm4-b', name: '葛飾区粗大ごみ受付センターでネット申込（24時間）' },
+        { id: 'gm4-c', name: '電話なら 0570-099-799（月-土 8-19時）' },
+        { id: 'gm4-d', name: '料金確認 → 粗大ごみ処理券をコンビニ等で購入（A券200円／B券300円）' },
+        { id: 'gm4-e', name: '敷布団なら B券1枚（300円）でOK' },
+        { id: 'gm4-f', name: '処理券に「収集日＋受付番号 or 氏名」を記入してゴミに貼る' },
+        { id: 'gm4-g', name: '敷布団は紐などで縛ってまとめると出しやすい' },
+        { id: 'gm4-h', name: '収集日朝8時までに自宅前 or 指定場所に出す' }
+      ]
+    },
+    {
+      id: 'gm5',
+      title: '【小型家電】回収ボックス or 不燃ごみ',
+      desc: '30cm以下の小型家電は無料処分OK。',
+      subtasks: [
+        { id: 'gm5-a', name: '3辺すべて30cm以下か確認（A4の縦≒30cm）' },
+        { id: 'gm5-b', name: '回収ボックスに入る大きさ（投入口30cm×15cm）→ 区役所・図書館等の回収ボックスへ' },
+        { id: 'gm5-c', name: 'それ以外の小型家電 → 不燃ごみで出す' }
+      ]
+    }
+  ]
+};
+
+const TAB_CONFIG = [
+  { key: 'genkan',  badge: 'b-genkan' },
+  { key: 'kitchen', badge: 'b-kitchen' },
+  { key: 'toilet',  badge: 'b-toilet' },
+  { key: 'senmen',  badge: 'b-senmen' },
+  { key: 'ofuro',   badge: 'b-ofuro' },
+  { key: 'rouka',   badge: 'b-rouka' },
+  { key: 'heya',    badge: 'b-heya' },
+  { key: 'veranda', badge: 'b-veranda' },
+  { key: 'gomi',    badge: 'b-gomi' }
+];
+
+const STORAGE_KEY = 'hikkoshi-ch2-v1';
+let state = {};
+let storageWorks = true;
+
+async function loadState() {
+  if (window.FIREBASE_READY_PROMISE) {
+    try { await window.FIREBASE_READY_PROMISE; } catch (e) {}
+  }
+  state = await SharedStorage.init(STORAGE_KEY, {
+    onUpdate: (newState) => {
+      state = newState;
+      try {
+        renderAll();
+        updateProgress();
+        if (typeof updateRouteHighlights === 'function') updateRouteHighlights();
+      } catch (e) {}
+    }
+  });
+}
+async function saveState() {
+  try {
+    await SharedStorage.setAll(state);
+  } catch (e) {
+    storageWorks = false;
+  }
+}
+window.addEventListener('unhandledrejection', (e) => {
+  const msg = String(e.reason && (e.reason.message || e.reason));
+  if (msg.includes('Storage') || msg.includes('storage')) {
+    e.preventDefault();
+    storageWorks = false;
+  }
+});
+
+const ROMAN = ['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii','xiii','xiv','xv','xvi','xvii','xviii','xix','xx'];
+
+function isDone(s) { return s === 'done' || s === true; }
+function stateClass(s) { return isDone(s) ? 'done' : ''; }
+
+// ============================================
+// RENDER TASKS for each room
+// ============================================
+function renderRoom(roomKey) {
+  const tasks = TASKS[roomKey];
+  const container = document.getElementById(roomKey + '-list');
+  if (!container) return;
+  if (!tasks || tasks.length === 0) {
+    container.innerHTML = '<p class="empty-note">タスクは追って書き込み中…</p>';
+    return;
+  }
+  container.innerHTML = tasks.map((task, idx) => {
+    const num = ROMAN[idx + 1] || (idx + 1);
+    // selector card (ルート選択)
+    if (task.selector) {
+      return `
+        <div class="task-card selector-card" data-selector="${task.selector.groupId}">
+          <div class="task-head no-toggle">
+            <div class="task-num">${num}.</div>
+            <div class="task-title">${task.title}</div>
+          </div>
+          <div class="task-detail">
+            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
+            <div class="selector-group">
+              ${task.selector.options.map(opt => `
+                <div class="selector-option ${state[opt.id] === 'selected' ? 'selected' : ''}"
+                     data-selector-id="${opt.id}"
+                     data-target="${opt.target}">
+                  <div class="selector-dot"></div>
+                  <span class="selector-name">${opt.name}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    if (task.subtasks && task.subtasks.length) {
+      // multi-task card
+      const subDone = task.subtasks.filter(st => isDone(state[st.id])).length;
+      const allDone = subDone === task.subtasks.length ? 'all-done' : '';
+      return `
+        <div class="task-card multi ${allDone}" data-multi="${task.id}">
+          <div class="task-head no-toggle">
+            <div class="task-num">${num}.</div>
+            <div class="task-title">${task.title}</div>
+            <div class="task-progress" data-multi-progress="${task.id}">${subDone}/${task.subtasks.length}</div>
+          </div>
+          <div class="task-detail">
+            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
+            <div class="subtask-group">
+              ${task.subtasks.map(st => `
+                <div class="subtask ${stateClass(state[st.id])}" data-id="${st.id}">
+                  <div class="check-box-sm"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <div class="subtask-text"><span class="subtask-name">${st.name}</span></div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    // single task card
+    return `
+      <div class="task-card ${stateClass(state[task.id])}" data-id="${task.id}">
+        <div class="task-head">
+          <div class="task-num">${num}.</div>
+          <div class="task-title">${task.title}</div>
+          <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+        </div>
+        ${task.desc ? `<div class="task-detail"><p class="task-desc">${task.desc}</p></div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderAll() {
+  TAB_CONFIG.forEach(t => renderRoom(t.key));
+}
+
+// ============================================
+// UTILITIES
+// ============================================
+function allTaskIds() {
+  const ids = [];
+  Object.values(TASKS).forEach(list => {
+    list.forEach(task => {
+      if (task.subtasks && task.subtasks.length) {
+        task.subtasks.forEach(st => ids.push(st.id));
+      } else {
+        ids.push(task.id);
+      }
+    });
+  });
+  return ids;
+}
+function roomTaskIds(roomKey) {
+  const ids = [];
+  TASKS[roomKey].forEach(task => {
+    if (task.subtasks && task.subtasks.length) {
+      task.subtasks.forEach(st => ids.push(st.id));
+    } else {
+      ids.push(task.id);
+    }
+  });
+  return ids;
+}
+
+function applyState(el, id) {
+  el.classList.remove('done', 'checked');
+  if (isDone(state[id])) el.classList.add('done');
+}
+
+function setDone(id, el) {
+  state[id] = isDone(state[id]) ? null : 'done';
+  applyState(el, id);
+  if (isDone(state[id])) {
+    el.style.transform = 'scale(0.985)';
+    setTimeout(() => el.style.transform = '', 130);
+  }
+  saveState();
+  updateProgress();
+  checkAllDone();
+}
+
+// ============================================
+// EVENTS
+// ============================================
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const tab = btn.dataset.tab;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('active', s.id === tab));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.addEventListener('click', (e) => {
+  // selector option (ルート選択 - タップでトグル + ハイライト)
+  const selOpt = e.target.closest('.selector-option');
+  if (selOpt) {
+    const id = selOpt.dataset.selectorId;
+    state[id] = state[id] === 'selected' ? null : 'selected';
+    selOpt.classList.toggle('selected', state[id] === 'selected');
+    saveState();
+    updateRouteHighlights();
+    return;
+  }
+  // subtask
+  const subtask = e.target.closest('.subtask');
+  if (subtask) {
+    setDone(subtask.dataset.id, subtask);
+    return;
+  }
+  // single-state task card
+  const taskCard = e.target.closest('.task-card');
+  if (taskCard && taskCard.dataset.id) {
+    const head = e.target.closest('.task-head');
+    if (head && !head.classList.contains('no-toggle')) {
+      setDone(taskCard.dataset.id, taskCard);
+    }
+  }
+});
+
+// ルートハイライト：選ばれたオプションに対応する task-card を強調、それ以外を薄く
+function updateRouteHighlights() {
+  // 全てのセレクターオプションを集計
+  const selectedTargets = new Set();
+  let anySelected = false;
+  document.querySelectorAll('.selector-option').forEach(opt => {
+    if (opt.classList.contains('selected')) {
+      selectedTargets.add(opt.dataset.target);
+      anySelected = true;
+    }
+  });
+
+  // 同じセクション内のtask-cardを更新
+  document.querySelectorAll('#gomi .task-card').forEach(card => {
+    const id = card.dataset.id || card.dataset.multi;
+    if (!id || card.classList.contains('selector-card')) return;
+    if (!anySelected) {
+      // 何も選ばれてない時は通常状態
+      card.classList.remove('route-on', 'route-off');
+    } else if (selectedTargets.has(id)) {
+      card.classList.add('route-on');
+      card.classList.remove('route-off');
+    } else {
+      card.classList.add('route-off');
+      card.classList.remove('route-on');
+    }
+  });
+}
+
+// ============================================
+// PROGRESS
+// ============================================
+function updateProgress() {
+  const all = allTaskIds();
+  const total = all.length;
+  const done = all.filter(k => isDone(state[k])).length;
+  document.getElementById('done').textContent = done;
+  document.getElementById('total').textContent = total;
+  document.getElementById('bar').style.width = total > 0 ? (done / total * 100) + '%' : '0%';
+
+  // hide nai-sub (not used in ch2)
+  const naiSub = document.getElementById('naiSub');
+  if (naiSub) naiSub.classList.remove('show');
+
+  // each room
+  TAB_CONFIG.forEach((t, i) => {
+    const ids = roomTaskIds(t.key);
+    const roomDone = ids.filter(k => isDone(state[k])).length;
+    const badge = document.getElementById(t.badge);
+    if (badge) badge.textContent = `${roomDone}/${ids.length}`;
+    const tabBtn = document.querySelectorAll('nav.tabs button')[i];
+    if (tabBtn) tabBtn.classList.toggle('complete', ids.length > 0 && roomDone === ids.length);
+  });
+
+  // multi-task progress (洗面台のヒビとか、グループ系のサブ進捗)
+  document.querySelectorAll('[data-multi-progress]').forEach(el => {
+    const multiId = el.dataset.multiProgress;
+    let task = null;
+    Object.values(TASKS).forEach(list => list.forEach(t => { if (t.id === multiId) task = t; }));
+    if (task && task.subtasks) {
+      const sd = task.subtasks.filter(st => isDone(state[st.id])).length;
+      el.textContent = `${sd}/${task.subtasks.length}`;
+      const card = document.querySelector(`[data-multi="${multiId}"]`);
+      if (card) card.classList.toggle('all-done', sd === task.subtasks.length);
+    }
+  });
+}
+
+let alreadyCelebrated = false;
+function checkAllDone() {
+  const all = allTaskIds();
+  if (all.length === 0) return;
+  const allDone = all.every(k => isDone(state[k]));
+  if (allDone && !alreadyCelebrated) {
+    alreadyCelebrated = true;
+    document.getElementById('celebrate').classList.add('show');
+  }
+  if (!allDone) alreadyCelebrated = false;
+}
+
+document.getElementById('reset').addEventListener('click', async () => {
+  if (!confirm('チェックを全部リセット…ほんとに？')) return;
+  state = {};
+  await saveState();
+  renderAll();
+  alreadyCelebrated = false;
+  updateProgress();
+  updateRouteHighlights();
+});
+
+// ============================================
+// INIT
+// ============================================
+(async () => {
+  // 権限バナー（第二章=かなんのみ編集可）
+  PermissionHelper.init({ owner: 'kanan', label: '彼女篇' });
+  await loadState();
+  renderAll();
+  updateProgress();
+  updateRouteHighlights();
+  // 閲覧モードならクリック無効化
+  PermissionHelper.applyReadonly();
+  setTimeout(() => PermissionHelper.updateSyncIndicator(), 1500);
+})();
+</script>
+</body>
+</html>

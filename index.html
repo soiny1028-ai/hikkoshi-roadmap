@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>二人で見る、引っ越しまでの道のり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #e6d8b9;
+    --paper-deep:   #d8c79e;
+    --card:         #f1e7c9;
+    --card-warm:    #ede0bc;
+    --ink:          #1a140d;
+    --ink-soft:     #4a3a25;
+    --ink-mute:     #8a7654;
+    --rule:         #b09668;
+    --vermilion:    #a8392c;
+    --vermilion-d:  #842c22;
+    --moss:         #5a6b3c;
+    --moss-d:       #3e4a26;
+    --shadow:       0 1px 0 rgba(26, 20, 13, 0.04), 0 4px 18px rgba(74, 58, 37, 0.08);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(168, 57, 44, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(90, 107, 60, 0.05) 0%, transparent 38%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-attachment: fixed;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 14px 60px;
+  }
+
+  /* ============ JACKET (HUB HEADER) ============ */
+  .jacket {
+    margin: 16px 0 16px;
+    padding: 18px 16px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: var(--shadow), 4px 4px 0 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .jacket::before {
+    content: '';
+    position: absolute; inset: 6px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .jacket-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 7px;
+    margin-bottom: 14px;
+  }
+  .jacket-meta .left { color: var(--vermilion); font-weight: 600; }
+
+  .jacket-body {
+    /* 左揃えがデフォルト */
+  }
+
+  .hub-title-wrap {
+    padding-top: 8px;
+  }
+  .hub-title-jp {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 38px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: 0.18em;
+    margin-bottom: 12px;
+  }
+  .hub-title-jp .accent {
+    color: var(--vermilion);
+  }
+  .htitle {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+    letter-spacing: 0.04em;
+  }
+  .htitle-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+  }
+  .verse {
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--vermilion);
+    padding: 2px 0 2px 11px;
+    max-width: 70%;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 50px;
+    height: 50px;
+    border: 1.5px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 9.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    transform: rotate(-8deg);
+    background: rgba(168, 57, 44, 0.04);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ COUNTDOWN ============ */
+  .countdown-wrap {
+    margin-bottom: 18px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 14px 14px 12px;
+    box-shadow: 3px 3px 0 0 var(--ink);
+  }
+  .countdown-head {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.25em;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+  }
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .cd-card {
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    padding: 10px 10px 11px;
+    text-align: center;
+    position: relative;
+  }
+  .cd-card.urgent {
+    border-color: var(--vermilion);
+    background: rgba(168, 57, 44, 0.06);
+  }
+  .cd-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+  }
+  .cd-card.urgent .cd-label { color: var(--vermilion); }
+  .cd-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 36px;
+    color: var(--ink);
+    line-height: 1;
+    margin: 4px 0 2px;
+  }
+  .cd-card.urgent .cd-num { color: var(--vermilion); }
+  .cd-num .day-prefix {
+    font-size: 14px;
+    margin-right: 2px;
+    color: var(--vermilion);
+  }
+  .cd-num.passed { color: var(--ink-mute); }
+  .cd-date {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+  }
+  .cd-status {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--vermilion);
+    margin-top: 3px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ============ CHAPTER CARDS ============ */
+  .ch-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  /* 第二章グループ枠 */
+  .ch-group {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
+    padding: 12px 12px 14px;
+  }
+  .ch-group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid var(--ink);
+    margin-bottom: 10px;
+  }
+  .ch-group-tk {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.18em;
+    font-weight: 600;
+  }
+  .ch-group-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    flex: 1;
+  }
+  .ch-group-sub {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--ink-mute);
+    letter-spacing: 0.15em;
+  }
+  /* グループ内サブカード */
+  .ch-card.sub {
+    box-shadow: 2px 2px 0 0 var(--ink);
+    margin-bottom: 8px;
+  }
+  .ch-card.sub:last-child { margin-bottom: 0; }
+  .ch-card.sub.highlight {
+    box-shadow: 2px 2px 0 0 var(--vermilion);
+  }
+  .ch-card.sub:hover {
+    box-shadow: 1px 1px 0 0 var(--ink);
+  }
+  .ch-card.sub.highlight:hover {
+    box-shadow: 1px 1px 0 0 var(--vermilion);
+  }
+
+  /* 彼女篇のサイドバーは深緑系（彼氏篇の朱色と差別化） */
+  .ch-side-female {
+    background: var(--moss-d) !important;
+  }
+  .ch-card.sub:not(.highlight) {
+    border-color: var(--moss-d);
+    box-shadow: 2px 2px 0 0 var(--moss-d);
+  }
+  .ch-card.sub:not(.highlight):hover {
+    box-shadow: 1px 1px 0 0 var(--moss-d);
+  }
+  .ch-side-female .ch-num-jp .accent {
+    color: #b8d4a0;
+  }
+  .ch-card {
+    display: flex;
+    align-items: stretch;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  .ch-card:hover, .ch-card:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 0 var(--ink);
+  }
+  .ch-card .ch-side {
+    width: 56px;
+    flex-shrink: 0;
+    background: var(--ink);
+    color: var(--card);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 4px;
+    border-right: 1.5px solid var(--ink);
+  }
+  .ch-card .ch-side .ch-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--card-warm);
+    letter-spacing: 0.15em;
+    line-height: 1;
+  }
+  .ch-card .ch-side .ch-num-jp {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--card);
+    line-height: 1.1;
+    margin-top: 4px;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.05em;
+  }
+  .ch-card .ch-side .ch-num-jp .accent {
+    color: #f0a89a;
+  }
+  .ch-card .ch-body {
+    flex: 1;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+  .ch-card .ch-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .ch-card .ch-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--vermilion);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .ch-card .ch-desc {
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .ch-card .ch-arrow {
+    align-self: center;
+    padding: 0 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--vermilion);
+    flex-shrink: 0;
+  }
+
+  /* 完了状態 */
+  .ch-card.complete {
+    position: relative;
+    opacity: 0.75;
+  }
+  .ch-card.complete .ch-side {
+    background: var(--moss-d);
+  }
+  .ch-card.complete .ch-side .ch-num-jp .accent {
+    color: #b8d4a0;
+  }
+  .ch-card.complete .ch-title,
+  .ch-card.complete .ch-desc {
+    color: var(--ink-mute);
+  }
+  .ch-card.complete .ch-arrow {
+    color: var(--ink-mute);
+  }
+  .complete-stamp {
+    position: absolute;
+    top: 50%;
+    right: 70px;
+    transform: translateY(-50%) rotate(-12deg);
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.05;
+    background: rgba(241, 231, 201, 0.92);
+    letter-spacing: 0.02em;
+    pointer-events: none;
+    box-shadow: 0 1px 3px rgba(168, 57, 44, 0.15);
+  }
+  @media (max-width: 380px) {
+    .complete-stamp {
+      width: 38px;
+      height: 38px;
+      font-size: 11px;
+      right: 56px;
+    }
+  }
+
+  /* HIGHLIGHT card for 彼氏篇 */
+  .ch-card.highlight .ch-side {
+    background: var(--vermilion);
+  }
+  .ch-card.highlight {
+    border-color: var(--vermilion);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+  }
+  .ch-card.highlight:hover {
+    box-shadow: 2px 2px 0 0 var(--vermilion);
+  }
+  .ch-card.highlight .ch-side .ch-num,
+  .ch-card.highlight .ch-side .ch-num-jp {
+    color: var(--card);
+  }
+  .ch-card.highlight .ch-side .ch-num-jp .accent {
+    color: var(--card-warm);
+  }
+
+  /* ============ COLOPHON ============ */
+  .colophon {
+    margin-top: 22px;
+    padding: 14px 16px 6px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    letter-spacing: 0.18em;
+    line-height: 1.7;
+  }
+  .colophon .div { display: inline-block; padding: 0 6px; color: var(--vermilion); }
+  .colophon .names {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.15em;
+    font-size: 11px;
+    font-style: normal;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* narrow */
+  @media (max-width: 380px) {
+    .app { padding: 0 10px 60px; }
+    .jacket { padding: 14px 12px; }
+    .hub-title-jp { font-size: 30px; letter-spacing: 0.1em; }
+    .htitle { font-size: 16px; }
+    .htitle-en { font-size: 10px; }
+    .verse { font-size: 11px; }
+    .stamp { width: 44px; height: 44px; font-size: 8.5px; top: 10px; right: 10px; }
+    .countdown-wrap { padding: 12px 12px 10px; }
+    .cd-num { font-size: 30px; }
+    .ch-card .ch-side { width: 48px; }
+    .ch-card .ch-side .ch-num-jp { font-size: 18px; }
+    .ch-card .ch-title { font-size: 15px; }
+    .ch-card .ch-desc { font-size: 11px; }
+  }
+  /* ============ USER SELECT MODAL ============ */
+  .user-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.65);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 20px;
+  }
+  .user-modal-overlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .user-modal {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 0 var(--vermilion);
+    padding: 26px 22px;
+    max-width: 320px;
+    width: 100%;
+    text-align: center;
+    animation: pop 0.4s cubic-bezier(0.34, 1.6, 0.64, 1);
+  }
+  @keyframes pop {
+    from { transform: scale(0.85); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .user-modal-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+  .user-modal-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  .user-modal-q {
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+  .user-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .user-btn {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 14px 8px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .user-btn .role {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+  }
+  .user-btn[data-user="kanan"]:hover {
+    background: var(--moss-d);
+    color: var(--card);
+    border-color: var(--moss-d);
+  }
+  .user-btn[data-user="kanan"]:hover .role { color: #b8d4a0; }
+  .user-btn[data-user="shinta"]:hover {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .user-btn[data-user="shinta"]:hover .role { color: var(--card-warm); }
+
+  /* ============ USER BADGE ============ */
+  .user-badge {
+    margin-bottom: 12px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    box-shadow: 2px 2px 0 0 var(--ink);
+  }
+  .user-badge .badge-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+  }
+  .user-badge .badge-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    flex: 1;
+  }
+  .user-badge.kanan .badge-name { color: var(--moss-d); }
+  .user-badge.shinta .badge-name { color: var(--vermilion); }
+  .badge-switch {
+    background: transparent;
+    border: 1px solid var(--ink-mute);
+    color: var(--ink-soft);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 10px;
+    padding: 4px 8px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+  }
+  .badge-switch:hover {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+
+  .sync-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--ink-mute);
+    letter-spacing: 0.1em;
+  }
+  .sync-indicator .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #9a8e7c;
+  }
+  .sync-indicator.online .dot {
+    background: #5a9a3e;
+    box-shadow: 0 0 4px rgba(90, 154, 62, 0.6);
+  }
+  .sync-indicator.online {
+    color: var(--moss-d);
+  }
+</style>
+<script src="firebase-config.js"></script>
+<script src="firebase-bootstrap.js"></script>
+<script src="shared-storage.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ USER BADGE ============ -->
+  <div class="user-badge" id="userBadge" style="display:none;">
+    <span class="badge-label">YOU ARE</span>
+    <span class="badge-name" id="badgeName">─</span>
+    <span class="sync-indicator" id="syncIndicator"><span class="dot"></span><span id="syncText">LOCAL</span></span>
+    <button class="badge-switch" id="badgeSwitch">切替</button>
+  </div>
+
+  <!-- ============ HUB JACKET ============ -->
+  <div class="jacket">
+    <div class="jacket-meta">
+      <span class="left">FOR US TWO</span>
+      <span>2026 ・ MOVING JOURNEY</span>
+    </div>
+
+    <div class="hub-title-wrap">
+      <div class="hub-title-jp">道<span class="accent">の</span>り</div>
+      <div class="htitle">二人で見る、引っ越しまでの道のり</div>
+      <div class="htitle-en">OUR ROAD HOME ─ TOGETHER</div>
+      <div class="verse">
+        ひとつずつ、二人で。
+      </div>
+    </div>
+
+    <div class="stamp">しんた<br>＆<br>かなん</div>
+  </div>
+
+  <!-- ============ COUNTDOWN ============ -->
+  <div class="countdown-wrap">
+    <div class="countdown-head">─　到 達 ま で　─</div>
+    <div class="countdown-grid">
+      <div class="cd-card" id="cd-move">
+        <div class="cd-label">引 越 し 日</div>
+        <div class="cd-num" id="cd-move-num">D−<span id="cd-move-days">--</span></div>
+        <div class="cd-date">5 / 12（月）</div>
+      </div>
+      <div class="cd-card" id="cd-out">
+        <div class="cd-label">退 去 立 会</div>
+        <div class="cd-num" id="cd-out-num">D−<span id="cd-out-days">--</span></div>
+        <div class="cd-date">5 / 23（金）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CHAPTER CARDS ============ -->
+  <div class="ch-cards">
+
+    <a class="ch-card complete" href="checklist.html" target="_blank" rel="noopener">
+      <div class="ch-side">
+        <span class="ch-num">CH. I</span>
+        <span class="ch-num-jp">第<span class="accent">一</span>章</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-title">家事 ・ 買い出し</div>
+        <div class="ch-en">CHAPTER ONE</div>
+        <div class="ch-desc">洗面台のヒビ確認、洗濯物、3店舗の買い物リスト</div>
+      </div>
+      <div class="ch-arrow">›</div>
+      <div class="complete-stamp">完<br>了</div>
+    </a>
+
+    <!-- 第二章グループ（役割分担） -->
+    <div class="ch-group">
+      <div class="ch-group-head">
+        <span class="ch-group-tk">CH. II</span>
+        <span class="ch-group-name">第　二　章</span>
+        <span class="ch-group-sub">役 割 分 担</span>
+      </div>
+
+      <a class="ch-card sub" href="checklist-ch2.html" target="_blank" rel="noopener">
+        <div class="ch-side ch-side-female">
+          <span class="ch-num">SIDE A</span>
+          <span class="ch-num-jp">彼<span class="accent">女</span>篇</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-title">かなん の タスク</div>
+          <div class="ch-en">HER TASKS</div>
+          <div class="ch-desc">掃除 ・ ゴミ捨て（8つの場所、PC・家電・敷布団）</div>
+        </div>
+        <div class="ch-arrow">›</div>
+      </a>
+
+      <a class="ch-card sub highlight" href="checklist-bf.html" target="_blank" rel="noopener">
+        <div class="ch-side">
+          <span class="ch-num">SIDE B</span>
+          <span class="ch-num-jp">彼<span class="accent">氏</span>篇</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-title">しんた の タスク</div>
+          <div class="ch-en">HIS TASKS</div>
+          <div class="ch-desc">買い出し、リネット集荷、お水受け取り、不用品回収</div>
+        </div>
+        <div class="ch-arrow">›</div>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="colophon">
+    KATSUSHIKA <span class="div">→</span> TAITO <span class="div">·</span> 5 / 12 <span class="div">·</span> 5 / 23
+    <span class="names">しんた ・ かなん</span>
+  </div>
+</div>
+
+<!-- ============ USER SELECT MODAL ============ -->
+<div class="user-modal-overlay" id="userModal">
+  <div class="user-modal">
+    <div class="user-modal-title">あなたは どちらですか？</div>
+    <div class="user-modal-sub">WHO ARE YOU?</div>
+    <p class="user-modal-q">最初に1度だけ選んでね。<br>後でも切替できます。</p>
+    <div class="user-buttons">
+      <button class="user-btn" data-user="kanan">
+        <span class="role">SIDE A ─ SHE</span>
+        かなん
+      </button>
+      <button class="user-btn" data-user="shinta">
+        <span class="role">SIDE B ─ HE</span>
+        しんた
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ===== カウントダウン計算 =====
+  function calcDays(targetIso) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const target = new Date(targetIso);
+    target.setHours(0, 0, 0, 0);
+    const diff = Math.round((target - today) / (1000 * 60 * 60 * 24));
+    return diff;
+  }
+
+  function setCountdown(cardId, daysSpanId, numId, targetIso) {
+    const days = calcDays(targetIso);
+    const card = document.getElementById(cardId);
+    const numSpan = document.getElementById(daysSpanId);
+    const numEl = document.getElementById(numId);
+    if (days > 0) {
+      numSpan.textContent = days;
+      if (days <= 7) card.classList.add('urgent');
+    } else if (days === 0) {
+      numEl.innerHTML = '<span style="font-size:24px;font-style:normal;">本日</span>';
+      card.classList.add('urgent');
+    } else {
+      numEl.innerHTML = '<span class="passed" style="font-size:18px;">完了</span>';
+    }
+  }
+
+  setCountdown('cd-move', 'cd-move-days', 'cd-move-num', '2026-05-12');
+  setCountdown('cd-out',  'cd-out-days',  'cd-out-num',  '2026-05-23');
+
+  // ===== ユーザー管理 =====
+  const userBadge = document.getElementById('userBadge');
+  const badgeName = document.getElementById('badgeName');
+  const syncIndicator = document.getElementById('syncIndicator');
+  const syncText = document.getElementById('syncText');
+  const userModal = document.getElementById('userModal');
+  const badgeSwitch = document.getElementById('badgeSwitch');
+
+  const USER_LABELS = {
+    kanan:  { name: 'かなん', cls: 'kanan' },
+    shinta: { name: 'しんた', cls: 'shinta' }
+  };
+
+  function showUserBadge(userId) {
+    const u = USER_LABELS[userId];
+    if (!u) {
+      userBadge.style.display = 'none';
+      return;
+    }
+    userBadge.style.display = '';
+    userBadge.classList.remove('kanan', 'shinta');
+    userBadge.classList.add(u.cls);
+    badgeName.textContent = u.name;
+  }
+
+  function showSyncStatus() {
+    // Firebase が動いてるかチェック
+    if (window.FIREBASE_READY && window.firebase) {
+      syncIndicator.classList.add('online');
+      syncText.textContent = 'LIVE SYNC';
+    } else {
+      syncIndicator.classList.remove('online');
+      syncText.textContent = 'LOCAL';
+    }
+  }
+
+  function showModal() {
+    userModal.classList.add('show');
+  }
+  function hideModal() {
+    userModal.classList.remove('show');
+  }
+
+  // モーダルのボタン
+  document.querySelectorAll('.user-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const userId = btn.dataset.user;
+      SharedStorage.setUserId(userId);
+      showUserBadge(userId);
+      hideModal();
+    });
+  });
+
+  // 切替ボタン
+  badgeSwitch.addEventListener('click', () => {
+    showModal();
+  });
+
+  // 起動時：ユーザーチェック
+  (async () => {
+    // Firebase の初期化を待つ（あれば）
+    if (window.FIREBASE_READY_PROMISE) {
+      await window.FIREBASE_READY_PROMISE;
+    }
+    showSyncStatus();
+    const userId = SharedStorage.getUserId();
+    if (!userId) {
+      showModal();
+    } else {
+      showUserBadge(userId);
+    }
+  })();
+</script>
+</body>
+</html>
