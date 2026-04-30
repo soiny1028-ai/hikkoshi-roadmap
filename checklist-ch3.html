@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>引っ越しまでの道のり 〜第三章 インフラ整備篇〜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #e6d8b9;
+    --paper-deep:   #d8c79e;
+    --card:         #f1e7c9;
+    --card-warm:    #ede0bc;
+    --ink:          #1a140d;
+    --ink-soft:     #4a3a25;
+    --ink-mute:     #8a7654;
+    --rule:         #b09668;
+    --vermilion:    #a8392c;
+    --vermilion-d:  #842c22;
+    --moss:         #5a6b3c;
+    --moss-d:       #3e4a26;
+    --shadow:       0 1px 0 rgba(26, 20, 13, 0.04), 0 4px 18px rgba(74, 58, 37, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    /* paper grain */
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(168, 57, 44, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(90, 107, 60, 0.05) 0%, transparent 38%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-attachment: fixed;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 12px 80px;
+  }
+
+  /* ============ HERO / CD JACKET ============ */
+  .jacket {
+    margin: 12px 0 14px;
+    padding: 14px 14px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: var(--shadow), 3px 3px 0 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .jacket::before {
+    content: '';
+    position: absolute; inset: 5px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .jacket-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .jacket-meta .left { color: var(--vermilion); font-weight: 600; }
+
+  .jacket-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* big vertical title */
+  .vtitle {
+    writing-mode: vertical-rl;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    padding-left: 0;
+    border-right: 1.5px solid var(--ink);
+    padding-right: 8px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vtitle .rt {
+    color: var(--vermilion);
+    font-size: 36px;
+    margin: -1px 0;
+  }
+
+  .htitle-block { padding-top: 0; }
+
+  .htitle {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .htitle-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .verse {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--vermilion);
+    padding: 1px 0 1px 8px;
+    margin-bottom: 0;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 8.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    transform: rotate(-8deg);
+    background: rgba(168, 57, 44, 0.04);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ PROGRESS / METER ============ */
+  .meter {
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 14px 16px;
+    position: relative;
+  }
+  .meter::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--rule);
+    border-color: transparent;
+    border-top-color: var(--rule);
+    border-bottom-color: var(--rule);
+    pointer-events: none;
+  }
+
+  .meter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .meter-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+  .meter-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .meter-count .total {
+    color: var(--ink-mute);
+    font-size: 14px;
+  }
+  .meter-sub {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    display: none;
+  }
+  .meter-sub.show { display: block; }
+  .meter-sub strong { color: var(--ink); font-weight: 600; }
+
+  .meter-bar {
+    height: 6px;
+    background: var(--paper-deep);
+    position: relative;
+    border: 1px solid var(--rule);
+  }
+  .meter-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--vermilion);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .meter-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0) 0 4px,
+      rgba(0,0,0,0.12) 4px 5px
+    );
+  }
+
+  /* ============ TABS / TRACKS NAV ============ */
+  nav.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 22px;
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+  }
+
+  /* 5タブ用 */
+  nav.tabs.tabs-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  nav.tabs button {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  nav.tabs button:last-child { border-right: none; }
+
+  nav.tabs button .tk {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 2px;
+  }
+  nav.tabs button .badge {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-mute);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  nav.tabs button.active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  nav.tabs button.active .tk { color: var(--card-warm); }
+  nav.tabs button.active .badge { color: var(--card-warm); }
+
+  nav.tabs button.complete:not(.active)::before {
+    content: '済';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 9px;
+    color: var(--vermilion);
+    background: var(--card);
+    border: 1px solid var(--vermilion);
+    padding: 0 3px;
+    line-height: 1.4;
+  }
+
+  /* ============ SECTION ============ */
+  section {
+    display: none;
+    animation: rise 0.4s ease;
+  }
+  section.active { display: block; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter {
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    padding: 14px 0;
+  }
+  .chapter::before, .chapter::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--ink);
+  }
+  .chapter::before { top: 0; }
+  .chapter::after { bottom: 0; }
+  .chapter .ch-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .chapter h2 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    margin: 4px 0 2px;
+  }
+  .chapter .ch-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.15em;
+  }
+
+  .liner-note {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    background: rgba(168, 57, 44, 0.06);
+    border-left: 3px solid var(--vermilion);
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .liner-note strong {
+    color: var(--vermilion);
+    font-weight: 600;
+  }
+
+  /* ============ TASK CARDS ============ */
+  .task-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .task-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    transition: all 0.25s ease;
+  }
+  .task-card.checked { background: var(--card-warm); }
+  .task-card.checked .task-num,
+  .task-card.checked .task-title { opacity: 0.45; }
+  .task-card.checked .task-title { text-decoration: line-through; }
+
+  .task-head {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--rule);
+    min-height: 40px;
+  }
+
+  .task-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--vermilion);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .task-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* タスクタイトル+担当タグのラッパー */
+  .task-title-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  /* 担当タグ */
+  .assignee-tag {
+    display: inline-block;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    padding: 2px 7px;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .assignee-tag.tag-kanan {
+    background: var(--moss-d);
+    color: var(--card);
+    border-color: var(--moss-d);
+  }
+  .assignee-tag.tag-shinta {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .assignee-tag.tag-both {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+
+  .check-box {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .check-box svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    stroke: var(--card);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5) rotate(-15deg);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .checked .check-box,
+  .done .check-box {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .checked .check-box svg,
+  .done .check-box svg {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  /* 無かった (unavailable) state */
+  .unavailable .check-box {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .unavailable .check-box::after {
+    content: '×';
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    position: absolute;
+  }
+  .unavailable .check-box svg { opacity: 0; }
+  .shop-item.unavailable { background: rgba(26, 20, 13, 0.06); }
+  .shop-item.unavailable .item-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ink-mute);
+  }
+  .shop-item.unavailable .item-num { opacity: 0.4; }
+
+  /* "無" stamp on unavailable items */
+  .shop-item.unavailable::before {
+    content: '無';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-12deg);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(241, 231, 201, 0.85);
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* 無 button */
+  .nai-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    min-width: 26px;
+  }
+  .nai-btn:hover, .nai-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .shop-item.unavailable .nai-btn {
+    background: var(--ink);
+    color: var(--card);
+  }
+
+  .item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .task-detail {
+    padding: 12px 16px 14px;
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+
+  .lyric-block {
+    margin: 6px 0;
+    padding: 10px 12px;
+    background: var(--paper);
+    border-left: 2px solid var(--moss);
+    position: relative;
+  }
+  .lyric-block:not(:last-child) { margin-bottom: 8px; }
+
+  .lyric-block.sp { border-left-color: var(--vermilion); background: rgba(168, 57, 44, 0.05); }
+
+  .lyric-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .lyric-block.sp .lyric-label { color: var(--vermilion); }
+
+  .lyric-block .body { color: var(--ink); }
+
+  .accent-mark {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+
+  /* multi-task with subtasks */
+  .task-card.multi { display: block; }
+  .task-card.multi .task-detail { display: block; }
+  .task-card.multi.all-done { background: var(--card-warm); }
+  .task-head.no-toggle { cursor: default; }
+
+  .task-desc {
+    margin: 0 0 10px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .task-progress {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .subtask-group {
+    margin-top: 12px;
+    display: block;
+  }
+  .subtask-group:first-of-type { margin-top: 4px; }
+
+  .subtask-group-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+    display: block;
+  }
+
+  .subtask {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .subtask:active { background: var(--card-warm); transform: scale(0.99); }
+  .subtask.done {
+    background: var(--card-warm);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .subtask-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  .subtask.done .subtask-side {
+    opacity: 0.5;
+  }
+
+  .subtask-text {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .check-box-sm {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .check-box-sm svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    stroke: var(--card);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .subtask.done .check-box-sm {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .check-box-sm svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .subtask-side {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--vermilion);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .subtask-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .subtask-skip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px 6px 30px;
+    margin-bottom: 4px;
+    opacity: 0.45;
+  }
+  .subtask-skip .subtask-side {
+    font-style: italic;
+  }
+  .subtask-skip .subtask-name {
+    text-decoration: line-through;
+    font-size: 12px;
+  }
+
+  /* ============ SHOPPING / TRACK LIST ============ */
+  .shop-list { border: 1.5px solid var(--ink); background: var(--card); }
+
+  .shop-item {
+    display: grid;
+    grid-template-columns: 24px 22px 1fr auto;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-item:active { background: var(--card-warm); }
+  .shop-item.checked, .shop-item.done { background: var(--card-warm); }
+  .shop-item.checked .item-name,
+  .shop-item.done .item-name { opacity: 0.45; text-decoration: line-through; }
+  .shop-item.checked .item-num,
+  .shop-item.done .item-num { opacity: 0.45; }
+
+  .item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .shop-item .check-box { width: 22px; height: 22px; }
+  .shop-item .check-box svg { width: 13px; height: 13px; }
+
+  .item-info { min-width: 0; }
+  .item-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .item-note {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+
+  .img-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 28px;
+  }
+  .img-btn:hover, .img-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .img-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  /* ============ FOOTER ============ */
+  .colophon {
+    margin-top: 32px;
+    padding: 14px 16px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.2em;
+  }
+  .colophon .div { display: inline-block; padding: 0 8px; color: var(--vermilion); }
+
+  .reset-btn {
+    margin: 14px auto 0;
+    display: block;
+    background: transparent;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 8px 18px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reset-btn:hover {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+    color: var(--card);
+  }
+
+  /* ============ CELEBRATE ============ */
+  .celebrate {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .celebrate.show { display: flex; animation: rise 0.3s ease; }
+
+  .celebrate-card {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 8px 8px 0 var(--vermilion);
+    animation: pop 0.5s cubic-bezier(0.34, 1.6, 0.64, 1);
+    position: relative;
+  }
+  @keyframes pop {
+    from { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .celebrate-card .seal {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 56px;
+    height: 56px;
+    background: var(--vermilion);
+    color: var(--card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    transform: rotate(8deg);
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card h3 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card p {
+    font-family: 'Klee One', serif;
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .celebrate-card button {
+    background: var(--ink);
+    color: var(--card);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
+
+  /* narrow */
+  @media (max-width: 380px) {
+    .app { padding: 0 10px 80px; }
+    .jacket { padding: 12px 10px; }
+    .jacket-meta { font-size: 9px; margin-bottom: 10px; padding-bottom: 5px; }
+    .jacket-body { gap: 10px; }
+    .vtitle { font-size: 28px; padding-right: 7px; }
+    .vtitle .rt { font-size: 32px; }
+    .htitle { font-size: 14.5px; }
+    .htitle-en { font-size: 9px; margin-bottom: 6px; }
+    .verse { font-size: 10.5px; padding-left: 7px; }
+    .stamp { width: 38px; height: 38px; font-size: 8px; top: 8px; right: 8px; border-width: 1.5px; }
+    nav.tabs button { font-size: 11px; padding: 8px 1px 7px; }
+    nav.tabs button .tk { font-size: 9px; }
+    nav.tabs button .badge { font-size: 9px; }
+    .item-name { font-size: 13px; }
+    .item-note { font-size: 10px; }
+    .img-btn { padding: 6px 6px; font-size: 9.5px; min-width: 24px; }
+    .nai-btn { padding: 6px 7px; font-size: 11.5px; min-width: 24px; }
+    .shop-item { gap: 5px; padding: 9px 9px; }
+    .item-num { font-size: 13px; }
+    .task-detail { padding: 10px 12px 12px; font-size: 12px; }
+    .lyric-block { padding: 9px 10px; }
+    .chapter h2 { font-size: 18px; letter-spacing: 0.06em; }
+    .meter { padding: 12px 12px; }
+    .meter-count { font-size: 19px; }
+  }
+</style>
+<link rel="stylesheet" href="shared.css">
+<script src="firebase-config.js"></script>
+<script src="firebase-bootstrap.js"></script>
+<script src="shared-storage.js"></script>
+<script src="permission-helper.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ JACKET HEADER ============ -->
+  <div class="jacket">
+    <div class="jacket-meta">
+      <span class="left">VOL. 03 ・ INFRASTRUCTURE</span>
+      <span>2026 ・ MOVING JOURNEY</span>
+    </div>
+
+    <div class="jacket-body">
+      <div class="vtitle">
+        <span>第</span><span class="rt">三</span><span>章</span>
+      </div>
+      <div class="htitle-block">
+        <div class="htitle">引っ越しまでの<br>道のり</div>
+        <div class="htitle-en">INFRASTRUCTURE ─ CH. III</div>
+        <div class="verse">
+          手続き、契約、住所変更。<br>
+          見えない道を整える ──
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp">準 備<br>万 端</div>
+  </div>
+
+  <!-- ============ PROGRESS METER ============ -->
+  <div class="meter">
+    <div class="meter-head">
+      <span class="meter-label">進　捗　率</span>
+      <span class="meter-count"><span id="done">0</span><span class="total"> / <span id="total">0</span></span></span>
+    </div>
+    <div class="meter-bar"><div class="meter-fill" id="bar"></div></div>
+    <div class="meter-sub" id="naiSub">店に <strong id="naiCount">0</strong> 個 無かったって</div>
+  </div>
+
+  <!-- ============ TABS ============ -->
+  <nav class="tabs tabs-5" id="tabs">
+    <button data-tab="now" class="active">
+      <span class="tk">NOW</span>今すぐ
+      <span class="badge" id="b-now">0/0</span>
+    </button>
+    <button data-tab="week">
+      <span class="tk">WEEK</span>今週
+      <span class="badge" id="b-week">0/0</span>
+    </button>
+    <button data-tab="before">
+      <span class="tk">BEFORE</span>引越前
+      <span class="badge" id="b-before">0/0</span>
+    </button>
+    <button data-tab="day">
+      <span class="tk">DAY</span>当日
+      <span class="badge" id="b-day">0/0</span>
+    </button>
+    <button data-tab="after">
+      <span class="tk">AFTER</span>引越後
+      <span class="badge" id="b-after">0/0</span>
+    </button>
+  </nav>
+
+  <!-- ============ NOW ============ -->
+  <section id="now" class="active">
+    <div class="chapter">
+      <div class="ch-num">— Phase 01 —</div>
+      <h2>今　す　ぐ　篇</h2>
+      <div class="ch-en">do now ─ urgent</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>期限が迫ってる急務。今やらないと間に合わない手続き。
+    </div>
+    <div class="task-list" id="now-list"></div>
+  </section>
+
+  <!-- ============ THIS WEEK ============ -->
+  <section id="week">
+    <div class="chapter">
+      <div class="ch-num">— Phase 02 —</div>
+      <h2>今　週　中　篇</h2>
+      <div class="ch-en">this week ─ ~5/4</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>余裕を持って手続きしておきたいライフライン関連。
+    </div>
+    <div class="task-list" id="week-list"></div>
+  </section>
+
+  <!-- ============ BEFORE MOVE ============ -->
+  <section id="before">
+    <div class="chapter">
+      <div class="ch-num">— Phase 03 —</div>
+      <h2>引 越 し 前 篇</h2>
+      <div class="ch-en">before move ─ ~5/11</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>引越し当日までに済ませておきたい準備。
+    </div>
+    <div class="task-list" id="before-list"></div>
+  </section>
+
+  <!-- ============ MOVING DAY ============ -->
+  <section id="day">
+    <div class="chapter">
+      <div class="ch-num">— Phase 04 —</div>
+      <h2>引 越 し 当 日 篇</h2>
+      <div class="ch-en">moving day ─ 5/12</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>5/12当日のタスク。新居でのライフライン開通確認。
+    </div>
+    <div class="task-list" id="day-list"></div>
+  </section>
+
+  <!-- ============ AFTER MOVE ============ -->
+  <section id="after">
+    <div class="chapter">
+      <div class="ch-num">— Phase 05 —</div>
+      <h2>引 越 し 後 篇</h2>
+      <div class="ch-en">after move ─ 5/12 onwards</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>引越し後にゆっくり進める手続き。住所変更・退去立会いなど。
+    </div>
+    <div class="task-list" id="after-list"></div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <div class="colophon">
+    第三章 ・ インフラ整備 <span class="div">·</span> 二人の道のり <span class="div">·</span> WRITTEN WITH LOVE
+  </div>
+  <button class="reset-btn" id="reset">CHECK 全リセット</button>
+</div>
+
+<!-- ============ CELEBRATE ============ -->
+<div class="celebrate" id="celebrate">
+  <div class="celebrate-card">
+    <div class="seal">完</div>
+    <h3>第 三 章 ・ 完</h3>
+    <p>手続きの嵐、お疲れさま。<br>これでもう一安心、<br>新生活はじまるね。</p>
+    <button onclick="document.getElementById('celebrate').classList.remove('show')">閉じる</button>
+  </div>
+</div>
+
+<script>
+// ============================================
+// CHAPTER 3 - INFRASTRUCTURE TASKS
+// ============================================
+const TASKS = {
+  // ========== 🔥 NOW 今すぐ ==========
+  now: [
+    {
+      id: 'n1',
+      title: '賃貸契約の解約通知（旧居）',
+      assignee: 'kanan',
+      preDone: true,
+      desc: '✅ 済み。退去日：5/23（金）に確定。',
+      subtasks: [
+        { id: 'n1-a', name: '不動産屋 or 管理会社に解約連絡', preDone: true },
+        { id: 'n1-b', name: '退去日：5/23（金）で確定', preDone: true }
+      ]
+    },
+    {
+      id: 'n2',
+      title: '新居の電気契約申し込み',
+      assignee: 'kanan',
+      desc: '入居日（5/12）に合わせて手配。電気は申込みだけで使える（立会不要）。',
+      subtasks: [
+        { id: 'n2-a', name: '電力会社・プランを決める（東京電力 / 楽天でんき / Looop等）' },
+        { id: 'n2-b', name: 'WEBで使用開始申込み' },
+        { id: 'n2-c', name: '使用開始日：5/12（月）に設定' }
+      ]
+    },
+    {
+      id: 'n3',
+      title: '新居のガス開栓予約',
+      assignee: 'kanan',
+      desc: 'GW明けは混むので早急に！ガスは立会必須なので予約必要。',
+      subtasks: [
+        { id: 'n3-a', name: '都市ガスかLPガスか確認（マンション規約 or 不動産屋に）' },
+        { id: 'n3-b', name: 'ガス会社に開栓予約（東京ガス等）' },
+        { id: 'n3-c', name: '開栓日時：5/12（月）の希望時間で予約' },
+        { id: 'n3-d', name: '立会い時間を確保（30分〜1時間）' }
+      ]
+    },
+    {
+      id: 'n4',
+      title: '新居のネット回線契約・開通工事予約',
+      assignee: 'both',
+      desc: '工事は数週間先になることも。マンションの回線方式を要確認。',
+      subtasks: [
+        { id: 'n4-a', name: 'マンションのネット環境確認（光対応か / 共用回線か）' },
+        { id: 'n4-b', name: 'プロバイダー選び（フレッツ系 / NURO / au等）' },
+        { id: 'n4-c', name: 'WEBで申込み' },
+        { id: 'n4-d', name: '開通工事日を予約' }
+      ]
+    }
+  ],
+
+  // ========== 📅 THIS WEEK 今週中 ==========
+  week: [
+    {
+      id: 'w1',
+      title: '旧居の電気停止連絡',
+      assignee: 'kanan',
+      desc: '退去立会い（5/23 11:00〜）まで電気は使うので、停止日は 5/23 夕方〜 or 5/24 で。WEBで完結。',
+      subtasks: [
+        { id: 'w1-a', name: '契約中の電力会社サイトにログイン' },
+        { id: 'w1-b', name: '使用停止申込み（停止日：5/23 夕方〜 or 5/24）' },
+        { id: 'w1-c', name: '最終検針方法を確認' },
+        { id: 'w1-d', name: '最終支払い方法を確認' }
+      ]
+    },
+    {
+      id: 'w2',
+      title: '旧居のガス閉栓連絡',
+      assignee: 'kanan',
+      desc: '立会い要否を確認。閉栓日はガス会社と相談（5/23 立会い前後 or 5/24）。',
+      subtasks: [
+        { id: 'w2-a', name: '契約中のガス会社に連絡' },
+        { id: 'w2-b', name: '退去立会いが5/23 11:00〜であることを伝える' },
+        { id: 'w2-c', name: '立会い要否を確認 → 必要なら時間調整' },
+        { id: 'w2-d', name: '最終支払い方法を確認' }
+      ]
+    },
+    {
+      id: 'w3',
+      title: '水道の停止＋開始（同時申込）',
+      assignee: 'kanan',
+      desc: '葛飾区も台東区も東京都水道局の管轄。WEBで一括申込可。停止日は5/23夕方〜。',
+      subtasks: [
+        { id: 'w3-a', name: '東京都水道局のサイトにアクセス' },
+        { id: 'w3-b', name: '使用中止届（旧居・葛飾区）→ 5/23 夕方以降' },
+        { id: 'w3-c', name: '使用開始届（新居・台東区）→ 5/12' },
+        { id: 'w3-d', name: '名義は「かなん」で統一' }
+      ]
+    },
+    {
+      id: 'w4',
+      title: 'プレミアムウォーター 配送先変更',
+      assignee: 'kanan',
+      desc: 'かなん名義のまま、配送先住所だけ変更。',
+      subtasks: [
+        { id: 'w4-a', name: 'プレミアムウォーターのマイページにログイン' },
+        { id: 'w4-b', name: '配送先住所を新居に変更' },
+        { id: 'w4-c', name: '次回配送日を確認' }
+      ]
+    },
+    {
+      id: 'w5',
+      title: '郵便局の転居届',
+      assignee: 'kanan',
+      desc: '旧住所宛の郵便を1年間新住所に転送。e転居（オンライン）が便利。',
+      subtasks: [
+        { id: 'w5-a', name: 'e転居サイトにアクセス（または郵便局窓口）' },
+        { id: 'w5-b', name: '本人確認手続き（マイナンバー or 本人確認書類）' },
+        { id: 'w5-c', name: '旧住所・新住所を入力' },
+        { id: 'w5-d', name: '転送開始日：5/12 で申請' }
+      ]
+    },
+    {
+      id: 'w6',
+      title: 'NHK 住所変更',
+      assignee: 'kanan',
+      desc: 'WEBで簡単に住所変更可能。同棲後はかなんの契約に統合。',
+      subtasks: [
+        { id: 'w6-a', name: 'NHKのサイトで住所変更手続き' },
+        { id: 'w6-b', name: '新住所を入力' }
+      ]
+    }
+  ],
+
+  // ========== 📦 BEFORE MOVE 引越し前 ==========
+  before: [
+    {
+      id: 'b1',
+      title: 'しんた：転出届を提出',
+      assignee: 'shinta',
+      desc: 'しんたの現住所の役所で。引越し前14日以内〜OK。',
+      subtasks: [
+        { id: 'b1-a', name: '本人確認書類（運転免許証・マイナンバーカード等）を準備' },
+        { id: 'b1-b', name: '現住所の役所窓口へ' },
+        { id: 'b1-c', name: '転出届を提出 → 転出証明書を受け取る' },
+        { id: 'b1-d', name: '※マイナンバーカードがあれば「特例転出届」でオンライン申請も可' }
+      ]
+    },
+    {
+      id: 'b2',
+      title: '退去立会い日の確定',
+      assignee: 'kanan',
+      preDone: true,
+      desc: '✅ 済み。5/23（金）11:00〜 で確定。',
+      subtasks: [
+        { id: 'b2-a', name: '不動産屋に立会い時間を確認', preDone: true },
+        { id: 'b2-b', name: '5/23（金）11:00〜 で確定', preDone: true }
+      ]
+    },
+    {
+      id: 'b3',
+      title: '敷金返金口座の確認',
+      assignee: 'kanan',
+      desc: '退去立会い時に伝える or 書類提出。',
+      subtasks: [
+        { id: 'b3-a', name: '振込先の口座情報を準備' },
+        { id: 'b3-b', name: '退去精算書の受け取り方法を確認' }
+      ]
+    },
+    {
+      id: 'b4',
+      title: 'ご近所への挨拶（旧居）',
+      assignee: 'kanan',
+      desc: '任意。お世話になった方に感謝の挨拶を。',
+      subtasks: [
+        { id: 'b4-a', name: '挨拶する家の確認' },
+        { id: 'b4-b', name: '粗品準備（任意）' }
+      ]
+    },
+    {
+      id: 'b5',
+      title: 'ご近所への挨拶準備（新居）',
+      assignee: 'both',
+      desc: '引越し当日〜翌日に渡す粗品の準備。',
+      subtasks: [
+        { id: 'b5-a', name: '粗品を選ぶ（タオル・お菓子・洗剤など 500-1000円）' },
+        { id: 'b5-b', name: '挨拶する家の数を確認（両隣・上下階）' },
+        { id: 'b5-c', name: '挨拶する範囲分の粗品を購入' }
+      ]
+    }
+  ],
+
+  // ========== 🎯 MOVING DAY 当日 ==========
+  day: [
+    {
+      id: 'd1',
+      title: '新居：電気のブレーカー上げ',
+      assignee: 'both',
+      desc: '入居後すぐ。アンペアブレーカー → 漏電遮断器 → 配線用遮断機の順で上げる。',
+      subtasks: [
+        { id: 'd1-a', name: '分電盤の場所を確認（玄関 or キッチン上等）' },
+        { id: 'd1-b', name: 'アンペアブレーカーを「入」に' },
+        { id: 'd1-c', name: '漏電遮断器を「入」に' },
+        { id: 'd1-d', name: '配線用遮断機を「入」に' },
+        { id: 'd1-e', name: '通電確認（照明をつけてみる）' }
+      ]
+    },
+    {
+      id: 'd2',
+      title: '新居：ガス開栓立会い',
+      assignee: 'both',
+      desc: 'ガス会社の作業員と一緒に開栓。30分〜1時間。',
+      subtasks: [
+        { id: 'd2-a', name: '予約時間に在宅' },
+        { id: 'd2-b', name: '作業員と一緒に開栓作業' },
+        { id: 'd2-c', name: 'ガス警報器の確認' },
+        { id: 'd2-d', name: 'ガスコンロの点火確認' },
+        { id: 'd2-e', name: '給湯器（お湯）の確認' }
+      ]
+    },
+    {
+      id: 'd3',
+      title: '新居：水道の通水確認',
+      assignee: 'both',
+      desc: '元栓が閉まってないか、各蛇口で通水確認。',
+      subtasks: [
+        { id: 'd3-a', name: '水道メーターBOX内の元栓を確認（必要なら開ける）' },
+        { id: 'd3-b', name: 'キッチン・洗面・お風呂・トイレで水が出るか確認' },
+        { id: 'd3-c', name: '給湯器の操作（お湯が出るか）' }
+      ]
+    },
+    {
+      id: 'd4',
+      title: '旧居：荷物搬出後の確認',
+      assignee: 'kanan',
+      desc: '荷物を運び出した後の確認。電気・水道は5/23立会いまで使うのでブレーカーは落とさない。',
+      subtasks: [
+        { id: 'd4-a', name: '全部屋の最終確認（押入れ・棚の中も）' },
+        { id: 'd4-b', name: '冷蔵庫・洗濯機の電源プラグを抜く（搬出済みなら不要）' },
+        { id: 'd4-c', name: '窓の施錠' },
+        { id: 'd4-d', name: '玄関を施錠（鍵は5/23の退去立会い時に返却）' }
+      ]
+    }
+  ],
+
+  // ========== 📮 AFTER MOVE 引越し後 ==========
+  after: [
+    {
+      id: 'a1',
+      title: 'しんた：転入届を提出（台東区役所）',
+      assignee: 'shinta',
+      desc: '引越し後14日以内（〜5/26まで）。転出証明書を持参。',
+      subtasks: [
+        { id: 'a1-a', name: '転出証明書を持参（しんたの旧居役所で受け取ったもの）' },
+        { id: 'a1-b', name: '本人確認書類・マイナンバーカード持参' },
+        { id: 'a1-c', name: '台東区役所窓口へ' },
+        { id: 'a1-d', name: '転入届を提出' }
+      ]
+    },
+    {
+      id: 'a2',
+      title: 'しんた：マイナンバーカード住所変更',
+      assignee: 'shinta',
+      desc: '転入届と同時にできる。役所で一括処理推奨。',
+      subtasks: [
+        { id: 'a2-a', name: '転入届と同時に役所で申請' },
+        { id: 'a2-b', name: '暗証番号入力で更新' }
+      ]
+    },
+    {
+      id: 'a3',
+      title: 'しんた：運転免許証 住所変更',
+      assignee: 'shinta',
+      desc: '警察署 or 運転免許センターで。新住民票（or マイナンバーカード）持参。',
+      subtasks: [
+        { id: 'a3-a', name: '近くの警察署を確認' },
+        { id: 'a3-b', name: '運転免許証＋新住所確認書類を持参' },
+        { id: 'a3-c', name: '運転免許証記載事項変更届を提出' }
+      ]
+    },
+    {
+      id: 'a4',
+      title: 'しんた：銀行・カード等住所変更',
+      assignee: 'shinta',
+      desc: '各銀行・カード会社のアプリ or サイトで変更。',
+      subtasks: [
+        { id: 'a4-a', name: 'メインバンクの住所変更' },
+        { id: 'a4-b', name: 'クレジットカード各社の住所変更' },
+        { id: 'a4-c', name: '保険（医療・生命）の住所変更' }
+      ]
+    },
+    {
+      id: 'a5',
+      title: 'しんた：勤務先への住所変更届',
+      assignee: 'shinta',
+      desc: '会社規定に従って提出。給与振込・通勤費の関係。',
+      subtasks: [
+        { id: 'a5-a', name: '住所変更届のフォーマット確認' },
+        { id: 'a5-b', name: '提出 → 通勤経路変更も合わせて' }
+      ]
+    },
+    {
+      id: 'a6',
+      title: 'しんた：携帯キャリア住所変更',
+      assignee: 'shinta',
+      subtasks: [
+        { id: 'a6-a', name: 'キャリアアプリ or マイページで住所変更' }
+      ]
+    },
+    {
+      id: 'a7',
+      title: 'しんた：通販サイトの住所変更',
+      assignee: 'shinta',
+      desc: 'Amazon・楽天・メルカリなど、よく使うサイトを順番に。',
+      subtasks: [
+        { id: 'a7-a', name: 'Amazon の住所変更' },
+        { id: 'a7-b', name: '楽天の住所変更' },
+        { id: 'a7-c', name: 'その他通販サイトの住所変更' }
+      ]
+    },
+    {
+      id: 'a8',
+      title: '新居ネット 開通工事立会い',
+      assignee: 'both',
+      desc: '予約した工事日に在宅 → 工事立会い。',
+      subtasks: [
+        { id: 'a8-a', name: '工事日時を再確認' },
+        { id: 'a8-b', name: '立会い → 開通テスト' },
+        { id: 'a8-c', name: 'WiFiルーター設定' }
+      ]
+    },
+    {
+      id: 'a9',
+      title: '退去立会い（5/23 11:00〜）',
+      assignee: 'kanan',
+      desc: '不動産屋と部屋確認。電気・水道は立会い時に動作確認できるように停止日を5/23夕方〜にしておく。',
+      subtasks: [
+        { id: 'a9-a', name: '11時の10分前には到着' },
+        { id: 'a9-b', name: '室内チェックを一緒に' },
+        { id: 'a9-c', name: '修繕費用等の精算確認' },
+        { id: 'a9-d', name: '鍵の返却' },
+        { id: 'a9-e', name: '敷金返金の流れを確認' }
+      ]
+    },
+    {
+      id: 'a10',
+      title: '二人で家計管理ルール決め',
+      assignee: 'both',
+      desc: '家賃・光熱費の按分方法を話し合って決める。',
+      subtasks: [
+        { id: 'a10-a', name: '家賃の負担割合を決める' },
+        { id: 'a10-b', name: '光熱費の負担方法（全額かなん払い？）' },
+        { id: 'a10-c', name: '食費・日用品の管理方法' },
+        { id: 'a10-d', name: '共同口座を作るか？個別管理か？' }
+      ]
+    }
+  ]
+};
+
+const TAB_CONFIG = [
+  { key: 'now',    badge: 'b-now' },
+  { key: 'week',   badge: 'b-week' },
+  { key: 'before', badge: 'b-before' },
+  { key: 'day',    badge: 'b-day' },
+  { key: 'after',  badge: 'b-after' }
+];
+
+const STORAGE_KEY = 'hikkoshi-ch3-v1';
+let state = {};
+let storageWorks = true;
+
+async function loadState() {
+  if (window.FIREBASE_READY_PROMISE) {
+    try { await window.FIREBASE_READY_PROMISE; } catch (e) {}
+  }
+  state = await SharedStorage.init(STORAGE_KEY, {
+    onUpdate: (newState) => {
+      state = newState;
+      try {
+        renderAll();
+        updateProgress();
+      } catch (e) {}
+    }
+  });
+}
+async function saveState() {
+  try { await SharedStorage.setAll(state); } catch (e) { storageWorks = false; }
+}
+window.addEventListener('unhandledrejection', (e) => {
+  const msg = String(e.reason && (e.reason.message || e.reason));
+  if (msg.includes('Storage') || msg.includes('storage')) {
+    e.preventDefault();
+    storageWorks = false;
+  }
+});
+
+const ROMAN = ['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii','xiii','xiv','xv'];
+function isDone(s) { return s === 'done' || s === true; }
+function stateClass(s) { return isDone(s) ? 'done' : ''; }
+
+const ASSIGNEE_LABELS = {
+  kanan:  { name: 'かなん', cls: 'tag-kanan' },
+  shinta: { name: 'しんた', cls: 'tag-shinta' },
+  both:   { name: '二人',   cls: 'tag-both' }
+};
+
+function renderRoom(roomKey) {
+  const tasks = TASKS[roomKey];
+  const container = document.getElementById(roomKey + '-list');
+  if (!container) return;
+  if (!tasks || tasks.length === 0) return;
+  container.innerHTML = tasks.map((task, idx) => {
+    const num = ROMAN[idx + 1] || (idx + 1);
+    const assignee = ASSIGNEE_LABELS[task.assignee] || ASSIGNEE_LABELS.both;
+    const assigneeTag = `<span class="assignee-tag ${assignee.cls}">${assignee.name}</span>`;
+
+    if (task.subtasks && task.subtasks.length) {
+      const subDone = task.subtasks.filter(st => isDone(state[st.id])).length;
+      const allDone = subDone === task.subtasks.length ? 'all-done' : '';
+      return `
+        <div class="task-card multi ${allDone}" data-multi="${task.id}">
+          <div class="task-head no-toggle">
+            <div class="task-num">${num}.</div>
+            <div class="task-title-wrap">
+              <div class="task-title">${task.title}</div>
+              ${assigneeTag}
+            </div>
+            <div class="task-progress" data-multi-progress="${task.id}">${subDone}/${task.subtasks.length}</div>
+          </div>
+          <div class="task-detail">
+            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
+            <div class="subtask-group">
+              ${task.subtasks.map(st => `
+                <div class="subtask ${stateClass(state[st.id])}" data-id="${st.id}">
+                  <div class="check-box-sm"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <div class="subtask-text"><span class="subtask-name">${st.name}</span></div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    return `
+      <div class="task-card ${stateClass(state[task.id])}" data-id="${task.id}">
+        <div class="task-head">
+          <div class="task-num">${num}.</div>
+          <div class="task-title-wrap">
+            <div class="task-title">${task.title}</div>
+            ${assigneeTag}
+          </div>
+          <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+        </div>
+        ${task.desc ? `<div class="task-detail"><p class="task-desc">${task.desc}</p></div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderAll() {
+  TAB_CONFIG.forEach(t => renderRoom(t.key));
+}
+
+function allTaskIds() {
+  const ids = [];
+  Object.values(TASKS).forEach(list => {
+    list.forEach(task => {
+      if (task.subtasks && task.subtasks.length) {
+        task.subtasks.forEach(st => ids.push(st.id));
+      } else {
+        ids.push(task.id);
+      }
+    });
+  });
+  return ids;
+}
+function roomTaskIds(roomKey) {
+  const ids = [];
+  TASKS[roomKey].forEach(task => {
+    if (task.subtasks && task.subtasks.length) {
+      task.subtasks.forEach(st => ids.push(st.id));
+    } else {
+      ids.push(task.id);
+    }
+  });
+  return ids;
+}
+
+function applyState(el, id) {
+  el.classList.remove('done', 'checked');
+  if (isDone(state[id])) el.classList.add('done');
+}
+
+function setDone(id, el) {
+  state[id] = isDone(state[id]) ? null : 'done';
+  applyState(el, id);
+  if (isDone(state[id])) {
+    el.style.transform = 'scale(0.985)';
+    setTimeout(() => el.style.transform = '', 130);
+  }
+  saveState();
+  updateProgress();
+  checkAllDone();
+}
+
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const tab = btn.dataset.tab;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('active', s.id === tab));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.addEventListener('click', (e) => {
+  const subtask = e.target.closest('.subtask');
+  if (subtask) { setDone(subtask.dataset.id, subtask); return; }
+  const taskCard = e.target.closest('.task-card');
+  if (taskCard && taskCard.dataset.id) {
+    const head = e.target.closest('.task-head');
+    if (head && !head.classList.contains('no-toggle')) {
+      setDone(taskCard.dataset.id, taskCard);
+    }
+  }
+});
+
+function updateProgress() {
+  const all = allTaskIds();
+  const total = all.length;
+  const done = all.filter(k => isDone(state[k])).length;
+  document.getElementById('done').textContent = done;
+  document.getElementById('total').textContent = total;
+  document.getElementById('bar').style.width = total > 0 ? (done / total * 100) + '%' : '0%';
+
+  const naiSub = document.getElementById('naiSub');
+  if (naiSub) naiSub.classList.remove('show');
+
+  TAB_CONFIG.forEach((t, i) => {
+    const ids = roomTaskIds(t.key);
+    const roomDone = ids.filter(k => isDone(state[k])).length;
+    const badge = document.getElementById(t.badge);
+    if (badge) badge.textContent = `${roomDone}/${ids.length}`;
+    const tabBtn = document.querySelectorAll('nav.tabs button')[i];
+    if (tabBtn) tabBtn.classList.toggle('complete', ids.length > 0 && roomDone === ids.length);
+  });
+
+  document.querySelectorAll('[data-multi-progress]').forEach(el => {
+    const multiId = el.dataset.multiProgress;
+    let task = null;
+    Object.values(TASKS).forEach(list => list.forEach(t => { if (t.id === multiId) task = t; }));
+    if (task && task.subtasks) {
+      const sd = task.subtasks.filter(st => isDone(state[st.id])).length;
+      el.textContent = `${sd}/${task.subtasks.length}`;
+      const card = document.querySelector(`[data-multi="${multiId}"]`);
+      if (card) card.classList.toggle('all-done', sd === task.subtasks.length);
+    }
+  });
+}
+
+let alreadyCelebrated = false;
+function checkAllDone() {
+  const all = allTaskIds();
+  if (all.length === 0) return;
+  const allDone = all.every(k => isDone(state[k]));
+  if (allDone && !alreadyCelebrated) {
+    alreadyCelebrated = true;
+    document.getElementById('celebrate').classList.add('show');
+  }
+  if (!allDone) alreadyCelebrated = false;
+}
+
+document.getElementById('reset').addEventListener('click', async () => {
+  if (!confirm('チェックを全部リセット…ほんとに？')) return;
+  state = {};
+  await saveState();
+  renderAll();
+  alreadyCelebrated = false;
+  updateProgress();
+});
+
+// 初回起動時、preDone:true のタスクは自動的にdone状態にする
+function applyPreDone() {
+  let changed = false;
+  Object.values(TASKS).forEach(list => {
+    list.forEach(task => {
+      if (task.preDone && !state[task.id] && (!task.subtasks || task.subtasks.length === 0)) {
+        state[task.id] = 'done';
+        changed = true;
+      }
+      if (task.subtasks) {
+        task.subtasks.forEach(st => {
+          if (st.preDone && !state[st.id]) {
+            state[st.id] = 'done';
+            changed = true;
+          }
+        });
+      }
+    });
+  });
+  return changed;
+}
+
+(async () => {
+  PermissionHelper.init({ owner: 'both', label: '第三章' });
+  await loadState();
+  // preDoneタスクを反映（初回 or 状態未設定なら）
+  if (applyPreDone()) {
+    await saveState();
+  }
+  renderAll();
+  updateProgress();
+  setTimeout(() => PermissionHelper.updateSyncIndicator(), 1500);
+})();
+</script>
+</body>
+</html>
