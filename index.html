@@ -978,17 +978,13 @@
   const TOTAL_TASKS = CHAPTERS.reduce((s, c) => s + c.total, 0); // 372
   const _chDone = {};
 
-  function isDoneValue(v) {
-    return v === 'done' || v === true || v === 'skipped';
-  }
-
   function countDone(state) {
-    if (!state || typeof state !== 'object') return 0;
-    let n = 0;
-    for (const k in state) {
-      if (isDoneValue(state[k])) n++;
-    }
-    return n;
+    if (!state) return 0;
+    let count = 0;
+    Object.values(state).forEach(v => {
+      if (v === 'done' || v === true || v === 'skipped' || v === 'unavailable') count++;
+    });
+    return count;
   }
 
   function renderRow(chId, done, total) {
