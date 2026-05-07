@@ -922,7 +922,7 @@
   <!-- ============ CHAPTER CARDS ============ -->
   <div class="ch-cards">
 
-    <a class="ch-card complete" href="checklist.html" target="_blank" rel="noopener">
+    <a class="ch-card" data-ch-key="ch1" href="checklist.html" target="_blank" rel="noopener">
       <div class="ch-side">
         <span class="ch-num">CH. I</span>
         <span class="ch-num-jp">第<span class="accent">一</span>章</span>
@@ -933,7 +933,6 @@
         <div class="ch-desc">洗面台のヒビ確認、洗濯物、3店舗の買い物リスト</div>
       </div>
       <div class="ch-arrow">›</div>
-      <div class="complete-stamp">完<br>了</div>
     </a>
 
     <!-- 第二章グループ（役割分担） -->
@@ -944,7 +943,7 @@
         <span class="ch-group-sub">役 割 分 担</span>
       </div>
 
-      <a class="ch-card sub" href="checklist-ch2.html" target="_blank" rel="noopener">
+      <a class="ch-card sub" data-ch-key="ch2" href="checklist-ch2.html" target="_blank" rel="noopener">
         <div class="ch-side ch-side-female">
           <span class="ch-num">SIDE A</span>
           <span class="ch-num-jp">彼<span class="accent">女</span>篇</span>
@@ -957,7 +956,7 @@
         <div class="ch-arrow">›</div>
       </a>
 
-      <a class="ch-card sub highlight" href="checklist-bf.html" target="_blank" rel="noopener">
+      <a class="ch-card sub highlight" data-ch-key="bf" href="checklist-bf.html" target="_blank" rel="noopener">
         <div class="ch-side">
           <span class="ch-num">SIDE B</span>
           <span class="ch-num-jp">彼<span class="accent">氏</span>篇</span>
@@ -970,7 +969,7 @@
         <div class="ch-arrow">›</div>
       </a>
 
-      <a class="ch-card sub recycle" href="checklist-recycle.html" target="_blank" rel="noopener">
+      <a class="ch-card sub recycle" data-ch-key="recycle" href="checklist-recycle.html" target="_blank" rel="noopener">
         <div class="ch-side ch-side-recycle">
           <span class="ch-num">SIDE C</span>
           <span class="ch-num-jp">廃<span class="accent">品</span>回収</span>
@@ -984,7 +983,7 @@
       </a>
     </div>
 
-    <a class="ch-card" href="checklist-ch3.html" target="_blank" rel="noopener">
+    <a class="ch-card" data-ch-key="ch3" href="checklist-ch3.html" target="_blank" rel="noopener">
       <div class="ch-side">
         <span class="ch-num">CH. III</span>
         <span class="ch-num-jp">第<span class="accent">三</span>章</span>
@@ -1139,7 +1138,24 @@
     fill.style.width = pct + '%';
     count.textContent = `${done} / ${total}`;
     const row = count.closest('.progress-row');
-    if (row) row.classList.toggle('complete', done >= total && total > 0);
+    const isComplete = done >= total && total > 0;
+    if (row) row.classList.toggle('complete', isComplete);
+
+    // 章カードに完了スタンプを付ける/外す
+    const card = document.querySelector(`.ch-card[data-ch-key="${chKey}"]`);
+    if (card) {
+      card.classList.toggle('complete', isComplete);
+      // 既存のスタンプ削除
+      const existing = card.querySelector('.complete-stamp');
+      if (existing) existing.remove();
+      // 完了なら新しくスタンプ追加
+      if (isComplete) {
+        const stamp = document.createElement('div');
+        stamp.className = 'complete-stamp';
+        stamp.innerHTML = '完<br>了';
+        card.appendChild(stamp);
+      }
+    }
   }
 
   function updateTotal(chapterDones) {
