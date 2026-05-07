@@ -644,7 +644,24 @@
     color: var(--card);
     border-color: var(--vermilion);
   }
-  .event-readonly .event-del-btn { display: none; }
+  .event-edit-btn {
+    background: transparent;
+    border: 1px solid var(--ink-mute);
+    color: var(--ink-mute);
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    cursor: pointer;
+    line-height: 1;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .event-edit-btn:hover {
+    background: var(--moss-d);
+    color: var(--card);
+    border-color: var(--moss-d);
+  }
+  .event-readonly .event-del-btn,
+  .event-readonly .event-edit-btn { display: none; }
 
   /* 予定追加モーダル */
   .ev-modal-overlay {
@@ -1906,6 +1923,7 @@ function renderDayEvents() {
     html += events.map((e, idx) => {
       const memoHtml = e.memo ? `<div class="event-memo">${escapeHtml(e.memo)}</div>` : '';
       const sourceHtml = e.source ? `<div class="event-source">${e.source}</div>` : '';
+      const editBtn = (e.isUser && canEdit) ? `<button class="event-edit-btn" data-edit-id="${e.id}">✎</button>` : '';
       const delBtn = (e.isUser && canEdit) ? `<button class="event-del-btn" data-del-id="${e.id}">×</button>` : '';
       return `
         <div class="event-item ${e.isUser ? '' : 'event-readonly'}">
@@ -1915,7 +1933,7 @@ function renderDayEvents() {
             ${sourceHtml}
             ${memoHtml}
           </div>
-          <div class="event-actions">${delBtn}</div>
+          <div class="event-actions">${editBtn}${delBtn}</div>
         </div>
       `;
     }).join('');
@@ -1990,11 +2008,21 @@ const evInputTitle = document.getElementById('evInputTitle');
 const evInputMemo = document.getElementById('evInputMemo');
 const evModalEditId = document.getElementById('evModalEditId');
 
-function openEventModal(iso) {
+function openEventModal(iso, editEvent) {
   evModalDate.textContent = `${iso.replace(/-/g, ' / ')}`;
-  evInputTitle.value = '';
-  evInputMemo.value = '';
-  evModalEditId.value = '';
+  if (editEvent) {
+    // 編集モード
+    document.getElementById('evModalTitle').textContent = '予 定 を 編 集';
+    evInputTitle.value = editEvent.title || '';
+    evInputMemo.value = editEvent.memo || '';
+    evModalEditId.value = editEvent.id || '';
+  } else {
+    // 新規モード
+    document.getElementById('evModalTitle').textContent = '予 定 を 追 加';
+    evInputTitle.value = '';
+    evInputMemo.value = '';
+    evModalEditId.value = '';
+  }
   evModal.classList.add('show');
   evModal.dataset.iso = iso;
   setTimeout(() => evInputTitle.focus(), 100);
@@ -2010,12 +2038,22 @@ document.getElementById('evBtnSave').addEventListener('click', async () => {
   if (!title) { evInputTitle.focus(); return; }
   const memo = evInputMemo.value.trim();
   const iso = evModal.dataset.iso;
+  const editId = evModalEditId.value;
   if (!state.events) state.events = {};
   if (!state.events[iso]) state.events[iso] = [];
   
-  // 一意ID生成
-  const id = 'ev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7);
-  state.events[iso].push({ id, title, memo, icon: '📌' });
+  if (editId) {
+    // 編集モード：既存イベントを更新
+    const arr = state.events[iso];
+    const idx = arr.findIndex(ev => ev.id === editId);
+    if (idx !== -1) {
+      arr[idx] = { ...arr[idx], title, memo };
+    }
+  } else {
+    // 新規モード
+    const id = 'ev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+    state.events[iso].push({ id, title, memo, icon: '📌' });
+  }
   await saveState();
   closeEventModal();
   renderCalendar();
@@ -2065,11 +2103,20 @@ document.getElementById('nextMonth').addEventListener('click', () => {
   renderCalendar();
 });
 
-// 「+ 予定を追加」とイベント削除
+// 「+ 予定を追加」とイベント編集・削除
 document.addEventListener('click', async (e) => {
   if (e.target.id === 'dayEventsAdd' && selectedDateIso) {
     if (!PermissionHelper.canEdit()) return;
     openEventModal(selectedDateIso);
+    return;
+  }
+  const editBtn = e.target.closest('.event-edit-btn');
+  if (editBtn && selectedDateIso) {
+    if (!PermissionHelper.canEdit()) return;
+    const id = editBtn.dataset.editId;
+    const arr = state.events[selectedDateIso] || [];
+    const event = arr.find(ev => ev.id === id);
+    if (event) openEventModal(selectedDateIso, event);
     return;
   }
   const delBtn = e.target.closest('.event-del-btn');
