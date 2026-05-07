@@ -1,0 +1,2109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>引っ越しまでの道のり 〜第四章 スケジュール篇〜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #e6d8b9;
+    --paper-deep:   #d8c79e;
+    --card:         #f1e7c9;
+    --card-warm:    #ede0bc;
+    --ink:          #1a140d;
+    --ink-soft:     #4a3a25;
+    --ink-mute:     #8a7654;
+    --rule:         #b09668;
+    --vermilion:    #a8392c;
+    --vermilion-d:  #842c22;
+    --moss:         #5a6b3c;
+    --moss-d:       #3e4a26;
+    --shadow:       0 1px 0 rgba(26, 20, 13, 0.04), 0 4px 18px rgba(74, 58, 37, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    /* paper grain */
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(168, 57, 44, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(90, 107, 60, 0.05) 0%, transparent 38%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-attachment: fixed;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 12px 80px;
+  }
+
+  /* ============ HERO / CD JACKET ============ */
+  .jacket {
+    margin: 12px 0 14px;
+    padding: 14px 14px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: var(--shadow), 3px 3px 0 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .jacket::before {
+    content: '';
+    position: absolute; inset: 5px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .jacket-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .jacket-meta .left { color: var(--vermilion); font-weight: 600; }
+
+  .jacket-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* big vertical title */
+  .vtitle {
+    writing-mode: vertical-rl;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    padding-left: 0;
+    border-right: 1.5px solid var(--ink);
+    padding-right: 8px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vtitle .rt {
+    color: var(--vermilion);
+    font-size: 36px;
+    margin: -1px 0;
+  }
+
+  .htitle-block { padding-top: 0; }
+
+  .htitle {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .htitle-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .verse {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--vermilion);
+    padding: 1px 0 1px 8px;
+    margin-bottom: 0;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 8.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    transform: rotate(-8deg);
+    background: rgba(168, 57, 44, 0.04);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ PROGRESS / METER ============ */
+  .meter {
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 14px 16px;
+    position: relative;
+  }
+  .meter::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--rule);
+    border-color: transparent;
+    border-top-color: var(--rule);
+    border-bottom-color: var(--rule);
+    pointer-events: none;
+  }
+
+  .meter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .meter-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+  .meter-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .meter-count .total {
+    color: var(--ink-mute);
+    font-size: 14px;
+  }
+  .meter-sub {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    display: none;
+  }
+  .meter-sub.show { display: block; }
+  .meter-sub strong { color: var(--ink); font-weight: 600; }
+
+  .meter-bar {
+    height: 6px;
+    background: var(--paper-deep);
+    position: relative;
+    border: 1px solid var(--rule);
+  }
+  .meter-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--vermilion);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .meter-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0) 0 4px,
+      rgba(0,0,0,0.12) 4px 5px
+    );
+  }
+
+  /* ============ TABS / TRACKS NAV ============ */
+  /* ============ COLLECTION DATE BAR ============ */
+  .collection-date-bar {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cd-bar-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cd-bar-tk {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.18em;
+  }
+  .cd-bar-jp {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+  }
+  .cd-bar-input-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .cd-bar-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .cd-bar-display {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 8px 16px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    min-width: 120px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .cd-bar-display:hover {
+    background: var(--card-warm);
+  }
+  .cd-bar-display.is-set {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  @media (max-width: 380px) {
+    .collection-date-bar {
+      padding: 10px 12px;
+      gap: 8px;
+    }
+    .cd-bar-jp { font-size: 12px; }
+    .cd-bar-display {
+      font-size: 14px;
+      padding: 7px 12px;
+      min-width: 100px;
+    }
+  }
+
+  /* ============ INFO CARDS ============ */
+  .info-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 14px;
+    padding: 14px 14px 12px;
+    box-shadow: 3px 3px 0 0 var(--ink);
+  }
+  .info-card.accent {
+    border-color: var(--vermilion);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+  }
+  .info-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4px;
+  }
+  .info-list li {
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .info-tag {
+    display: inline-block;
+    padding: 2px 7px;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .info-tag.tag-rec {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .info-tag.tag-warn {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+  .info-note {
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 8px 0 0;
+    padding: 8px 10px;
+    background: var(--paper);
+    border-left: 2px solid var(--vermilion);
+    line-height: 1.6;
+  }
+
+  /* ============ CALENDAR ============ */
+  .cal-wrap {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-bottom: 1.5px solid var(--ink);
+    background: var(--ink);
+    color: var(--card);
+    gap: 14px;
+  }
+  .cal-month-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    flex: 1;
+    text-align: center;
+  }
+  .cal-nav {
+    background: transparent;
+    border: 1px solid var(--card-warm);
+    color: var(--card);
+    width: 28px;
+    height: 28px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s ease;
+  }
+  .cal-nav:hover, .cal-nav:active {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: var(--paper-deep);
+    border-bottom: 1px solid var(--ink);
+  }
+  .cal-wd {
+    padding: 6px 2px;
+    text-align: center;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+  }
+  .cal-wd-sun { color: var(--vermilion); }
+  .cal-wd-sat { color: #4567a8; }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background: var(--rule);
+    gap: 1px;
+  }
+  .cal-day {
+    aspect-ratio: 1 / 1.1;
+    background: var(--paper);
+    padding: 4px 4px 3px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.2s;
+    overflow: hidden;
+  }
+  .cal-day:hover {
+    background: var(--card-warm);
+  }
+  .cal-day.outside {
+    background: var(--paper-deep);
+    color: var(--ink-mute);
+    opacity: 0.5;
+    cursor: default;
+  }
+  .cal-day.today {
+    background: rgba(168, 57, 44, 0.12);
+  }
+  .cal-day.selected {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .cal-day-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.1;
+    margin-bottom: 1px;
+  }
+  .cal-day.weekend-sun .cal-day-num { color: var(--vermilion); }
+  .cal-day.weekend-sat .cal-day-num { color: #4567a8; }
+  .cal-day.selected .cal-day-num { color: var(--card-warm); }
+  .cal-day-events {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    align-items: center;
+  }
+  .cal-day-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .cal-day.has-events .cal-day-dot.evt-user { background: var(--ink); }
+  .cal-day-dot.evt-special { background: var(--vermilion); }
+  .cal-day-dot.evt-milestone {
+    background: var(--vermilion);
+    width: 7px;
+    height: 7px;
+  }
+  .cal-day.selected .cal-day-dot {
+    background: var(--card);
+  }
+  .cal-day-mini {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 8px;
+    color: var(--vermilion);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .cal-day.selected .cal-day-mini { color: var(--card-warm); }
+
+  /* イベント詳細エリア */
+  .day-events {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--ink);
+    padding: 14px;
+    margin-bottom: 16px;
+  }
+  .day-events-empty {
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink-mute);
+    text-align: center;
+    padding: 16px 0;
+  }
+  .day-events-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+  }
+  .day-events-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+  }
+  .day-events-add {
+    background: var(--vermilion);
+    color: var(--card);
+    border: 1.5px solid var(--vermilion);
+    padding: 5px 12px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+  }
+  .day-events-add:hover {
+    background: var(--vermilion-d);
+  }
+  .event-item {
+    padding: 9px 0;
+    border-bottom: 1px dashed var(--rule);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .event-item:last-child { border-bottom: none; }
+  .event-icon {
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .event-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .event-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .event-source {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--vermilion);
+    letter-spacing: 0.1em;
+    margin-top: 1px;
+  }
+  .event-memo {
+    font-family: 'Klee One', serif;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+  .event-actions {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .event-del-btn {
+    background: transparent;
+    border: 1px solid var(--ink-mute);
+    color: var(--ink-mute);
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .event-del-btn:hover {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .event-readonly .event-del-btn { display: none; }
+
+  /* 予定追加モーダル */
+  .ev-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    padding: 16px;
+  }
+  .ev-modal-overlay.show {
+    display: flex;
+  }
+  .ev-modal {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    box-shadow: 6px 6px 0 0 var(--vermilion);
+    padding: 22px 18px;
+    max-width: 380px;
+    width: 100%;
+  }
+  .ev-modal-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .ev-modal-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  .ev-field {
+    margin-bottom: 12px;
+  }
+  .ev-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+  }
+  .ev-input, .ev-textarea {
+    width: 100%;
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 8px 10px;
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink);
+    box-sizing: border-box;
+  }
+  .ev-textarea {
+    resize: vertical;
+    min-height: 60px;
+    font-family: 'Klee One', serif;
+  }
+  .ev-input:focus, .ev-textarea:focus {
+    outline: 2px solid var(--vermilion);
+    outline-offset: -1px;
+  }
+  .ev-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+  }
+  .ev-btn {
+    flex: 1;
+    padding: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1.5px solid var(--ink);
+    transition: all 0.2s ease;
+    letter-spacing: 0.05em;
+  }
+  .ev-btn-primary {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .ev-btn-cancel {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .ev-btn-primary:hover { background: var(--vermilion-d); }
+  .ev-btn-cancel:hover { background: var(--card-warm); }
+
+  /* タイムライン */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .timeline-day {
+    display: flex;
+    gap: 14px;
+    align-items: stretch;
+    padding: 4px 0;
+  }
+  .timeline-date {
+    flex-shrink: 0;
+    width: 64px;
+    text-align: center;
+    padding: 4px 0;
+  }
+  .timeline-md {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .timeline-day.special .timeline-md { color: var(--vermilion); }
+  .timeline-wd {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 10px;
+    color: var(--ink-mute);
+    margin-top: 2px;
+  }
+  .timeline-day.weekend-sun .timeline-wd { color: var(--vermilion); }
+  .timeline-day.weekend-sat .timeline-wd { color: #4567a8; }
+  .timeline-line {
+    width: 2px;
+    background: var(--rule);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .timeline-day.special .timeline-line {
+    background: var(--vermilion);
+  }
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .timeline-day.special .timeline-line::before {
+    background: var(--vermilion);
+    width: 10px;
+    height: 10px;
+  }
+  .timeline-events {
+    flex: 1;
+    padding: 8px 0 12px;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .timeline-day:last-child .timeline-events { border-bottom: none; }
+  .timeline-event {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink);
+    display: flex;
+    gap: 6px;
+    align-items: baseline;
+  }
+  .timeline-event:last-child { margin-bottom: 0; }
+  .timeline-event-icon { font-size: 12px; }
+  .timeline-event-source {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9px;
+    color: var(--vermilion);
+    margin-left: auto;
+    flex-shrink: 0;
+    letter-spacing: 0.08em;
+  }
+
+  nav.tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 22px;
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+  }
+
+  nav.tabs button {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  nav.tabs button:last-child { border-right: none; }
+
+  nav.tabs button .tk {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 2px;
+  }
+  nav.tabs button .badge {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-mute);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  nav.tabs button.active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  nav.tabs button.active .tk { color: var(--card-warm); }
+  nav.tabs button.active .badge { color: var(--card-warm); }
+
+  nav.tabs button.complete:not(.active)::before {
+    content: '済';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 9px;
+    color: var(--vermilion);
+    background: var(--card);
+    border: 1px solid var(--vermilion);
+    padding: 0 3px;
+    line-height: 1.4;
+  }
+
+  /* ============ SECTION ============ */
+  section {
+    display: none;
+    animation: rise 0.4s ease;
+  }
+  section.active { display: block; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter {
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    padding: 14px 0;
+  }
+  .chapter::before, .chapter::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--ink);
+  }
+  .chapter::before { top: 0; }
+  .chapter::after { bottom: 0; }
+  .chapter .ch-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .chapter h2 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    margin: 4px 0 2px;
+  }
+  .chapter .ch-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.15em;
+  }
+
+  .liner-note {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    background: rgba(168, 57, 44, 0.06);
+    border-left: 3px solid var(--vermilion);
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .liner-note strong {
+    color: var(--vermilion);
+    font-weight: 600;
+  }
+
+  /* ============ TASK CARDS ============ */
+  .task-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .task-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    transition: all 0.25s ease;
+  }
+  .task-card.checked { background: var(--card-warm); }
+  .task-card.checked .task-num,
+  .task-card.checked .task-title { opacity: 0.45; }
+  .task-card.checked .task-title { text-decoration: line-through; }
+
+  .task-head {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--rule);
+    min-height: 40px;
+  }
+
+  .task-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--vermilion);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .task-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* タスクタイトル+担当タグのラッパー */
+  .task-title-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  /* 担当タグ */
+  .assignee-tag {
+    display: inline-block;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    padding: 2px 7px;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .assignee-tag.tag-kanan {
+    background: var(--moss-d);
+    color: var(--card);
+    border-color: var(--moss-d);
+  }
+  .assignee-tag.tag-shinta {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .assignee-tag.tag-both {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+
+  .check-box {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .check-box svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    stroke: var(--card);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5) rotate(-15deg);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .checked .check-box,
+  .done .check-box {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .checked .check-box svg,
+  .done .check-box svg {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  /* 無かった (unavailable) state */
+  .unavailable .check-box {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .unavailable .check-box::after {
+    content: '×';
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    position: absolute;
+  }
+  .unavailable .check-box svg { opacity: 0; }
+  .shop-item.unavailable { background: rgba(26, 20, 13, 0.06); }
+  .shop-item.unavailable .item-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ink-mute);
+  }
+  .shop-item.unavailable .item-num { opacity: 0.4; }
+
+  /* "無" stamp on unavailable items */
+  .shop-item.unavailable::before {
+    content: '無';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-12deg);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(241, 231, 201, 0.85);
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* 無 button */
+  .nai-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    min-width: 26px;
+  }
+  .nai-btn:hover, .nai-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .shop-item.unavailable .nai-btn {
+    background: var(--ink);
+    color: var(--card);
+  }
+
+  .item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .task-detail {
+    padding: 12px 16px 14px;
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+
+  .lyric-block {
+    margin: 6px 0;
+    padding: 10px 12px;
+    background: var(--paper);
+    border-left: 2px solid var(--moss);
+    position: relative;
+  }
+  .lyric-block:not(:last-child) { margin-bottom: 8px; }
+
+  .lyric-block.sp { border-left-color: var(--vermilion); background: rgba(168, 57, 44, 0.05); }
+
+  .lyric-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .lyric-block.sp .lyric-label { color: var(--vermilion); }
+
+  .lyric-block .body { color: var(--ink); }
+
+  .accent-mark {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+
+  /* multi-task with subtasks */
+  .task-card.multi { display: block; }
+  .task-card.multi .task-detail { display: block; }
+  .task-card.multi.all-done { background: var(--card-warm); }
+  .task-head.no-toggle { cursor: default; }
+
+  .task-desc {
+    margin: 0 0 10px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .task-progress {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .subtask-group {
+    margin-top: 12px;
+    display: block;
+  }
+  .subtask-group:first-of-type { margin-top: 4px; }
+
+  .subtask-group-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+    display: block;
+  }
+
+  .subtask {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .subtask:active { background: var(--card-warm); transform: scale(0.99); }
+  .subtask.done {
+    background: var(--card-warm);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .subtask-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  .subtask.done .subtask-side {
+    opacity: 0.5;
+  }
+
+  .subtask-text {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .check-box-sm {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .check-box-sm svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    stroke: var(--card);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .subtask.done .check-box-sm {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .check-box-sm svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .subtask-side {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--vermilion);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .subtask-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .subtask-skip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px 6px 30px;
+    margin-bottom: 4px;
+    opacity: 0.45;
+  }
+  .subtask-skip .subtask-side {
+    font-style: italic;
+  }
+  .subtask-skip .subtask-name {
+    text-decoration: line-through;
+    font-size: 12px;
+  }
+
+  /* ============ SHOPPING / TRACK LIST ============ */
+  .shop-list { border: 1.5px solid var(--ink); background: var(--card); }
+
+  .shop-item {
+    display: grid;
+    grid-template-columns: 24px 22px 1fr auto;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-item:active { background: var(--card-warm); }
+  .shop-item.checked, .shop-item.done { background: var(--card-warm); }
+  .shop-item.checked .item-name,
+  .shop-item.done .item-name { opacity: 0.45; text-decoration: line-through; }
+  .shop-item.checked .item-num,
+  .shop-item.done .item-num { opacity: 0.45; }
+
+  .item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .shop-item .check-box { width: 22px; height: 22px; }
+  .shop-item .check-box svg { width: 13px; height: 13px; }
+
+  .item-info { min-width: 0; }
+  .item-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .item-note {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+
+  .img-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 28px;
+  }
+  .img-btn:hover, .img-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .img-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  /* ============ FOOTER ============ */
+  .colophon {
+    margin-top: 32px;
+    padding: 14px 16px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.2em;
+  }
+  .colophon .div { display: inline-block; padding: 0 8px; color: var(--vermilion); }
+
+  .reset-btn {
+    margin: 14px auto 0;
+    display: block;
+    background: transparent;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 8px 18px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reset-btn:hover {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+    color: var(--card);
+  }
+
+  /* ============ CELEBRATE ============ */
+  .celebrate {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .celebrate.show { display: flex; animation: rise 0.3s ease; }
+
+  .celebrate-card {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 8px 8px 0 var(--vermilion);
+    animation: pop 0.5s cubic-bezier(0.34, 1.6, 0.64, 1);
+    position: relative;
+  }
+  @keyframes pop {
+    from { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .celebrate-card .seal {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 56px;
+    height: 56px;
+    background: var(--vermilion);
+    color: var(--card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    transform: rotate(8deg);
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card h3 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card p {
+    font-family: 'Klee One', serif;
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .celebrate-card button {
+    background: var(--ink);
+    color: var(--card);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
+
+  /* narrow */
+  @media (max-width: 380px) {
+    .app { padding: 0 10px 80px; }
+    .jacket { padding: 12px 10px; }
+    .jacket-meta { font-size: 9px; margin-bottom: 10px; padding-bottom: 5px; }
+    .jacket-body { gap: 10px; }
+    .vtitle { font-size: 28px; padding-right: 7px; }
+    .vtitle .rt { font-size: 32px; }
+    .htitle { font-size: 14.5px; }
+    .htitle-en { font-size: 9px; margin-bottom: 6px; }
+    .verse { font-size: 10.5px; padding-left: 7px; }
+    .stamp { width: 38px; height: 38px; font-size: 8px; top: 8px; right: 8px; border-width: 1.5px; }
+    nav.tabs button { font-size: 11px; padding: 8px 1px 7px; }
+    nav.tabs button .tk { font-size: 9px; }
+    nav.tabs button .badge { font-size: 9px; }
+    .item-name { font-size: 13px; }
+    .item-note { font-size: 10px; }
+    .img-btn { padding: 6px 6px; font-size: 9.5px; min-width: 24px; }
+    .nai-btn { padding: 6px 7px; font-size: 11.5px; min-width: 24px; }
+    .shop-item { gap: 5px; padding: 9px 9px; }
+    .item-num { font-size: 13px; }
+    .task-detail { padding: 10px 12px 12px; font-size: 12px; }
+    .lyric-block { padding: 9px 10px; }
+    .chapter h2 { font-size: 18px; letter-spacing: 0.06em; }
+    .meter { padding: 12px 12px; }
+    .meter-count { font-size: 19px; }
+  }
+</style>
+<link rel="stylesheet" href="shared.css">
+<script src="firebase-config.js"></script>
+<script src="firebase-bootstrap.js"></script>
+<script src="shared-storage.js"></script>
+<script src="permission-helper.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ JACKET HEADER ============ -->
+  <div class="jacket">
+    <div class="jacket-meta">
+      <span class="left">VOL. 04 ・ SCHEDULE</span>
+      <span>2026 ・ MOVING JOURNEY</span>
+    </div>
+
+    <div class="jacket-body">
+      <div class="vtitle">
+        <span>第</span><span class="rt">四</span><span>章</span>
+      </div>
+      <div class="htitle-block">
+        <div class="htitle">引っ越しまでの<br>道のり ─ スケジュール</div>
+        <div class="htitle-en">SCHEDULE ─ CH. IV</div>
+        <div class="verse">
+          一日一日、丁寧に。<br>
+          日付が、道しるべに ──
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp">予 定<br>表</div>
+  </div>
+
+    <div class="cd-bar-input-wrap">
+      <input type="date" id="collectionDate" class="cd-bar-input">
+      <div class="cd-bar-display" id="collectionDateDisplay">未 定</div>
+    </div>
+  </div>
+
+  <!-- ============ TABS ============ -->
+  <nav class="tabs" id="tabs">
+    <button data-tab="calendar" class="active">
+      <span class="tk">TRACK 01</span>カレンダー
+    </button>
+    <button data-tab="list">
+      <span class="tk">TRACK 02</span>一覧
+    </button>
+  </nav>
+
+  <!-- ============ CALENDAR ============ -->
+  <section id="calendar" class="active">
+    <div class="chapter">
+      <div class="ch-num">— Track 01 —</div>
+      <h2>カ　レ　ン　ダ　ー</h2>
+      <div class="ch-en">monthly view</div>
+    </div>
+    <div class="liner-note">
+      <strong>使い方 </strong>日付をタップすると予定が表示されます。「+ 予定追加」で新しい予定を入れられます。他の章の重要な期限も自動で表示されます。
+    </div>
+
+    <!-- カレンダーグリッド -->
+    <div class="cal-wrap">
+      <div class="cal-header">
+        <button class="cal-nav" id="prevMonth">‹</button>
+        <div class="cal-month-label" id="calMonthLabel">2026 年 5 月</div>
+        <button class="cal-nav" id="nextMonth">›</button>
+      </div>
+      <div class="cal-weekdays">
+        <div class="cal-wd cal-wd-sun">日</div>
+        <div class="cal-wd">月</div>
+        <div class="cal-wd">火</div>
+        <div class="cal-wd">水</div>
+        <div class="cal-wd">木</div>
+        <div class="cal-wd">金</div>
+        <div class="cal-wd cal-wd-sat">土</div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+
+    <!-- 選択日のイベント詳細 -->
+    <div class="day-events" id="dayEvents">
+      <div class="day-events-empty">日付をタップして予定を確認・追加</div>
+    </div>
+  </section>
+
+  <!-- ============ LIST ============ -->
+  <section id="list">
+    <div class="chapter">
+      <div class="ch-num">— Track 02 —</div>
+      <h2>予　定　一　覧</h2>
+      <div class="ch-en">timeline</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>すべての予定を日付順に並べたタイムライン。各章の期限も含む。
+    </div>
+    <div class="timeline" id="timelineList"></div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <div class="colophon">
+    第四章 ・ スケジュール <span class="div">·</span> 二人の道のり <span class="div">·</span> WRITTEN WITH CARE
+  </div>
+  <button class="reset-btn" id="reset" style="display:none;">CHECK 全リセット</button>
+</div>
+
+<!-- ============ EVENT MODAL ============ -->
+<div class="ev-modal-overlay" id="evModal">
+  <div class="ev-modal">
+    <div class="ev-modal-title" id="evModalTitle">予 定 を 追 加</div>
+    <div class="ev-modal-date" id="evModalDate">2026 / 5 / X</div>
+    <input type="hidden" id="evModalEditId">
+    <div class="ev-field">
+      <div class="ev-label">タイトル</div>
+      <input type="text" class="ev-input" id="evInputTitle" placeholder="例：家具搬入、冷蔵庫到着" maxlength="50">
+    </div>
+    <div class="ev-field">
+      <div class="ev-label">メモ（任意）</div>
+      <textarea class="ev-textarea" id="evInputMemo" placeholder="時間や詳細など" maxlength="200"></textarea>
+    </div>
+    <div class="ev-buttons">
+      <button class="ev-btn ev-btn-cancel" id="evBtnCancel">キャンセル</button>
+      <button class="ev-btn ev-btn-primary" id="evBtnSave">保 存</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// ============================================
+// CHAPTER IV - SCHEDULE / CALENDAR
+// ============================================
+
+const STORAGE_KEY = 'hikkoshi-ch4-v1';
+let state = { events: {} }; // events: { 'YYYY-MM-DD': [{id, title, memo}, ...] }
+let storageWorks = true;
+let viewYear = 2026;
+let viewMonth = 4; // 0-indexed: 4 = 5月
+let selectedDateIso = null;
+
+// 他章のストレージキー（読み取り専用、期限イベント抽出用）
+const OTHER_CHAPTERS = [
+  { key: 'recycle', storageKey: 'hikkoshi-recycle-v1' }
+];
+
+// 各章のFirebase上のstateキャッシュ
+const otherStates = {};
+
+// ============================================
+// 固定イベント（章のタスクから読み取れない/重要なもの）
+// ============================================
+const FIXED_EVENTS = {
+  '2026-05-01': [
+    { title: 'プレミアムウォーター 受け取り', icon: '💧', source: '彼氏篇', isMilestone: false }
+  ],
+  '2026-05-12': [
+    { title: '引越し当日 ⭐', icon: '🚚', source: '引越し日', isMilestone: true },
+    { title: '電気・ガス・水道 開通', icon: '⚡', source: '第三章', isMilestone: false }
+  ],
+  '2026-05-23': [
+    { title: '退去立会い 11:00〜', icon: '🏠', source: '第三章', isMilestone: true },
+    { title: '電気・ガス・水道 停止', icon: '🔌', source: '第三章', isMilestone: false }
+  ]
+};
+
+// 5/1のリネット集荷を別エントリで
+FIXED_EVENTS['2026-05-01'].unshift({ title: 'リネット集荷 12-14時', icon: '📦', source: '彼氏篇', isMilestone: false });
+
+async function loadState() {
+  if (window.FIREBASE_READY_PROMISE) {
+    try { await window.FIREBASE_READY_PROMISE; } catch (e) {}
+  }
+  state = await SharedStorage.init(STORAGE_KEY, {
+    onUpdate: (newState) => {
+      state = newState && newState.events ? newState : { events: {} };
+      try { renderCalendar(); renderTimeline(); renderDayEvents(); } catch (e) {}
+    }
+  });
+  if (!state || !state.events) state = { events: {} };
+
+  // 他章のstateを読み込み（廃品回収篇の回収日を取得するため）
+  for (const ch of OTHER_CHAPTERS) {
+    try {
+      const raw = localStorage.getItem(ch.storageKey);
+      if (raw) otherStates[ch.key] = JSON.parse(raw);
+    } catch (e) {}
+  }
+  // Firebase でリアルタイム更新もセット
+  if (window.FIREBASE_READY && window.firebase) {
+    try {
+      const db = window.firebase.database();
+      const root = window.FIREBASE_ROOT || 'hikkoshi-roadmap';
+      OTHER_CHAPTERS.forEach(ch => {
+        db.ref(`${root}/${ch.storageKey}`).on('value', (snap) => {
+          otherStates[ch.key] = snap.val() || {};
+          renderCalendar();
+          renderTimeline();
+          renderDayEvents();
+        });
+      });
+    } catch (e) {}
+  }
+}
+
+async function saveState() {
+  try { await SharedStorage.setAll(state); } catch (e) { storageWorks = false; }
+}
+
+window.addEventListener('unhandledrejection', (e) => {
+  const msg = String(e.reason && (e.reason.message || e.reason));
+  if (msg.includes('Storage') || msg.includes('storage')) {
+    e.preventDefault();
+    storageWorks = false;
+  }
+});
+
+// ============================================
+// 全イベント取得（固定 + 他章 + ユーザー追加）
+// ============================================
+function getEventsForDate(iso) {
+  const events = [];
+  // 固定イベント
+  if (FIXED_EVENTS[iso]) {
+    FIXED_EVENTS[iso].forEach(e => events.push({ ...e, isFixed: true }));
+  }
+  // 廃品回収篇の回収予定日
+  if (otherStates.recycle && otherStates.recycle.__collection_date === iso) {
+    events.push({
+      title: '廃品回収（業者）',
+      icon: '🚛',
+      source: '廃品回収篇',
+      isMilestone: true,
+      isFixed: true
+    });
+  }
+  // ユーザー追加イベント
+  const userEvents = (state.events && state.events[iso]) || [];
+  userEvents.forEach(e => events.push({ ...e, isUser: true }));
+  return events;
+}
+
+function hasEvents(iso) {
+  return getEventsForDate(iso).length > 0;
+}
+
+function isMilestone(iso) {
+  return getEventsForDate(iso).some(e => e.isMilestone);
+}
+
+// ============================================
+// カレンダー描画
+// ============================================
+function renderCalendar() {
+  const grid = document.getElementById('calGrid');
+  const monthLabel = document.getElementById('calMonthLabel');
+  if (!grid || !monthLabel) return;
+  monthLabel.textContent = `${viewYear} 年 ${viewMonth + 1} 月`;
+  
+  const firstDay = new Date(viewYear, viewMonth, 1);
+  const lastDay = new Date(viewYear, viewMonth + 1, 0);
+  const firstWd = firstDay.getDay(); // 0=日
+  const totalDays = lastDay.getDate();
+  
+  // 前月の末尾
+  const prevLast = new Date(viewYear, viewMonth, 0).getDate();
+  const cells = [];
+  for (let i = firstWd - 1; i >= 0; i--) {
+    cells.push({ date: prevLast - i, outside: true });
+  }
+  // 今月
+  for (let d = 1; d <= totalDays; d++) {
+    cells.push({ date: d, outside: false });
+  }
+  // 翌月の頭
+  while (cells.length % 7 !== 0) {
+    cells.push({ date: cells.length - totalDays - firstWd + 1, outside: true });
+  }
+  // 6週間分まで埋める（任意）
+  while (cells.length < 42) {
+    const offset = cells.length - totalDays - firstWd + 1;
+    cells.push({ date: offset, outside: true });
+  }
+  
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  grid.innerHTML = cells.map((c, i) => {
+    if (c.outside) {
+      return `<div class="cal-day outside"><span class="cal-day-num">${c.date}</span></div>`;
+    }
+    const wd = i % 7;
+    const iso = `${viewYear}-${String(viewMonth + 1).padStart(2, '0')}-${String(c.date).padStart(2, '0')}`;
+    const isToday = (new Date(viewYear, viewMonth, c.date).getTime() === today.getTime());
+    const isSelected = (iso === selectedDateIso);
+    const events = getEventsForDate(iso);
+    const ms = events.some(e => e.isMilestone);
+    const wdClass = wd === 0 ? 'weekend-sun' : wd === 6 ? 'weekend-sat' : '';
+    
+    let dotsHtml = '';
+    if (events.length > 0) {
+      // ドット最大3つ
+      const dotCount = Math.min(events.length, 3);
+      const dots = [];
+      for (let j = 0; j < dotCount; j++) {
+        const ev = events[j];
+        const cls = ev.isMilestone ? 'evt-milestone' : ev.isFixed ? 'evt-special' : 'evt-user';
+        dots.push(`<div class="cal-day-dot ${cls}"></div>`);
+      }
+      dotsHtml = `<div class="cal-day-events">${dots.join('')}</div>`;
+    }
+    
+    const todayCls = isToday ? 'today' : '';
+    const selCls = isSelected ? 'selected' : '';
+    const evCls = events.length > 0 ? 'has-events' : '';
+    
+    return `<div class="cal-day ${todayCls} ${selCls} ${wdClass} ${evCls}" data-iso="${iso}">
+      <span class="cal-day-num">${c.date}</span>
+      ${dotsHtml}
+    </div>`;
+  }).join('');
+}
+
+// ============================================
+// 選択日のイベント表示
+// ============================================
+function formatDateJP(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  const dt = new Date(y, m - 1, d);
+  const days = ['日', '月', '火', '水', '木', '金', '土'];
+  return `${m} / ${d}（${days[dt.getDay()]}）`;
+}
+
+function renderDayEvents() {
+  const container = document.getElementById('dayEvents');
+  if (!container) return;
+  if (!selectedDateIso) {
+    container.innerHTML = '<div class="day-events-empty">日付をタップして予定を確認・追加</div>';
+    return;
+  }
+  const events = getEventsForDate(selectedDateIso);
+  const canEdit = PermissionHelper.canEdit();
+  
+  let html = `
+    <div class="day-events-header">
+      <div class="day-events-title">${formatDateJP(selectedDateIso)} の 予 定</div>
+      ${canEdit ? `<button class="day-events-add" id="dayEventsAdd">＋ 予 定 を 追 加</button>` : ''}
+    </div>
+  `;
+  if (events.length === 0) {
+    html += '<div class="day-events-empty">予定はありません</div>';
+  } else {
+    html += events.map((e, idx) => {
+      const memoHtml = e.memo ? `<div class="event-memo">${escapeHtml(e.memo)}</div>` : '';
+      const sourceHtml = e.source ? `<div class="event-source">${e.source}</div>` : '';
+      const delBtn = (e.isUser && canEdit) ? `<button class="event-del-btn" data-del-id="${e.id}">×</button>` : '';
+      return `
+        <div class="event-item ${e.isUser ? '' : 'event-readonly'}">
+          <div class="event-icon">${e.icon || '📅'}</div>
+          <div class="event-body">
+            <div class="event-title">${escapeHtml(e.title)}</div>
+            ${sourceHtml}
+            ${memoHtml}
+          </div>
+          <div class="event-actions">${delBtn}</div>
+        </div>
+      `;
+    }).join('');
+  }
+  container.innerHTML = html;
+}
+
+function escapeHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ============================================
+// タイムライン描画
+// ============================================
+function renderTimeline() {
+  const container = document.getElementById('timelineList');
+  if (!container) return;
+  // 全イベント（固定 + ユーザー）を集約
+  const allDates = new Set();
+  Object.keys(FIXED_EVENTS).forEach(d => allDates.add(d));
+  if (otherStates.recycle && otherStates.recycle.__collection_date) {
+    allDates.add(otherStates.recycle.__collection_date);
+  }
+  Object.keys(state.events || {}).forEach(d => {
+    if ((state.events[d] || []).length > 0) allDates.add(d);
+  });
+  
+  const sortedDates = Array.from(allDates).sort();
+  if (sortedDates.length === 0) {
+    container.innerHTML = '<div class="day-events-empty">予定はありません</div>';
+    return;
+  }
+  const days = ['日', '月', '火', '水', '木', '金', '土'];
+  container.innerHTML = sortedDates.map(iso => {
+    const events = getEventsForDate(iso);
+    if (events.length === 0) return '';
+    const [y, m, d] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, d);
+    const wd = dt.getDay();
+    const wdClass = wd === 0 ? 'weekend-sun' : wd === 6 ? 'weekend-sat' : '';
+    const isSpecial = events.some(e => e.isMilestone);
+    const specialClass = isSpecial ? 'special' : '';
+    
+    return `
+      <div class="timeline-day ${wdClass} ${specialClass}">
+        <div class="timeline-date">
+          <div class="timeline-md">${m}/${d}</div>
+          <div class="timeline-wd">${days[wd]}曜</div>
+        </div>
+        <div class="timeline-line"></div>
+        <div class="timeline-events">
+          ${events.map(e => `
+            <div class="timeline-event">
+              <span class="timeline-event-icon">${e.icon || '📅'}</span>
+              <span>${escapeHtml(e.title)}</span>
+              ${e.source ? `<span class="timeline-event-source">${e.source}</span>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============================================
+// イベント追加・編集モーダル
+// ============================================
+const evModal = document.getElementById('evModal');
+const evModalDate = document.getElementById('evModalDate');
+const evInputTitle = document.getElementById('evInputTitle');
+const evInputMemo = document.getElementById('evInputMemo');
+const evModalEditId = document.getElementById('evModalEditId');
+
+function openEventModal(iso) {
+  evModalDate.textContent = `${iso.replace(/-/g, ' / ')}`;
+  evInputTitle.value = '';
+  evInputMemo.value = '';
+  evModalEditId.value = '';
+  evModal.classList.add('show');
+  evModal.dataset.iso = iso;
+  setTimeout(() => evInputTitle.focus(), 100);
+}
+
+function closeEventModal() {
+  evModal.classList.remove('show');
+}
+
+document.getElementById('evBtnCancel').addEventListener('click', closeEventModal);
+document.getElementById('evBtnSave').addEventListener('click', async () => {
+  const title = evInputTitle.value.trim();
+  if (!title) { evInputTitle.focus(); return; }
+  const memo = evInputMemo.value.trim();
+  const iso = evModal.dataset.iso;
+  if (!state.events) state.events = {};
+  if (!state.events[iso]) state.events[iso] = [];
+  
+  // 一意ID生成
+  const id = 'ev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7);
+  state.events[iso].push({ id, title, memo, icon: '📌' });
+  await saveState();
+  closeEventModal();
+  renderCalendar();
+  renderDayEvents();
+  renderTimeline();
+});
+
+// モーダル背景クリックで閉じる
+evModal.addEventListener('click', (e) => {
+  if (e.target === evModal) closeEventModal();
+});
+
+// ============================================
+// イベントリスナー
+// ============================================
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const tab = btn.dataset.tab;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('active', s.id === tab));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// カレンダー日付クリック
+document.getElementById('calGrid').addEventListener('click', (e) => {
+  const day = e.target.closest('.cal-day');
+  if (!day || day.classList.contains('outside')) return;
+  selectedDateIso = day.dataset.iso;
+  renderCalendar();
+  renderDayEvents();
+  // スクロール
+  setTimeout(() => {
+    document.getElementById('dayEvents').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 100);
+});
+
+// 月切り替え
+document.getElementById('prevMonth').addEventListener('click', () => {
+  viewMonth--;
+  if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+  renderCalendar();
+});
+document.getElementById('nextMonth').addEventListener('click', () => {
+  viewMonth++;
+  if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+  renderCalendar();
+});
+
+// 「+ 予定を追加」とイベント削除
+document.addEventListener('click', async (e) => {
+  if (e.target.id === 'dayEventsAdd' && selectedDateIso) {
+    if (!PermissionHelper.canEdit()) return;
+    openEventModal(selectedDateIso);
+    return;
+  }
+  const delBtn = e.target.closest('.event-del-btn');
+  if (delBtn && selectedDateIso) {
+    if (!PermissionHelper.canEdit()) return;
+    if (!confirm('この予定を削除しますか？')) return;
+    const id = delBtn.dataset.delId;
+    const arr = state.events[selectedDateIso] || [];
+    state.events[selectedDateIso] = arr.filter(ev => ev.id !== id);
+    if (state.events[selectedDateIso].length === 0) delete state.events[selectedDateIso];
+    await saveState();
+    renderCalendar();
+    renderDayEvents();
+    renderTimeline();
+  }
+});
+
+// ============================================
+// INIT
+// ============================================
+(async () => {
+  PermissionHelper.init({ owner: 'both', label: '第四章' });
+  await loadState();
+  
+  // 初期表示は今日の月
+  const today = new Date();
+  if (today.getFullYear() === 2026 && today.getMonth() <= 5) {
+    viewYear = today.getFullYear();
+    viewMonth = today.getMonth();
+  }
+  
+  renderCalendar();
+  renderTimeline();
+  renderDayEvents();
+  setTimeout(() => PermissionHelper.updateSyncIndicator(), 1500);
+})();
+</script>
+</body>
+</html>
