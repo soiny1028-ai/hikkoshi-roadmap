@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>引っ越しまでの道のり 〜第二章 彼氏篇〜</title>
+<title>引っ越しまでの道のり 〜第二章 廃品回収篇〜</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -241,34 +241,178 @@
   }
 
   /* ============ TABS / TRACKS NAV ============ */
+  /* ============ COLLECTION DATE BAR ============ */
+  .collection-date-bar {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cd-bar-label {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .cd-bar-tk {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.18em;
+  }
+  .cd-bar-jp {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+  }
+  .cd-bar-input-wrap {
+    position: relative;
+    display: inline-block;
+  }
+  .cd-bar-input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  .cd-bar-display {
+    background: var(--paper);
+    border: 1.5px solid var(--ink);
+    padding: 8px 16px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+    min-width: 120px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  .cd-bar-display:hover {
+    background: var(--card-warm);
+  }
+  .cd-bar-display.is-set {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  @media (max-width: 380px) {
+    .collection-date-bar {
+      padding: 10px 12px;
+      gap: 8px;
+    }
+    .cd-bar-jp { font-size: 12px; }
+    .cd-bar-display {
+      font-size: 14px;
+      padding: 7px 12px;
+      min-width: 100px;
+    }
+  }
+
+  /* ============ INFO CARDS ============ */
+  .info-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 14px;
+    padding: 14px 14px 12px;
+    box-shadow: 3px 3px 0 0 var(--ink);
+  }
+  .info-card.accent {
+    border-color: var(--vermilion);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+  }
+  .info-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+  }
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4px;
+  }
+  .info-list li {
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .info-list li:last-child { border-bottom: none; }
+  .info-list li strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .info-tag {
+    display: inline-block;
+    padding: 2px 7px;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 10px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .info-tag.tag-rec {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .info-tag.tag-warn {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+  .info-note {
+    font-family: 'Klee One', serif;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 8px 0 0;
+    padding: 8px 10px;
+    background: var(--paper);
+    border-left: 2px solid var(--vermilion);
+    line-height: 1.6;
+  }
+
   nav.tabs {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     background: var(--card);
     border: 1.5px solid var(--ink);
     margin-bottom: 22px;
     position: sticky;
     top: 8px;
     z-index: 10;
-  }
-
-  /* 短期タスクは朱色強調 */
-  nav.tabs.tabs-3 button[data-tab="today"],
-  nav.tabs.tabs-3 button[data-tab="tomorrow"] {
-    background: rgba(168, 57, 44, 0.08);
-  }
-  nav.tabs.tabs-3 button[data-tab="today"] .tk,
-  nav.tabs.tabs-3 button[data-tab="tomorrow"] .tk {
-    color: var(--vermilion);
-    font-weight: 700;
-  }
-  nav.tabs.tabs-3 button[data-tab="today"].active,
-  nav.tabs.tabs-3 button[data-tab="tomorrow"].active {
-    background: var(--vermilion);
-  }
-  nav.tabs.tabs-3 button[data-tab="today"].active .tk,
-  nav.tabs.tabs-3 button[data-tab="tomorrow"].active .tk {
-    color: var(--card);
   }
 
   nav.tabs button {
@@ -432,6 +576,46 @@
     line-height: 1.4;
   }
 
+  /* タスクタイトル+担当タグのラッパー */
+  .task-title-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  /* 担当タグ */
+  .assignee-tag {
+    display: inline-block;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    padding: 2px 7px;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .assignee-tag.tag-kanan {
+    background: var(--moss-d);
+    color: var(--card);
+    border-color: var(--moss-d);
+  }
+  .assignee-tag.tag-shinta {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .assignee-tag.tag-both {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+
   .check-box {
     width: 24px;
     height: 24px;
@@ -586,397 +770,6 @@
   .accent-mark {
     color: var(--vermilion);
     font-weight: 700;
-  }
-
-  /* ===== INFO CARD ===== */
-  .info-card {
-    background: var(--card);
-    border: 1.5px solid var(--ink);
-    margin-bottom: 14px;
-    padding: 14px 14px 12px;
-    box-shadow: 3px 3px 0 0 var(--ink);
-  }
-  .info-card.accent {
-    border-color: var(--vermilion);
-    box-shadow: 3px 3px 0 0 var(--vermilion);
-  }
-  .info-title {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 800;
-    font-size: 14px;
-    color: var(--ink);
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 6px;
-    margin-bottom: 10px;
-    letter-spacing: 0.05em;
-  }
-  .info-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 4px;
-  }
-  .info-list li {
-    font-family: 'Klee One', serif;
-    font-size: 13px;
-    color: var(--ink-soft);
-    line-height: 1.6;
-    padding: 5px 0;
-    border-bottom: 1px dashed var(--rule);
-    display: flex;
-    align-items: baseline;
-    gap: 6px;
-  }
-  .info-list li:last-child { border-bottom: none; }
-  .info-list li strong {
-    color: var(--ink);
-    font-weight: 700;
-  }
-  .info-tag {
-    display: inline-block;
-    padding: 2px 7px;
-    background: var(--paper);
-    border: 1px solid var(--ink);
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 10px;
-    color: var(--ink);
-    letter-spacing: 0.05em;
-    flex-shrink: 0;
-    line-height: 1.4;
-  }
-  .info-tag.tag-rec {
-    background: var(--vermilion);
-    color: var(--card);
-    border-color: var(--vermilion);
-  }
-  .info-tag.tag-warn {
-    background: var(--ink);
-    color: var(--card);
-    border-color: var(--ink);
-  }
-  .info-note {
-    font-family: 'Klee One', serif;
-    font-size: 12px;
-    color: var(--ink-soft);
-    margin: 8px 0 0;
-    padding: 8px 10px;
-    background: var(--paper);
-    border-left: 2px solid var(--vermilion);
-    line-height: 1.6;
-  }
-
-  /* ===== RANK CARD ===== */
-  .rank-card {
-    background: var(--card);
-    border: 1.5px solid var(--ink);
-    margin-bottom: 14px;
-    box-shadow: 3px 3px 0 0 var(--ink);
-    overflow: hidden;
-  }
-  .rank-card.rank-1 {
-    border-color: var(--vermilion);
-    box-shadow: 4px 4px 0 0 var(--vermilion);
-  }
-  .rank-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 14px 10px;
-    border-bottom: 1px solid var(--rule);
-    background: var(--paper);
-  }
-  .rank-1 .rank-head {
-    background: rgba(168, 57, 44, 0.06);
-  }
-  .rank-medal {
-    font-size: 28px;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .rank-title-block {
-    flex: 1;
-    min-width: 0;
-  }
-  .rank-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 10px;
-    color: var(--vermilion);
-    letter-spacing: 0.2em;
-    line-height: 1.2;
-  }
-  .rank-name {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 800;
-    font-size: 16px;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-top: 2px;
-  }
-  .rank-body {
-    padding: 10px 14px 12px;
-  }
-  .rank-row {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 8px;
-    padding: 5px 0;
-    border-bottom: 1px dashed var(--rule);
-    align-items: baseline;
-  }
-  .rank-row:last-child { border-bottom: none; }
-  .rank-label {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 11px;
-    color: var(--vermilion);
-    letter-spacing: 0.1em;
-  }
-  .rank-val {
-    font-family: 'Klee One', serif;
-    font-size: 12.5px;
-    color: var(--ink-soft);
-    line-height: 1.5;
-  }
-
-  .empty-note {
-    text-align: center;
-    color: var(--ink-mute);
-    font-family: 'Klee One', serif;
-    font-size: 12px;
-    padding: 24px 16px;
-    border: 1px dashed var(--rule);
-    background: rgba(255,255,255,0.3);
-    margin: 0;
-  }
-
-  /* ===== SHOP LIST (買い物リスト型) ===== */
-  .shop-list-bf {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .shop-item-bf {
-    display: grid;
-    grid-template-columns: 24px 22px 1fr auto;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 11px;
-    cursor: pointer;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-  }
-  .shop-item-bf:active { transform: scale(0.99); }
-  .shop-item-bf.done {
-    background: var(--card-warm);
-    border-color: var(--vermilion);
-  }
-  .shop-item-bf.done .item-name-bf {
-    opacity: 0.5;
-    text-decoration: line-through;
-  }
-  .shop-item-bf.done .item-num-bf { opacity: 0.5; }
-
-  .item-num-bf {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: var(--vermilion);
-    text-align: right;
-    line-height: 1;
-    font-weight: 600;
-  }
-
-  .shop-item-bf .check-box-sm {
-    width: 20px;
-    height: 20px;
-  }
-
-  .item-info-bf {
-    min-width: 0;
-  }
-  .item-name-bf {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 500;
-    font-size: 13px;
-    color: var(--ink);
-    line-height: 1.35;
-  }
-  .item-note-bf {
-    font-family: 'Klee One', serif;
-    font-size: 10.5px;
-    color: var(--ink-mute);
-    margin-top: 1px;
-  }
-
-  /* 枚数プルダウン */
-  .count-select-bf {
-    margin-top: 4px;
-    padding: 4px 6px;
-    border: 1px solid var(--ink);
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 600;
-    font-size: 11px;
-    cursor: pointer;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9' stroke='%231a140d' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 4px center;
-    padding-right: 18px;
-    min-width: 56px;
-  }
-  .count-select-bf:focus {
-    outline: 2px solid var(--vermilion);
-    outline-offset: -1px;
-  }
-  .shop-item-bf.done .count-select-bf {
-    background-color: var(--card);
-    color: var(--vermilion);
-    border-color: var(--vermilion);
-    font-weight: 700;
-    opacity: 1;
-  }
-  .shop-item-bf.skipped .count-select-bf {
-    opacity: 0.4;
-    pointer-events: none;
-  }
-
-  .img-btn-bf {
-    background: var(--paper);
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    text-decoration: none;
-    padding: 6px 7px;
-    font-size: 10px;
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    min-width: 28px;
-  }
-  .img-btn-bf:hover, .img-btn-bf:active {
-    background: var(--ink);
-    color: var(--card);
-  }
-  .img-btn-bf svg {
-    width: 11px;
-    height: 11px;
-    fill: currentColor;
-  }
-
-  /* item-actions wrapper */
-  .item-actions-bf {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    position: relative;
-    z-index: 2;
-  }
-
-  /* LINE報告ボタン */
-  .report-row {
-    margin-top: 12px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--rule);
-    display: flex;
-    justify-content: flex-end;
-  }
-  .line-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: #06c755;
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 14px;
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    border: 1.5px solid #06c755;
-    transition: all 0.2s ease;
-    box-shadow: 2px 2px 0 0 var(--ink);
-  }
-  .line-btn:hover, .line-btn:active {
-    background: #04a847;
-    border-color: #04a847;
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0 0 var(--ink);
-  }
-  .line-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-    flex-shrink: 0;
-  }
-
-  /* 不要ボタン */
-  .skip-btn-bf {
-    background: var(--paper);
-    border: 1px solid var(--ink);
-    color: var(--ink);
-    padding: 6px 7px;
-    font-size: 10px;
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap;
-    min-width: 32px;
-  }
-  .skip-btn-bf:hover, .skip-btn-bf:active {
-    background: var(--ink);
-    color: var(--card);
-  }
-  .shop-item-bf.skipped .skip-btn-bf {
-    background: var(--ink);
-    color: var(--card);
-  }
-
-  /* skipped 状態 */
-  .shop-item-bf.skipped {
-    background: rgba(26, 20, 13, 0.06);
-    border-color: var(--ink-mute);
-  }
-  .shop-item-bf.skipped .check-box-sm {
-    background: var(--ink);
-    border-color: var(--ink);
-  }
-  .shop-item-bf.skipped .check-box-sm::after {
-    content: '×';
-    color: var(--card);
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 800;
-    font-size: 16px;
-    line-height: 1;
-    position: absolute;
-  }
-  .shop-item-bf.skipped .check-box-sm svg { opacity: 0; }
-  .shop-item-bf.skipped .item-name-bf {
-    opacity: 0.5;
-    text-decoration: line-through;
-    text-decoration-style: wavy;
-    text-decoration-color: var(--ink-mute);
-  }
-  .shop-item-bf.skipped .item-num-bf { opacity: 0.4; }
-  .shop-item-bf.skipped .item-note-bf { opacity: 0.5; }
-
-  .check-box-sm {
-    position: relative;
   }
 
   /* multi-task with subtasks */
@@ -1343,8 +1136,8 @@
   <!-- ============ JACKET HEADER ============ -->
   <div class="jacket">
     <div class="jacket-meta">
-      <span class="left">VOL. 02 ・ HIS TASKS</span>
-      <span>2026 ・ TILL SUNDAY</span>
+      <span class="left">VOL. 02 ・ DISPOSAL</span>
+      <span>2026 ・ MOVING JOURNEY</span>
     </div>
 
     <div class="jacket-body">
@@ -1352,16 +1145,28 @@
         <span>第</span><span class="rt">二</span><span>章</span>
       </div>
       <div class="htitle-block">
-        <div class="htitle">引っ越しまでの<br>道のり ─ 彼氏篇</div>
-        <div class="htitle-en">CH. II ─ HIS TASKS</div>
+        <div class="htitle">引っ越しまでの<br>道のり ─ 廃品回収</div>
+        <div class="htitle-en">DISPOSAL ─ CH. II・C</div>
         <div class="verse">
-          頼れる手があるから ──<br>
-          ありがとう。
+          手放すものを、丁寧に。<br>
+          二人の準備、最終局面 ──
         </div>
       </div>
     </div>
 
-    <div class="stamp">よろしく<br>頼みます</div>
+    <div class="stamp">廃 品<br>回 収</div>
+  </div>
+
+  <!-- ============ COLLECTION DATE BAR ============ -->
+  <div class="collection-date-bar">
+    <div class="cd-bar-label">
+      <span class="cd-bar-tk">COLLECTION DATE</span>
+      <span class="cd-bar-jp">回 収 予 定 日</span>
+    </div>
+    <div class="cd-bar-input-wrap">
+      <input type="date" id="collectionDate" class="cd-bar-input">
+      <div class="cd-bar-display" id="collectionDateDisplay">未 定</div>
+    </div>
   </div>
 
   <!-- ============ PROGRESS METER ============ -->
@@ -1375,46 +1180,92 @@
   </div>
 
   <!-- ============ TABS ============ -->
-  <nav class="tabs tabs-3" id="tabs">
-    <button data-tab="today" class="active">
-      <span class="tk">SHORT 1</span>今日
-      <span class="badge" id="b-today">0/0</span>
+  <nav class="tabs" id="tabs">
+    <button data-tab="overview" class="active">
+      <span class="tk">TRACK 01</span>概要
+      <span class="badge" id="b-overview">─</span>
     </button>
-    <button data-tab="tomorrow">
-      <span class="tk">SHORT 2</span>明日
-      <span class="badge" id="b-tomorrow">0/0</span>
+    <button data-tab="prep">
+      <span class="tk">TRACK 02</span>準備
+      <span class="badge" id="b-prep">0/0</span>
+    </button>
+    <button data-tab="day">
+      <span class="tk">TRACK 03</span>当日
+      <span class="badge" id="b-day">0/0</span>
     </button>
   </nav>
 
-  <!-- ============ TODAY (4/30 木) ============ -->
-  <section id="today" class="active">
+  <!-- ============ OVERVIEW ============ -->
+  <section id="overview" class="active">
     <div class="chapter">
-      <div class="ch-num">— Short Term · Day 1 —</div>
-      <h2>今　日　篇</h2>
-      <div class="ch-en">today ─ thursday 4/30</div>
+      <div class="ch-num">— Track 01 —</div>
+      <h2>概　要　篇</h2>
+      <div class="ch-en">the mission</div>
     </div>
     <div class="liner-note">
-      <strong>今日の主役 </strong>ホームセンターに買い出し。明日のリネット集荷の段ボール調達も兼ねてる。
+      <strong>ミッション </strong>引っ越し（葛飾区→台東区）で出る大型ゴミの処分業者を、しんたが手配。回収日が決まったら上のヘッダーに記入。
     </div>
-    <div class="task-list" id="today-list"></div>
+
+    <div class="info-card">
+      <div class="info-title">処分するもの</div>
+      <ul class="info-list">
+        <li><span class="info-tag tag-rec">手配済</span>PC（5/1リネット集荷／12-14時／支払い済）</li>
+        <li><span class="info-tag">家電</span>洗濯機・冷蔵庫・電子レンジ</li>
+        <li><span class="info-tag">家具</span>ベッドフレーム・デスク・ゲーミングチェア・姿見</li>
+        <li><span class="info-tag">寝具</span>敷布団</li>
+      </ul>
+    </div>
+
+    <div class="info-card accent">
+      <div class="info-title">予算の目安</div>
+      <ul class="info-list">
+        <li><span class="info-tag tag-rec">本命</span>2tトラック積み放題：<strong>35,000〜80,000円</strong></li>
+        <li><span class="info-tag">参考</span>軽トラ積み放題：15,000〜35,000円（量入り切らない可能性）</li>
+        <li><span class="info-tag">参考</span>単品合算：50,000〜80,000円（割高になりがち）</li>
+      </ul>
+      <p class="info-note">📦 8点・大型家具家電多めなので、2tトラック積み放題プランが妥当。買取対応で更に安くなる可能性も。</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title">業者選びの絶対ルール</div>
+      <ul class="info-list">
+        <li><span class="info-tag tag-warn">必須</span><strong>「一般廃棄物収集運搬業」の許可</strong>を持つ業者のみ</li>
+        <li><span class="info-tag tag-warn">必須</span>無許可業者は違法・依頼者にも罰則の可能性</li>
+        <li><span class="info-tag">推奨</span>必ず<strong>3社相見積もり</strong>を取る</li>
+        <li><span class="info-tag">推奨</span>会社情報（住所・電話・代表者名）がHPに明記されている</li>
+      </ul>
+    </div>
   </section>
 
-  <!-- ============ TOMORROW (5/1 金) ============ -->
-  <section id="tomorrow">
+  <!-- ============ PREP ============ -->
+  <section id="prep">
     <div class="chapter">
-      <div class="ch-num">— Short Term · Day 2 —</div>
-      <h2>明　日　篇</h2>
-      <div class="ch-en">tomorrow ─ friday 5/1</div>
+      <div class="ch-num">— Track 02 —</div>
+      <h2>回 収 日 ま で の 準 備</h2>
+      <div class="ch-en">prep before pickup</div>
     </div>
     <div class="liner-note">
-      <strong>明日の主役 </strong>午前中にお水の受け取り、12-14時にリネットの佐川集荷。在宅で受け渡すだけ。
+      <strong>覚え書 </strong>搬出をスムーズにするため、回収日までにできること。
     </div>
-    <div class="task-list" id="tomorrow-list"></div>
+    <div class="task-list" id="prep-list"></div>
+  </section>
+
+  <!-- ============ DAY ============ -->
+  <section id="day">
+    <div class="chapter">
+      <div class="ch-num">— Track 03 —</div>
+      <h2>回　収　日　当　日</h2>
+      <div class="ch-en">pickup day</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>立ち会い＆精算。業者と一緒に最終確認。
+    </div>
+    <div class="task-list" id="day-list"></div>
   </section>
 
   <!-- ============ COLOPHON ============ -->
   <div class="colophon">
-    第二章 彼氏篇 <span class="div">·</span> 葛飾区 → 台東区 <span class="div">·</span> WITH GRATITUDE
+    第二章 ・ 廃品回収篇 <span class="div">·</span> 二人で進める <span class="div">·</span> WRITTEN WITH CARE
   </div>
   <button class="reset-btn" id="reset">CHECK 全リセット</button>
 </div>
@@ -1423,77 +1274,97 @@
 <div class="celebrate" id="celebrate">
   <div class="celebrate-card">
     <div class="seal">完</div>
-    <h3>第 二 章 ・ 彼 氏 篇 ・ 完</h3>
-    <p>ぜんぶ終わったね。<br>本当にありがとう、助かった。<br>残りも一緒にがんばろう。</p>
+    <h3>廃 品 回 収 ・ 完</h3>
+    <p>大物の処分、本当におつかれさま。<br>身軽になって、新生活へ ──</p>
     <button onclick="document.getElementById('celebrate').classList.remove('show')">閉じる</button>
   </div>
 </div>
 
 <script>
 // ============================================
-// HIS TASKS DATA
+// CHAPTER II・C - DISPOSAL TASKS
 // ============================================
 const TASKS = {
-  // ========== 今日 4/30(木) ==========
-  today: [
+  overview: [], // 概要は静的HTML、タスクなし
+  prep: [
     {
-      id: 'td-shop',
-      title: 'ホームセンターに買い出し',
-      desc: 'ダンボールはサイズ確認しながら買う。140サイズが大きすぎる場合は、PC梱包用の1枚だけ140サイズで、それ以外は一回り小さく。',
-      shopItems: [
-        {
-          id: 'sh-1',
-          name: 'アリエール 洗濯用洗剤（部屋干し用・緑）',
-          q: 'アリエール 洗濯用洗剤 部屋干し 緑',
-          note: 'パッケージ緑系'
-        },
-        {
-          id: 'sh-2',
-          name: 'ダンボール 140サイズ × 1枚',
-          q: 'ダンボール 140サイズ',
-          note: 'PC梱包用（3辺合計140cm）',
-          countField: { min: 0, max: 5, suffix: '枚' }
-        },
-        {
-          id: 'sh-3',
-          name: 'ダンボール 一回り小さめ × 1〜2枚',
-          q: 'ダンボール 120サイズ',
-          note: '140が大きすぎたら一回り小さいやつ',
-          optional: true,
-          countField: { min: 0, max: 5, suffix: '枚' }
-        },
-        {
-          id: 'sh-4',
-          name: 'ガムテープ',
-          q: 'ガムテープ 引っ越し用',
-          note: 'ダンボール梱包用',
-          noImage: true
-        }
+      id: 'p1',
+      title: '処分品の中身を空に',
+      desc: '冷蔵庫・洗濯機の水抜き等。',
+      subtasks: [
+        { id: 'p1-a', name: '冷蔵庫の中身を全部出す（前日まで）' },
+        { id: 'p1-b', name: '冷蔵庫の電源を切る（回収日の前日 or 当日朝）' },
+        { id: 'p1-c', name: '洗濯機の水抜き（給水ホース・排水ホース）' },
+        { id: 'p1-d', name: '電子レンジの中を空に' }
+      ]
+    },
+    {
+      id: 'p2',
+      title: '解体可能な家具は事前に解体',
+      desc: 'ベッド・デスクなど、解体できると料金が安くなる場合あり。業者に確認。',
+      subtasks: [
+        { id: 'p2-a', name: '業者に「解体すると安くなるか」確認' },
+        { id: 'p2-b', name: 'ベッドフレーム解体' },
+        { id: 'p2-c', name: 'デスク解体' }
+      ]
+    },
+    {
+      id: 'p3',
+      title: '搬出経路の確認',
+      desc: '玄関〜エレベーター〜出入口までの動線確認。家具のサイズが通るか。',
+      subtasks: [
+        { id: 'p3-a', name: '玄関の幅を測る' },
+        { id: 'p3-b', name: 'エレベーター内の最大寸法を確認' },
+        { id: 'p3-c', name: 'マンション出入口〜トラック駐車位置の動線' }
+      ]
+    },
+    {
+      id: 'p4',
+      title: '当日の在宅時間を業者と最終確認',
+      desc: '回収予定日の前日までに最終確認の連絡を。',
+      subtasks: [
+        { id: 'p4-a', name: '業者に到着時間を確認' },
+        { id: 'p4-b', name: '当日の在宅予定をカレンダーに登録' }
       ]
     }
   ],
-
-  // ========== 明日 5/1(金) ==========
-  tomorrow: [
+  day: [
     {
-      id: 'tm0',
-      title: '【午前中】お水受け取り完了',
-      desc: 'プレミアムウォーターのお水が届くから受け取って、玄関のいつものところに置く。'
+      id: 'd1',
+      title: '業者到着・処分品の確認',
+      desc: '処分品を業者に見てもらう。リストと照合。'
     },
     {
-      id: 'tm1',
-      title: '【12-14時】リネット集荷完了',
-      desc: '梱包・申込・支払いぜんぶ彼女が済ませてある。佐川急便のドライバーに梱包済みダンボールを渡すだけ。集荷は「しんた」の名前で来る。'
+      id: 'd2',
+      title: '見積もり通りの金額か確認',
+      desc: '追加請求がある場合は必ず内訳を確認。納得できなければ強気に交渉。'
+    },
+    {
+      id: 'd3',
+      title: '搬出立ち会い',
+      desc: '部屋の傷・汚れがないように、慎重に運び出してもらう。'
+    },
+    {
+      id: 'd4',
+      title: '支払い・領収書受け取り',
+      desc: '領収書は必ずもらう。経費精算や万一のトラブル対応に必要。'
+    },
+    {
+      id: 'd5',
+      title: '完了',
+      desc: 'お疲れさまでした 🌿'
     }
   ]
 };
 
 const TAB_CONFIG = [
-  { key: 'today',    badge: 'b-today' },
-  { key: 'tomorrow', badge: 'b-tomorrow' }
+  { key: 'overview', badge: 'b-overview' },
+  { key: 'prep',     badge: 'b-prep' },
+  { key: 'day',      badge: 'b-day' }
 ];
 
-const STORAGE_KEY = 'hikkoshi-bf-v3';
+const STORAGE_KEY = 'hikkoshi-recycle-v1';
+const COLLECTION_DATE_KEY = '__collection_date';
 let state = {};
 let storageWorks = true;
 
@@ -1507,16 +1378,13 @@ async function loadState() {
       try {
         renderAll();
         updateProgress();
+        renderCollectionDate();
       } catch (e) {}
     }
   });
 }
 async function saveState() {
-  try {
-    await SharedStorage.setAll(state);
-  } catch (e) {
-    storageWorks = false;
-  }
+  try { await SharedStorage.setAll(state); } catch (e) { storageWorks = false; }
 }
 window.addEventListener('unhandledrejection', (e) => {
   const msg = String(e.reason && (e.reason.message || e.reason));
@@ -1526,94 +1394,18 @@ window.addEventListener('unhandledrejection', (e) => {
   }
 });
 
-const ROMAN = ['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii'];
+const ROMAN = ['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii','xiii','xiv','xv'];
 function isDone(s) { return s === 'done' || s === true; }
-function isSkipped(s) { return s === 'skipped'; }
-function isResolved(s) { return isDone(s) || isSkipped(s); }
-function stateClass(s) {
-  if (isDone(s)) return 'done';
-  if (isSkipped(s)) return 'skipped';
-  return '';
-}
+function stateClass(s) { return isDone(s) ? 'done' : ''; }
 
 function renderRoom(roomKey) {
   const tasks = TASKS[roomKey];
   const container = document.getElementById(roomKey + '-list');
   if (!container) return;
-  if (!tasks || tasks.length === 0) {
-    return; // 概要タブは静的HTMLなのでスキップ
-  }
+  if (!tasks || tasks.length === 0) return;
   container.innerHTML = tasks.map((task, idx) => {
     const num = ROMAN[idx + 1] || (idx + 1);
-    // 買い物リスト型タスク（shopItems）
-    if (task.shopItems && task.shopItems.length) {
-      const shopDone = task.shopItems.filter(it => isResolved(state[it.id])).length;
-      const allDone = shopDone === task.shopItems.length ? 'all-done' : '';
-      // LINE報告メッセージ：買ったものリスト＋枚数
-      const lineLines = task.shopItems.map(it => {
-        const status = isDone(state[it.id]) ? '✅' : isSkipped(state[it.id]) ? '✗' : '⬜';
-        const count = state[it.id + '-count'];
-        const countTxt = count != null && count !== '' ? `（${count}${(it.countField && it.countField.suffix) || ''}）` : '';
-        return `${status} ${it.name}${countTxt}`;
-      }).join('\n');
-      const lineMsg = `🛒 ${task.title} 完了したよ！\n\n${lineLines}`;
-      return `
-        <div class="task-card multi ${allDone}" data-multi="${task.id}">
-          <div class="task-head no-toggle">
-            <div class="task-num">${num}.</div>
-            <div class="task-title">${task.title}</div>
-            <div class="task-progress" data-multi-progress="${task.id}">${shopDone}/${task.shopItems.length}</div>
-          </div>
-          <div class="task-detail">
-            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
-            <div class="shop-list-bf">
-              ${task.shopItems.map((item, i) => {
-                const countKey = item.id + '-count';
-                const currentCount = state[countKey] != null ? state[countKey] : '';
-                let countOptions = '';
-                if (item.countField) {
-                  countOptions = `<option value="">枚数</option>`;
-                  for (let n = item.countField.min; n <= item.countField.max; n++) {
-                    const sel = String(n) === String(currentCount) ? ' selected' : '';
-                    countOptions += `<option value="${n}"${sel}>${n}${item.countField.suffix || ''}</option>`;
-                  }
-                }
-                return `
-                <div class="shop-item-bf ${stateClass(state[item.id])}" data-id="${item.id}">
-                  <div class="item-num-bf">${String(i + 1).padStart(2, '0')}.</div>
-                  <div class="check-box-sm"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                  <div class="item-info-bf">
-                    <div class="item-name-bf">${item.name}</div>
-                    ${item.note ? `<div class="item-note-bf">${item.note}</div>` : ''}
-                    ${item.countField ? `
-                      <select class="count-select-bf" data-count-id="${item.id}">
-                        ${countOptions}
-                      </select>
-                    ` : ''}
-                  </div>
-                  <div class="item-actions-bf">
-                    ${item.noImage ? '' : `
-                      <a class="img-btn-bf" href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(item.q)}" target="_blank" rel="noopener">
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm-1 16H6V5h12v14zM10 14l-2-2.5L4 17h16l-5-7z"/></svg>
-                        画像
-                      </a>
-                    `}
-                    ${item.optional ? `<button class="skip-btn-bf" data-skip="${item.id}">不要</button>` : ''}
-                  </div>
-                </div>
-                `;
-              }).join('')}
-            </div>
-            <div class="report-row">
-              <a class="line-btn" href="https://line.me/R/share?text=${encodeURIComponent(lineMsg)}" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-                LINEで報告
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
-    }
+
     if (task.subtasks && task.subtasks.length) {
       const subDone = task.subtasks.filter(st => isDone(state[st.id])).length;
       const allDone = subDone === task.subtasks.length ? 'all-done' : '';
@@ -1634,12 +1426,6 @@ function renderRoom(roomKey) {
                 </div>
               `).join('')}
             </div>
-            <div class="report-row">
-              <a class="line-btn" href="https://line.me/R/share?text=${encodeURIComponent('✅ ' + task.title + ' 完了したよ！')}" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-                LINEで報告
-              </a>
-            </div>
           </div>
         </div>
       `;
@@ -1652,12 +1438,6 @@ function renderRoom(roomKey) {
           <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
         </div>
         ${task.desc ? `<div class="task-detail"><p class="task-desc">${task.desc}</p></div>` : ''}
-        <div class="report-row">
-          <a class="line-btn" href="https://line.me/R/share?text=${encodeURIComponent('✅ ' + task.title + ' 完了したよ！')}" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            LINEで報告
-          </a>
-        </div>
       </div>
     `;
   }).join('');
@@ -1673,8 +1453,6 @@ function allTaskIds() {
     list.forEach(task => {
       if (task.subtasks && task.subtasks.length) {
         task.subtasks.forEach(st => ids.push(st.id));
-      } else if (task.shopItems && task.shopItems.length) {
-        task.shopItems.forEach(it => ids.push(it.id));
       } else {
         ids.push(task.id);
       }
@@ -1687,8 +1465,6 @@ function roomTaskIds(roomKey) {
   TASKS[roomKey].forEach(task => {
     if (task.subtasks && task.subtasks.length) {
       task.subtasks.forEach(st => ids.push(st.id));
-    } else if (task.shopItems && task.shopItems.length) {
-      task.shopItems.forEach(it => ids.push(it.id));
     } else {
       ids.push(task.id);
     }
@@ -1697,9 +1473,8 @@ function roomTaskIds(roomKey) {
 }
 
 function applyState(el, id) {
-  el.classList.remove('done', 'checked', 'skipped');
+  el.classList.remove('done', 'checked');
   if (isDone(state[id])) el.classList.add('done');
-  else if (isSkipped(state[id])) el.classList.add('skipped');
 }
 
 function setDone(id, el) {
@@ -1709,14 +1484,6 @@ function setDone(id, el) {
     el.style.transform = 'scale(0.985)';
     setTimeout(() => el.style.transform = '', 130);
   }
-  saveState();
-  updateProgress();
-  checkAllDone();
-}
-
-function setSkipped(id, el) {
-  state[id] = isSkipped(state[id]) ? null : 'skipped';
-  applyState(el, id);
   saveState();
   updateProgress();
   checkAllDone();
@@ -1732,29 +1499,8 @@ document.getElementById('tabs').addEventListener('click', (e) => {
 });
 
 document.addEventListener('click', (e) => {
-  // プルダウン押下は親のチェック処理に伝播させない
-  if (e.target.closest('.count-select-bf')) {
-    return;
-  }
-  // 不要ボタン
-  const skipBtn = e.target.closest('.skip-btn-bf');
-  if (skipBtn) {
-    const id = skipBtn.dataset.skip;
-    const item = skipBtn.closest('.shop-item-bf');
-    if (item) setSkipped(id, item);
-    return;
-  }
-  // 買い物リスト（画像ボタン・不要ボタン・プルダウン以外をタップでチェック）
-  const shopItemBf = e.target.closest('.shop-item-bf');
-  if (shopItemBf && !e.target.closest('.img-btn-bf') && !e.target.closest('.skip-btn-bf') && !e.target.closest('.count-select-bf')) {
-    setDone(shopItemBf.dataset.id, shopItemBf);
-    return;
-  }
   const subtask = e.target.closest('.subtask');
-  if (subtask) {
-    setDone(subtask.dataset.id, subtask);
-    return;
-  }
+  if (subtask) { setDone(subtask.dataset.id, subtask); return; }
   const taskCard = e.target.closest('.task-card');
   if (taskCard && taskCard.dataset.id) {
     const head = e.target.closest('.task-head');
@@ -1764,21 +1510,10 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// プルダウンのchange
-document.addEventListener('change', (e) => {
-  const sel = e.target.closest('.count-select-bf');
-  if (sel) {
-    const id = sel.dataset.countId;
-    const countKey = id + '-count';
-    state[countKey] = sel.value === '' ? null : sel.value;
-    saveState();
-  }
-});
-
 function updateProgress() {
   const all = allTaskIds();
   const total = all.length;
-  const done = all.filter(k => isResolved(state[k])).length;
+  const done = all.filter(k => isDone(state[k])).length;
   document.getElementById('done').textContent = done;
   document.getElementById('total').textContent = total;
   document.getElementById('bar').style.width = total > 0 ? (done / total * 100) + '%' : '0%';
@@ -1788,7 +1523,7 @@ function updateProgress() {
 
   TAB_CONFIG.forEach((t, i) => {
     const ids = roomTaskIds(t.key);
-    const roomDone = ids.filter(k => isResolved(state[k])).length;
+    const roomDone = ids.filter(k => isDone(state[k])).length;
     const badge = document.getElementById(t.badge);
     if (badge) badge.textContent = ids.length > 0 ? `${roomDone}/${ids.length}` : '─';
     const tabBtn = document.querySelectorAll('nav.tabs button')[i];
@@ -1800,15 +1535,10 @@ function updateProgress() {
     let task = null;
     Object.values(TASKS).forEach(list => list.forEach(t => { if (t.id === multiId) task = t; }));
     if (task && task.subtasks) {
-      const sd = task.subtasks.filter(st => isResolved(state[st.id])).length;
+      const sd = task.subtasks.filter(st => isDone(state[st.id])).length;
       el.textContent = `${sd}/${task.subtasks.length}`;
       const card = document.querySelector(`[data-multi="${multiId}"]`);
       if (card) card.classList.toggle('all-done', sd === task.subtasks.length);
-    } else if (task && task.shopItems) {
-      const sd = task.shopItems.filter(it => isResolved(state[it.id])).length;
-      el.textContent = `${sd}/${task.shopItems.length}`;
-      const card = document.querySelector(`[data-multi="${multiId}"]`);
-      if (card) card.classList.toggle('all-done', sd === task.shopItems.length);
     }
   });
 }
@@ -1817,7 +1547,7 @@ let alreadyCelebrated = false;
 function checkAllDone() {
   const all = allTaskIds();
   if (all.length === 0) return;
-  const allDone = all.every(k => isResolved(state[k]));
+  const allDone = all.every(k => isDone(state[k]));
   if (allDone && !alreadyCelebrated) {
     alreadyCelebrated = true;
     document.getElementById('celebrate').classList.add('show');
@@ -1827,20 +1557,68 @@ function checkAllDone() {
 
 document.getElementById('reset').addEventListener('click', async () => {
   if (!confirm('チェックを全部リセット…ほんとに？')) return;
+  // 回収日も含めてリセットするか確認
   state = {};
   await saveState();
   renderAll();
+  renderCollectionDate();
   alreadyCelebrated = false;
   updateProgress();
 });
 
+// ============================================
+// 回収予定日（日付ピッカー）
+// ============================================
+function renderCollectionDate() {
+  const display = document.getElementById('collectionDateDisplay');
+  const input = document.getElementById('collectionDate');
+  const date = state[COLLECTION_DATE_KEY];
+  if (!display || !input) return;
+  if (date) {
+    input.value = date;
+    const d = new Date(date);
+    const days = ['日', '月', '火', '水', '木', '金', '土'];
+    display.textContent = `${d.getMonth() + 1}/${d.getDate()}（${days[d.getDay()]}）`;
+    display.classList.add('is-set');
+  } else {
+    input.value = '';
+    display.textContent = '未 定';
+    display.classList.remove('is-set');
+  }
+}
+
+// 日付ピッカーの change 時
+document.addEventListener('DOMContentLoaded', () => {
+  // すでにDOMがあるはずだが念のため
+});
+
 (async () => {
-  // 権限バナー（彼氏篇=しんたのみ編集可）
-  PermissionHelper.init({ owner: 'shinta', label: '彼氏篇' });
+  PermissionHelper.init({ owner: 'both', label: '廃品回収篇' });
   await loadState();
   renderAll();
+  renderCollectionDate();
   updateProgress();
-  PermissionHelper.applyReadonly();
+
+  // 日付ピッカーのイベント登録
+  const input = document.getElementById('collectionDate');
+  const display = document.getElementById('collectionDateDisplay');
+  if (input) {
+    input.addEventListener('change', async () => {
+      state[COLLECTION_DATE_KEY] = input.value || null;
+      await saveState();
+      renderCollectionDate();
+    });
+  }
+  if (display) {
+    display.addEventListener('click', () => {
+      if (input && input.showPicker) {
+        try { input.showPicker(); } catch (e) { input.click(); }
+      } else if (input) {
+        input.click();
+      }
+    });
+  }
+
   setTimeout(() => PermissionHelper.updateSyncIndicator(), 1500);
 })();
 </script>

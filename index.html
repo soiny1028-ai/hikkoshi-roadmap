@@ -220,7 +220,7 @@
     letter-spacing: 0.1em;
   }
 
-  /* ============ PROGRESS ============ */
+  /* ============ PROGRESS BARS ============ */
   .progress-wrap {
     margin-bottom: 18px;
     background: var(--card);
@@ -238,80 +238,116 @@
     border-bottom: 1px solid var(--rule);
     padding-bottom: 6px;
   }
+  .progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
   .progress-row {
     display: grid;
     grid-template-columns: 110px 1fr 56px;
-    align-items: center;
     gap: 10px;
-    padding: 6px 0;
-    --bar: var(--ink);
-  }
-  .progress-row.complete {
-    --bar: var(--vermilion);
-  }
-  .progress-row.row-total {
-    margin-top: 4px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--rule);
+    align-items: center;
   }
   .progress-label {
-    font-family: 'Shippori Mincho B1', serif;
-    font-weight: 700;
-    font-size: 12px;
-    color: var(--ink);
-    letter-spacing: 0.05em;
-    line-height: 1.25;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    line-height: 1.2;
   }
-  .progress-label .label-tk {
-    display: block;
+  .prog-tk {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 9.5px;
+    font-weight: 600;
+    font-size: 9px;
     color: var(--vermilion);
     letter-spacing: 0.15em;
-    font-weight: 600;
-    margin-bottom: 1px;
+  }
+  .prog-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--ink);
+    letter-spacing: 0.03em;
   }
   .progress-track {
-    height: 12px;
-    background: var(--paper-deep);
-    border: 1px solid var(--rule);
+    height: 8px;
+    background: var(--paper);
+    border: 1px solid var(--ink);
     position: relative;
     overflow: hidden;
   }
   .progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    background: var(--bar);
+    background: var(--ink);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     width: 0%;
-    transition: width 0.5s cubic-bezier(0.34, 1.2, 0.64, 1), background 0.3s ease;
+  }
+  .progress-fill.kanan {
+    background: var(--moss-d);
+  }
+  .progress-fill.shinta {
+    background: var(--vermilion);
   }
   .progress-count {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
+    font-weight: 600;
     font-size: 12px;
     color: var(--ink-soft);
     text-align: right;
-    letter-spacing: 0.05em;
-    white-space: nowrap;
+    letter-spacing: 0.02em;
   }
   .progress-row.complete .progress-count {
     color: var(--vermilion);
-    font-weight: 600;
-  }
-  .progress-row.row-total .progress-label {
-    font-size: 13px;
-    font-weight: 800;
-  }
-  .progress-row.row-total .progress-count {
-    font-size: 13px;
     font-weight: 700;
-    color: var(--ink);
   }
-  .progress-row.row-total.complete .progress-count {
-    color: var(--vermilion);
+  .progress-row.complete .progress-fill {
+    background: var(--vermilion) !important;
   }
 
-  /* ============ CHAPTER CARDS ============ */
+  /* 合計行 */
+  .progress-total {
+    display: grid;
+    grid-template-columns: 110px 1fr 56px;
+    gap: 10px;
+    align-items: center;
+    margin-top: 4px;
+    padding-top: 9px;
+    border-top: 1px dashed var(--rule);
+  }
+  .prog-total-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 12px;
+    color: var(--ink);
+    letter-spacing: 0.15em;
+  }
+  .progress-track.total-track {
+    height: 11px;
+    border-width: 1.5px;
+  }
+  .progress-fill.total-fill {
+    background: var(--ink);
+  }
+  .progress-count.total-count {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  @media (max-width: 380px) {
+    .progress-row, .progress-total {
+      grid-template-columns: 90px 1fr 48px;
+      gap: 8px;
+    }
+    .prog-name { font-size: 10px; }
+    .progress-count { font-size: 11px; }
+    .prog-total-label { font-size: 11px; }
+  }
   .ch-cards {
     display: flex;
     flex-direction: column;
@@ -377,15 +413,30 @@
   .ch-side-female {
     background: var(--moss-d) !important;
   }
-  .ch-card.sub:not(.highlight) {
+  .ch-card.sub:not(.highlight):not(.recycle) {
     border-color: var(--moss-d);
     box-shadow: 2px 2px 0 0 var(--moss-d);
   }
-  .ch-card.sub:not(.highlight):hover {
+  .ch-card.sub:not(.highlight):not(.recycle):hover {
     box-shadow: 1px 1px 0 0 var(--moss-d);
   }
   .ch-side-female .ch-num-jp .accent {
     color: #b8d4a0;
+  }
+
+  /* 廃品回収篇 - 二人共有の墨色 */
+  .ch-side-recycle {
+    background: var(--ink) !important;
+  }
+  .ch-card.sub.recycle {
+    border-color: var(--ink);
+    box-shadow: 2px 2px 0 0 var(--ink);
+  }
+  .ch-card.sub.recycle:hover {
+    box-shadow: 1px 1px 0 0 var(--ink);
+  }
+  .ch-side-recycle .ch-num-jp .accent {
+    color: #d4b87a;
   }
   .ch-card {
     display: flex;
@@ -586,13 +637,6 @@
     .ch-card .ch-side .ch-num-jp { font-size: 18px; }
     .ch-card .ch-title { font-size: 15px; }
     .ch-card .ch-desc { font-size: 11px; }
-    .progress-wrap { padding: 12px 12px 10px; }
-    .progress-row { grid-template-columns: 92px 1fr 50px; gap: 8px; }
-    .progress-label { font-size: 11px; }
-    .progress-label .label-tk { font-size: 9px; }
-    .progress-count { font-size: 11px; }
-    .progress-row.row-total .progress-label,
-    .progress-row.row-total .progress-count { font-size: 12px; }
   }
   /* ============ USER SELECT MODAL ============ */
   .user-modal-overlay {
@@ -811,38 +855,67 @@
     </div>
   </div>
 
-  <!-- ============ PROGRESS ============ -->
+  <!-- ============ PROGRESS BARS ============ -->
   <div class="progress-wrap">
     <div class="progress-head">─　進 捗 ま と め　─</div>
-
-    <div class="progress-row" id="prog-row-ch1" style="--bar: var(--ink);">
-      <div class="progress-label"><span class="label-tk">CH. I</span>第一章 ・ 家事</div>
-      <div class="progress-track"><div class="progress-fill" id="prog-fill-ch1"></div></div>
-      <div class="progress-count" id="prog-count-ch1">0 / 25</div>
-    </div>
-
-    <div class="progress-row" id="prog-row-ch2" style="--bar: var(--moss-d);">
-      <div class="progress-label"><span class="label-tk">II ・ A</span>彼女篇</div>
-      <div class="progress-track"><div class="progress-fill" id="prog-fill-ch2"></div></div>
-      <div class="progress-count" id="prog-count-ch2">0 / 220</div>
-    </div>
-
-    <div class="progress-row" id="prog-row-bf" style="--bar: var(--vermilion);">
-      <div class="progress-label"><span class="label-tk">II ・ B</span>彼氏篇</div>
-      <div class="progress-track"><div class="progress-fill" id="prog-fill-bf"></div></div>
-      <div class="progress-count" id="prog-count-bf">0 / 38</div>
-    </div>
-
-    <div class="progress-row" id="prog-row-ch3" style="--bar: var(--ink);">
-      <div class="progress-label"><span class="label-tk">CH. III</span>第三章 ・ インフラ</div>
-      <div class="progress-track"><div class="progress-fill" id="prog-fill-ch3"></div></div>
-      <div class="progress-count" id="prog-count-ch3">0 / 89</div>
-    </div>
-
-    <div class="progress-row row-total" id="prog-row-total" style="--bar: var(--ink);">
-      <div class="progress-label"><span class="label-tk">TOTAL</span>合 計</div>
-      <div class="progress-track"><div class="progress-fill" id="prog-fill-total"></div></div>
-      <div class="progress-count" id="prog-count-total">0 / 372</div>
+    <div class="progress-list" id="progressList">
+      <div class="progress-row" data-key="ch1">
+        <div class="progress-label">
+          <span class="prog-tk">CH. I</span>
+          <span class="prog-name">第一章 ・ 家事/買い出し</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="prog-fill-ch1"></div>
+        </div>
+        <div class="progress-count" id="prog-count-ch1">─ / ─</div>
+      </div>
+      <div class="progress-row" data-key="ch2">
+        <div class="progress-label">
+          <span class="prog-tk">II・A</span>
+          <span class="prog-name">第二章 ・ 彼女篇</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill kanan" id="prog-fill-ch2"></div>
+        </div>
+        <div class="progress-count" id="prog-count-ch2">─ / ─</div>
+      </div>
+      <div class="progress-row" data-key="bf">
+        <div class="progress-label">
+          <span class="prog-tk">II・B</span>
+          <span class="prog-name">第二章 ・ 彼氏篇</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill shinta" id="prog-fill-bf"></div>
+        </div>
+        <div class="progress-count" id="prog-count-bf">─ / ─</div>
+      </div>
+      <div class="progress-row" data-key="recycle">
+        <div class="progress-label">
+          <span class="prog-tk">II・C</span>
+          <span class="prog-name">第二章 ・ 廃品回収</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="prog-fill-recycle"></div>
+        </div>
+        <div class="progress-count" id="prog-count-recycle">─ / ─</div>
+      </div>
+      <div class="progress-row" data-key="ch3">
+        <div class="progress-label">
+          <span class="prog-tk">CH. III</span>
+          <span class="prog-name">第三章 ・ インフラ</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="prog-fill-ch3"></div>
+        </div>
+        <div class="progress-count" id="prog-count-ch3">─ / ─</div>
+      </div>
+      <div class="progress-total">
+        <div class="prog-total-label">合 計</div>
+        <div class="progress-track total-track">
+          <div class="progress-fill total-fill" id="prog-fill-total"></div>
+        </div>
+        <div class="progress-count total-count" id="prog-count-total">─ / ─</div>
+      </div>
     </div>
   </div>
 
@@ -892,7 +965,20 @@
         <div class="ch-body">
           <div class="ch-title">しんた の タスク</div>
           <div class="ch-en">HIS TASKS</div>
-          <div class="ch-desc">買い出し、リネット集荷、お水受け取り、不用品回収</div>
+          <div class="ch-desc">買い出し、リネット集荷、お水受け取り</div>
+        </div>
+        <div class="ch-arrow">›</div>
+      </a>
+
+      <a class="ch-card sub recycle" href="checklist-recycle.html" target="_blank" rel="noopener">
+        <div class="ch-side ch-side-recycle">
+          <span class="ch-num">SIDE C</span>
+          <span class="ch-num-jp">廃<span class="accent">品</span>回収</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-title">二人 で 進める</div>
+          <div class="ch-en">DISPOSAL</div>
+          <div class="ch-desc">業者手配後の準備・当日対応（回収予定日も入力）</div>
         </div>
         <div class="ch-arrow">›</div>
       </a>
@@ -968,87 +1054,6 @@
   setCountdown('cd-move', 'cd-move-days', 'cd-move-num', '2026-05-12');
   setCountdown('cd-out',  'cd-out-days',  'cd-out-num',  '2026-05-23');
 
-  // ===== 章別進捗 =====
-  const CHAPTERS = [
-    { id: 'ch1', storageKey: 'hikkoshi-ch1-v1', total: 25  },
-    { id: 'ch2', storageKey: 'hikkoshi-ch2-v1', total: 220 },
-    { id: 'bf',  storageKey: 'hikkoshi-bf-v3',  total: 38  },
-    { id: 'ch3', storageKey: 'hikkoshi-ch3-v1', total: 89  }
-  ];
-  const TOTAL_TASKS = CHAPTERS.reduce((s, c) => s + c.total, 0); // 372
-  const _chDone = {};
-
-  function countDone(state) {
-    if (!state) return 0;
-    let count = 0;
-    Object.values(state).forEach(v => {
-      if (v === 'done' || v === true || v === 'skipped' || v === 'unavailable') count++;
-    });
-    return count;
-  }
-
-  function renderRow(chId, done, total) {
-    const fill  = document.getElementById(`prog-fill-${chId}`);
-    const count = document.getElementById(`prog-count-${chId}`);
-    const row   = document.getElementById(`prog-row-${chId}`);
-    if (!fill || !count || !row) return;
-    const clamped = Math.max(0, Math.min(done, total));
-    const pct = total > 0 ? (clamped / total) * 100 : 0;
-    fill.style.width = pct + '%';
-    count.textContent = `${clamped} / ${total}`;
-    row.classList.toggle('complete', clamped >= total && total > 0);
-  }
-
-  function renderTotal() {
-    let done = 0;
-    for (const c of CHAPTERS) done += (_chDone[c.id] || 0);
-    renderRow('total', done, TOTAL_TASKS);
-  }
-
-  function updateChapter(chId, state) {
-    const c = CHAPTERS.find(x => x.id === chId);
-    if (!c) return;
-    const done = countDone(state);
-    _chDone[chId] = done;
-    renderRow(chId, done, c.total);
-    renderTotal();
-  }
-
-  function readLocalState(storageKey) {
-    try {
-      const raw = localStorage.getItem(storageKey);
-      return raw ? JSON.parse(raw) : {};
-    } catch (e) { return {}; }
-  }
-
-  // 1) localStorage で初期描画（オフライン耐性）
-  for (const c of CHAPTERS) {
-    updateChapter(c.id, readLocalState(c.storageKey));
-  }
-
-  // 2) Firebase が使えるなら各章にリアルタイムリスナー
-  (async () => {
-    if (window.FIREBASE_READY_PROMISE) {
-      const ok = await window.FIREBASE_READY_PROMISE;
-      if (!ok) return;
-    }
-    if (!(window.FIREBASE_READY && window.firebase && window.firebase.database)) return;
-    const db = window.firebase.database();
-    const root = window.FIREBASE_ROOT || 'hikkoshi-roadmap';
-    for (const c of CHAPTERS) {
-      try {
-        const ref = db.ref(`${root}/${c.storageKey}`);
-        ref.on('value', (snap) => {
-          const state = snap.val() || {};
-          try { localStorage.setItem(c.storageKey, JSON.stringify(state)); } catch (e) {}
-          updateChapter(c.id, state);
-        });
-      } catch (e) {
-        console.warn('[Progress] listener失敗', c.id, e);
-      }
-    }
-  })();
-
   // ===== ユーザー管理 =====
   const userBadge = document.getElementById('userBadge');
   const badgeName = document.getElementById('badgeName');
@@ -1107,6 +1112,90 @@
     showModal();
   });
 
+  // ===== 各章の進捗集計 =====
+  // 各章のストレージキーと総タスク数（章ファイルのallTaskIds()と一致）
+  const CHAPTERS = [
+    { key: 'ch1',     storageKey: 'hikkoshi-ch1-v1',     total: 25 },
+    { key: 'ch2',     storageKey: 'hikkoshi-ch2-v1',     total: 220 },
+    { key: 'bf',      storageKey: 'hikkoshi-bf-v3',      total: 3 },
+    { key: 'recycle', storageKey: 'hikkoshi-recycle-v1', total: 17 },
+    { key: 'ch3',     storageKey: 'hikkoshi-ch3-v1',     total: 89 }
+  ];
+
+  function countDone(state) {
+    if (!state) return 0;
+    let count = 0;
+    Object.values(state).forEach(v => {
+      if (v === 'done' || v === true || v === 'skipped') count++;
+    });
+    return count;
+  }
+
+  function renderProgress(chKey, done, total) {
+    const fill = document.getElementById('prog-fill-' + chKey);
+    const count = document.getElementById('prog-count-' + chKey);
+    if (!fill || !count) return;
+    const pct = total > 0 ? (done / total * 100) : 0;
+    fill.style.width = pct + '%';
+    count.textContent = `${done} / ${total}`;
+    const row = count.closest('.progress-row');
+    if (row) row.classList.toggle('complete', done >= total && total > 0);
+  }
+
+  function updateTotal(chapterDones) {
+    let totalDone = 0;
+    let totalAll = 0;
+    CHAPTERS.forEach(ch => {
+      totalDone += chapterDones[ch.key] || 0;
+      totalAll += ch.total;
+    });
+    const fill = document.getElementById('prog-fill-total');
+    const count = document.getElementById('prog-count-total');
+    if (fill) fill.style.width = (totalAll > 0 ? totalDone / totalAll * 100 : 0) + '%';
+    if (count) count.textContent = `${totalDone} / ${totalAll}`;
+  }
+
+  async function loadAllProgress() {
+    const dones = {};
+    // localStorage バックアップから読む（オフラインでも表示できるように）
+    CHAPTERS.forEach(ch => {
+      try {
+        const raw = localStorage.getItem(ch.storageKey);
+        if (raw) {
+          dones[ch.key] = countDone(JSON.parse(raw));
+          renderProgress(ch.key, dones[ch.key], ch.total);
+        } else {
+          dones[ch.key] = 0;
+          renderProgress(ch.key, 0, ch.total);
+        }
+      } catch (e) {
+        dones[ch.key] = 0;
+        renderProgress(ch.key, 0, ch.total);
+      }
+    });
+    updateTotal(dones);
+
+    // Firebase が使えるなら、リアルタイム更新もセット
+    if (window.FIREBASE_READY && window.firebase && window.firebase.database) {
+      try {
+        const db = window.firebase.database();
+        const root = window.FIREBASE_ROOT || 'hikkoshi-roadmap';
+        CHAPTERS.forEach(ch => {
+          const ref = db.ref(`${root}/${ch.storageKey}`);
+          ref.on('value', (snap) => {
+            const val = snap.val() || {};
+            try { localStorage.setItem(ch.storageKey, JSON.stringify(val)); } catch (e) {}
+            dones[ch.key] = countDone(val);
+            renderProgress(ch.key, dones[ch.key], ch.total);
+            updateTotal(dones);
+          });
+        });
+      } catch (e) {
+        console.warn('[Progress] Firebase listener error:', e);
+      }
+    }
+  }
+
   // 起動時：ユーザーチェック
   (async () => {
     // Firebase の初期化を待つ（あれば）
@@ -1120,6 +1209,8 @@
     } else {
       showUserBadge(userId);
     }
+    // 進捗集計を読み込み＆リスナーセット
+    loadAllProgress();
   })();
 </script>
 </body>
