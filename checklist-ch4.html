@@ -470,9 +470,9 @@
     gap: 1px;
   }
   .cal-day {
-    aspect-ratio: 1 / 1.1;
+    aspect-ratio: 1 / 1.2;
     background: var(--paper);
-    padding: 4px 4px 3px;
+    padding: 2px 2px 3px;
     cursor: pointer;
     position: relative;
     display: flex;
@@ -539,6 +539,34 @@
     line-height: 1.1;
   }
   .cal-day.selected .cal-day-mini { color: var(--card-warm); }
+
+  /* 有給ラベル */
+  .cal-day-vacation {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 7.5px;
+    font-weight: 700;
+    color: var(--moss-d);
+    background: rgba(62, 74, 38, 0.12);
+    padding: 1px 3px;
+    line-height: 1.2;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0;
+    margin-bottom: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .cal-day.selected .cal-day-vacation {
+    background: rgba(245, 220, 160, 0.25);
+    color: var(--card-warm);
+  }
+  @media (max-width: 380px) {
+    .cal-day-vacation {
+      font-size: 6.5px;
+      padding: 1px 1px;
+    }
+  }
 
   /* イベント詳細エリア */
   .day-events {
@@ -1737,6 +1765,25 @@ const FIXED_EVENTS = {
 // 5/1のリネット集荷を別エントリで
 FIXED_EVENTS['2026-05-01'].unshift({ title: 'リネット集荷 12-14時', icon: '📦', source: '彼氏篇', isMilestone: false });
 
+// ============================================
+// 有給休暇データ
+// ============================================
+const VACATIONS = {
+  '2026-05-12': ['shinta', 'kanan'],
+  '2026-05-13': ['shinta'],
+  '2026-05-14': ['shinta'],
+  '2026-05-15': ['shinta', 'kanan']
+};
+
+function getVacationLabel(iso) {
+  const persons = VACATIONS[iso];
+  if (!persons || persons.length === 0) return '';
+  if (persons.length === 2) return '🛏 二人';
+  if (persons[0] === 'kanan') return '🛏 かなん';
+  if (persons[0] === 'shinta') return '🛏 しんた';
+  return '';
+}
+
 async function loadState() {
   if (window.FIREBASE_READY_PROMISE) {
     try { await window.FIREBASE_READY_PROMISE; } catch (e) {}
@@ -1883,8 +1930,11 @@ function renderCalendar() {
     const todayCls = isToday ? 'today' : '';
     const selCls = isSelected ? 'selected' : '';
     const evCls = events.length > 0 ? 'has-events' : '';
+    const vacationLabel = getVacationLabel(iso);
+    const vacationHtml = vacationLabel ? `<div class="cal-day-vacation">${vacationLabel}</div>` : '';
     
     return `<div class="cal-day ${todayCls} ${selCls} ${wdClass} ${evCls}" data-iso="${iso}">
+      ${vacationHtml}
       <span class="cal-day-num">${c.date}</span>
       ${dotsHtml}
     </div>`;
