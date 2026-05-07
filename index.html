@@ -292,6 +292,9 @@
   .progress-fill.shinta {
     background: var(--vermilion);
   }
+  .progress-fill.final {
+    background: var(--vermilion);
+  }
   .progress-count {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -437,6 +440,28 @@
   }
   .ch-side-recycle .ch-num-jp .accent {
     color: #d4b87a;
+  }
+
+  /* 最終章 - 朱色フチで特別感 */
+  .ch-card.final {
+    border-color: var(--vermilion);
+    box-shadow: 3px 3px 0 0 var(--vermilion);
+  }
+  .ch-card.final:hover {
+    box-shadow: 1px 1px 0 0 var(--vermilion);
+  }
+  .ch-side-final {
+    background: var(--vermilion) !important;
+  }
+  .ch-side-final .ch-num,
+  .ch-side-final .ch-num-jp {
+    color: var(--card) !important;
+  }
+  .ch-side-final .ch-num-jp .accent {
+    color: var(--card-warm) !important;
+  }
+  .ch-card.final .ch-arrow {
+    color: var(--vermilion);
   }
   .ch-card {
     display: flex;
@@ -909,6 +934,16 @@
         </div>
         <div class="progress-count" id="prog-count-ch3">─ / ─</div>
       </div>
+      <div class="progress-row" data-key="final">
+        <div class="progress-label">
+          <span class="prog-tk">FINAL</span>
+          <span class="prog-name">最終章 ・ 退去まで</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill final" id="prog-fill-final"></div>
+        </div>
+        <div class="progress-count" id="prog-count-final">─ / ─</div>
+      </div>
       <div class="progress-total">
         <div class="prog-total-label">合 計</div>
         <div class="progress-track total-track">
@@ -1005,6 +1040,19 @@
         <div class="ch-title">スケジュール</div>
         <div class="ch-en">CHAPTER FOUR</div>
         <div class="ch-desc">カレンダーで予定管理（自由に追加・他章の期限も自動表示）</div>
+      </div>
+      <div class="ch-arrow">›</div>
+    </a>
+
+    <a class="ch-card final" data-ch-key="final" href="checklist-final.html">
+      <div class="ch-side ch-side-final">
+        <span class="ch-num">FINAL</span>
+        <span class="ch-num-jp">最<span class="accent">終</span>章</span>
+      </div>
+      <div class="ch-body">
+        <div class="ch-title">退去完了まで</div>
+        <div class="ch-en">TO COMPLETION</div>
+        <div class="ch-desc">搬出後〜立会い〜完結（5/12以降の最後の道のり）</div>
       </div>
       <div class="ch-arrow">›</div>
     </a>
@@ -1131,7 +1179,8 @@
     { key: 'ch2',     storageKey: 'hikkoshi-ch2-v1',     total: 220 },
     { key: 'bf',      storageKey: 'hikkoshi-bf-v3',      total: 6 },
     { key: 'recycle', storageKey: 'hikkoshi-recycle-v1', total: 17 },
-    { key: 'ch3',     storageKey: 'hikkoshi-ch3-v1',     total: 106 }
+    { key: 'ch3',     storageKey: 'hikkoshi-ch3-v1',     total: 106 },
+    { key: 'final',   storageKey: 'hikkoshi-final-v1',   total: 0 }
   ];
 
   function countDone(state) {

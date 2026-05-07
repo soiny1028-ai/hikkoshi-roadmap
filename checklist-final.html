@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>引っ越しまでの道のり 〜最終章 退去完了まで〜</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Noto+Serif+JP:wght@400;500;700;900&family=Klee+One:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:        #e6d8b9;
+    --paper-deep:   #d8c79e;
+    --card:         #f1e7c9;
+    --card-warm:    #ede0bc;
+    --ink:          #1a140d;
+    --ink-soft:     #4a3a25;
+    --ink-mute:     #8a7654;
+    --rule:         #b09668;
+    --vermilion:    #a8392c;
+    --vermilion-d:  #842c22;
+    --moss:         #5a6b3c;
+    --moss-d:       #3e4a26;
+    --shadow:       0 1px 0 rgba(26, 20, 13, 0.04), 0 4px 18px rgba(74, 58, 37, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  html, body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 400;
+    line-height: 1.7;
+    min-height: 100vh;
+    /* paper grain */
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(168, 57, 44, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 88% 82%, rgba(90, 107, 60, 0.05) 0%, transparent 38%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-attachment: fixed;
+  }
+
+  .app {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 12px 80px;
+  }
+
+  /* ============ HERO / CD JACKET ============ */
+  .jacket {
+    margin: 12px 0 14px;
+    padding: 14px 14px 14px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    box-shadow: var(--shadow), 3px 3px 0 0 var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .jacket::before {
+    content: '';
+    position: absolute; inset: 5px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+  }
+
+  .jacket-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+  .jacket-meta .left { color: var(--vermilion); font-weight: 600; }
+
+  .jacket-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* big vertical title */
+  .vtitle {
+    writing-mode: vertical-rl;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: 0.06em;
+    padding-left: 0;
+    border-right: 1.5px solid var(--ink);
+    padding-right: 8px;
+    margin-right: 2px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vtitle .rt {
+    color: var(--vermilion);
+    font-size: 36px;
+    margin: -1px 0;
+  }
+
+  .htitle-block { padding-top: 0; }
+
+  .htitle {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .htitle-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .verse {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    border-left: 2px solid var(--vermilion);
+    padding: 1px 0 1px 8px;
+    margin-bottom: 0;
+  }
+
+  .stamp {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 42px;
+    height: 42px;
+    border: 1.5px solid var(--vermilion);
+    border-radius: 50%;
+    color: var(--vermilion);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 8.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+    transform: rotate(-8deg);
+    background: rgba(168, 57, 44, 0.04);
+    letter-spacing: 0.02em;
+  }
+
+  /* ============ PROGRESS / METER ============ */
+  .meter {
+    margin-bottom: 22px;
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    padding: 14px 16px;
+    position: relative;
+  }
+  .meter::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid var(--rule);
+    border-color: transparent;
+    border-top-color: var(--rule);
+    border-bottom-color: var(--rule);
+    pointer-events: none;
+  }
+
+  .meter-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-family: 'Shippori Mincho B1', serif;
+  }
+  .meter-label {
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.25em;
+    font-weight: 700;
+  }
+  .meter-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .meter-count .total {
+    color: var(--ink-mute);
+    font-size: 14px;
+  }
+  .meter-sub {
+    font-family: 'Klee One', serif;
+    font-size: 11px;
+    color: var(--ink-mute);
+    margin-top: 4px;
+    display: none;
+  }
+  .meter-sub.show { display: block; }
+  .meter-sub strong { color: var(--ink); font-weight: 600; }
+
+  .meter-bar {
+    height: 6px;
+    background: var(--paper-deep);
+    position: relative;
+    border: 1px solid var(--rule);
+  }
+  .meter-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    background: var(--vermilion);
+    width: 0%;
+    transition: width 0.5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .meter-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      rgba(0,0,0,0) 0 4px,
+      rgba(0,0,0,0.12) 4px 5px
+    );
+  }
+
+  /* ============ TABS / TRACKS NAV ============ */
+  /* タスク未追加プレースホルダー */
+  .empty-note {
+    text-align: center;
+    padding: 40px 20px;
+    background: var(--card);
+    border: 1.5px dashed var(--rule);
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-mute);
+    letter-spacing: 0.05em;
+  }
+
+  nav.tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 22px;
+    position: sticky;
+    top: 8px;
+    z-index: 10;
+  }
+
+  nav.tabs button {
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--rule);
+    padding: 9px 2px 8px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+  nav.tabs button:last-child { border-right: none; }
+
+  nav.tabs button .tk {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--vermilion);
+    letter-spacing: 0.15em;
+    margin-bottom: 2px;
+  }
+  nav.tabs button .badge {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: var(--ink-mute);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  nav.tabs button.active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  nav.tabs button.active .tk { color: var(--card-warm); }
+  nav.tabs button.active .badge { color: var(--card-warm); }
+
+  nav.tabs button.complete:not(.active)::before {
+    content: '済';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 9px;
+    color: var(--vermilion);
+    background: var(--card);
+    border: 1px solid var(--vermilion);
+    padding: 0 3px;
+    line-height: 1.4;
+  }
+
+  /* ============ SECTION ============ */
+  section {
+    display: none;
+    animation: rise 0.4s ease;
+  }
+  section.active { display: block; }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .chapter {
+    margin-bottom: 16px;
+    text-align: center;
+    position: relative;
+    padding: 14px 0;
+  }
+  .chapter::before, .chapter::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--ink);
+  }
+  .chapter::before { top: 0; }
+  .chapter::after { bottom: 0; }
+  .chapter .ch-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--vermilion);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+  .chapter h2 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+    margin: 4px 0 2px;
+  }
+  .chapter .ch-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--ink-mute);
+    letter-spacing: 0.15em;
+  }
+
+  .liner-note {
+    margin: 0 0 16px;
+    padding: 12px 14px;
+    background: rgba(168, 57, 44, 0.06);
+    border-left: 3px solid var(--vermilion);
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .liner-note strong {
+    color: var(--vermilion);
+    font-weight: 600;
+  }
+
+  /* ============ TASK CARDS ============ */
+  .task-list { display: flex; flex-direction: column; gap: 14px; }
+
+  .task-card {
+    background: var(--card);
+    border: 1.5px solid var(--ink);
+    transition: all 0.25s ease;
+  }
+  .task-card.checked { background: var(--card-warm); }
+  .task-card.checked .task-num,
+  .task-card.checked .task-title { opacity: 0.45; }
+  .task-card.checked .task-title { text-decoration: line-through; }
+
+  .task-head {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px 10px;
+    cursor: pointer;
+    border-bottom: 1px dashed var(--rule);
+    min-height: 40px;
+  }
+
+  .task-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--vermilion);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .task-title {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* タスクタイトル+担当タグのラッパー */
+  .task-title-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  /* 担当タグ */
+  .assignee-tag {
+    display: inline-block;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 9.5px;
+    padding: 2px 7px;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    flex-shrink: 0;
+  }
+  .assignee-tag.tag-kanan {
+    background: var(--moss-d);
+    color: var(--card);
+    border-color: var(--moss-d);
+  }
+  .assignee-tag.tag-shinta {
+    background: var(--vermilion);
+    color: var(--card);
+    border-color: var(--vermilion);
+  }
+  .assignee-tag.tag-both {
+    background: var(--ink);
+    color: var(--card);
+    border-color: var(--ink);
+  }
+
+  .check-box {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+  .check-box svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    stroke: var(--card);
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5) rotate(-15deg);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .checked .check-box,
+  .done .check-box {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .checked .check-box svg,
+  .done .check-box svg {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  /* 無かった (unavailable) state */
+  .unavailable .check-box {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .unavailable .check-box::after {
+    content: '×';
+    color: var(--card);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 1;
+    position: absolute;
+  }
+  .unavailable .check-box svg { opacity: 0; }
+  .shop-item.unavailable { background: rgba(26, 20, 13, 0.06); }
+  .shop-item.unavailable .item-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+    text-decoration-style: wavy;
+    text-decoration-color: var(--ink-mute);
+  }
+  .shop-item.unavailable .item-num { opacity: 0.4; }
+
+  /* "無" stamp on unavailable items */
+  .shop-item.unavailable::before {
+    content: '無';
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) rotate(-12deg);
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(241, 231, 201, 0.85);
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* 無 button */
+  .nai-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 8px;
+    font-size: 12px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-left: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+    min-width: 26px;
+  }
+  .nai-btn:hover, .nai-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .shop-item.unavailable .nai-btn {
+    background: var(--ink);
+    color: var(--card);
+  }
+
+  .item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .task-detail {
+    padding: 12px 16px 14px;
+    font-family: 'Klee One', serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+
+  .lyric-block {
+    margin: 6px 0;
+    padding: 10px 12px;
+    background: var(--paper);
+    border-left: 2px solid var(--moss);
+    position: relative;
+  }
+  .lyric-block:not(:last-child) { margin-bottom: 8px; }
+
+  .lyric-block.sp { border-left-color: var(--vermilion); background: rgba(168, 57, 44, 0.05); }
+
+  .lyric-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .lyric-block.sp .lyric-label { color: var(--vermilion); }
+
+  .lyric-block .body { color: var(--ink); }
+
+  .accent-mark {
+    color: var(--vermilion);
+    font-weight: 700;
+  }
+
+  /* multi-task with subtasks */
+  .task-card.multi { display: block; }
+  .task-card.multi .task-detail { display: block; }
+  .task-card.multi.all-done { background: var(--card-warm); }
+  .task-head.no-toggle { cursor: default; }
+
+  .task-desc {
+    margin: 0 0 10px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .task-progress {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .subtask-group {
+    margin-top: 12px;
+    display: block;
+  }
+  .subtask-group:first-of-type { margin-top: 4px; }
+
+  .subtask-group-label {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--moss-d);
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--rule);
+    display: block;
+  }
+
+  .subtask {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    cursor: pointer;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+  }
+  .subtask:active { background: var(--card-warm); transform: scale(0.99); }
+  .subtask.done {
+    background: var(--card-warm);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .subtask-name {
+    opacity: 0.5;
+    text-decoration: line-through;
+  }
+  .subtask.done .subtask-side {
+    opacity: 0.5;
+  }
+
+  .subtask-text {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .check-box-sm {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+    box-sizing: border-box;
+  }
+  .check-box-sm svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    stroke: var(--card);
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(0.5);
+    transition: all 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .subtask.done .check-box-sm {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+  }
+  .subtask.done .check-box-sm svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .subtask-side {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 12px;
+    color: var(--vermilion);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .subtask-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .subtask-skip {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 10px 6px 30px;
+    margin-bottom: 4px;
+    opacity: 0.45;
+  }
+  .subtask-skip .subtask-side {
+    font-style: italic;
+  }
+  .subtask-skip .subtask-name {
+    text-decoration: line-through;
+    font-size: 12px;
+  }
+
+  /* ============ SHOPPING / TRACK LIST ============ */
+  .shop-list { border: 1.5px solid var(--ink); background: var(--card); }
+
+  .shop-item {
+    display: grid;
+    grid-template-columns: 24px 22px 1fr auto;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 11px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .shop-item:last-child { border-bottom: none; }
+  .shop-item:active { background: var(--card-warm); }
+  .shop-item.checked, .shop-item.done { background: var(--card-warm); }
+  .shop-item.checked .item-name,
+  .shop-item.done .item-name { opacity: 0.45; text-decoration: line-through; }
+  .shop-item.checked .item-num,
+  .shop-item.done .item-num { opacity: 0.45; }
+
+  .item-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--vermilion);
+    text-align: right;
+    line-height: 1;
+  }
+
+  .shop-item .check-box { width: 22px; height: 22px; }
+  .shop-item .check-box svg { width: 13px; height: 13px; }
+
+  .item-info { min-width: 0; }
+  .item-name {
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 13.5px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .item-note {
+    font-family: 'Klee One', serif;
+    font-size: 10.5px;
+    color: var(--ink-mute);
+    margin-top: 1px;
+  }
+
+  .img-btn {
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 6px 7px;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    min-width: 28px;
+  }
+  .img-btn:hover, .img-btn:active {
+    background: var(--ink);
+    color: var(--card);
+  }
+  .img-btn svg {
+    width: 11px;
+    height: 11px;
+    fill: currentColor;
+  }
+
+  /* ============ FOOTER ============ */
+  .colophon {
+    margin-top: 32px;
+    padding: 14px 16px;
+    border-top: 2px solid var(--ink);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.2em;
+  }
+  .colophon .div { display: inline-block; padding: 0 8px; color: var(--vermilion); }
+
+  .reset-btn {
+    margin: 14px auto 0;
+    display: block;
+    background: transparent;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 8px 18px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .reset-btn:hover {
+    background: var(--vermilion);
+    border-color: var(--vermilion);
+    color: var(--card);
+  }
+
+  /* ============ CELEBRATE ============ */
+  .celebrate {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 20, 13, 0.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .celebrate.show { display: flex; animation: rise 0.3s ease; }
+
+  .celebrate-card {
+    background: var(--card);
+    border: 2px solid var(--ink);
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 320px;
+    box-shadow: 8px 8px 0 var(--vermilion);
+    animation: pop 0.5s cubic-bezier(0.34, 1.6, 0.64, 1);
+    position: relative;
+  }
+  @keyframes pop {
+    from { transform: scale(0.8) rotate(-2deg); opacity: 0; }
+    to { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+  .celebrate-card .seal {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 56px;
+    height: 56px;
+    background: var(--vermilion);
+    color: var(--card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    font-size: 13px;
+    transform: rotate(8deg);
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card h3 {
+    font-family: 'Shippori Mincho B1', serif;
+    font-size: 24px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+  .celebrate-card p {
+    font-family: 'Klee One', serif;
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .celebrate-card button {
+    background: var(--ink);
+    color: var(--card);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+  }
+
+  /* narrow */
+  @media (max-width: 380px) {
+    .app { padding: 0 10px 80px; }
+    .jacket { padding: 12px 10px; }
+    .jacket-meta { font-size: 9px; margin-bottom: 10px; padding-bottom: 5px; }
+    .jacket-body { gap: 10px; }
+    .vtitle { font-size: 28px; padding-right: 7px; }
+    .vtitle .rt { font-size: 32px; }
+    .htitle { font-size: 14.5px; }
+    .htitle-en { font-size: 9px; margin-bottom: 6px; }
+    .verse { font-size: 10.5px; padding-left: 7px; }
+    .stamp { width: 38px; height: 38px; font-size: 8px; top: 8px; right: 8px; border-width: 1.5px; }
+    nav.tabs button { font-size: 11px; padding: 8px 1px 7px; }
+    nav.tabs button .tk { font-size: 9px; }
+    nav.tabs button .badge { font-size: 9px; }
+    .item-name { font-size: 13px; }
+    .item-note { font-size: 10px; }
+    .img-btn { padding: 6px 6px; font-size: 9.5px; min-width: 24px; }
+    .nai-btn { padding: 6px 7px; font-size: 11.5px; min-width: 24px; }
+    .shop-item { gap: 5px; padding: 9px 9px; }
+    .item-num { font-size: 13px; }
+    .task-detail { padding: 10px 12px 12px; font-size: 12px; }
+    .lyric-block { padding: 9px 10px; }
+    .chapter h2 { font-size: 18px; letter-spacing: 0.06em; }
+    .meter { padding: 12px 12px; }
+    .meter-count { font-size: 19px; }
+  }
+</style>
+<link rel="stylesheet" href="shared.css">
+<script src="firebase-config.js"></script>
+<script src="firebase-bootstrap.js"></script>
+<script src="shared-storage.js"></script>
+<script src="permission-helper.js"></script>
+</head>
+<body>
+<div class="app">
+
+  <!-- ============ JACKET HEADER ============ -->
+  <div class="jacket">
+    <div class="jacket-meta">
+      <span class="left">FINAL ・ COMPLETE</span>
+      <span>2026 ・ MOVING JOURNEY</span>
+    </div>
+
+    <div class="jacket-body">
+      <div class="vtitle">
+        <span>最</span><span class="rt">終</span><span>章</span>
+      </div>
+      <div class="htitle-block">
+        <div class="htitle">引っ越しまでの<br>道のり ─ 最終章</div>
+        <div class="htitle-en">FINAL ─ TO COMPLETION</div>
+        <div class="verse">
+          長かった道のりも、終着点へ。<br>
+          鍵を返して、新生活へ ──
+        </div>
+      </div>
+    </div>
+
+    <div class="stamp">完<br>結</div>
+  </div>
+
+  <!-- ============ PROGRESS METER ============ -->
+  <div class="meter">
+    <div class="meter-head">
+      <span class="meter-label">進　捗　率</span>
+      <span class="meter-count"><span id="done">0</span><span class="total"> / <span id="total">0</span></span></span>
+    </div>
+    <div class="meter-bar"><div class="meter-fill" id="bar"></div></div>
+    <div class="meter-sub" id="naiSub">店に <strong id="naiCount">0</strong> 個 無かったって</div>
+  </div>
+
+  <!-- ============ TABS ============ -->
+  <nav class="tabs" id="tabs">
+    <button data-tab="after-move" class="active">
+      <span class="tk">PHASE 01</span>搬出後
+      <span class="badge" id="b-after-move">0/0</span>
+    </button>
+    <button data-tab="before-checkout">
+      <span class="tk">PHASE 02</span>立会い前
+      <span class="badge" id="b-before-checkout">0/0</span>
+    </button>
+    <button data-tab="checkout-day">
+      <span class="tk">PHASE 03</span>立会い当日
+      <span class="badge" id="b-checkout-day">0/0</span>
+    </button>
+    <button data-tab="complete">
+      <span class="tk">PHASE 04</span>完結
+      <span class="badge" id="b-complete">0/0</span>
+    </button>
+  </nav>
+
+  <!-- ============ AFTER MOVE ============ -->
+  <section id="after-move" class="active">
+    <div class="chapter">
+      <div class="ch-num">— Phase 01 —</div>
+      <h2>搬　出　後　篇</h2>
+      <div class="ch-en">after move-out ─ 5/12〜</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>引越し搬出後、退去立会いまでの間にやること。
+    </div>
+    <div class="task-list" id="after-move-list"></div>
+  </section>
+
+  <!-- ============ BEFORE CHECKOUT ============ -->
+  <section id="before-checkout">
+    <div class="chapter">
+      <div class="ch-num">— Phase 02 —</div>
+      <h2>立 会 い 前 篇</h2>
+      <div class="ch-en">before checkout ─ ~5/22</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>退去立会いの直前にやっておくこと。
+    </div>
+    <div class="task-list" id="before-checkout-list"></div>
+  </section>
+
+  <!-- ============ CHECKOUT DAY ============ -->
+  <section id="checkout-day">
+    <div class="chapter">
+      <div class="ch-num">— Phase 03 —</div>
+      <h2>立 会 い 当 日 篇</h2>
+      <div class="ch-en">checkout day ─ 5/23</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>5/23（金）11:00〜の退去立会い当日のタスク。
+    </div>
+    <div class="task-list" id="checkout-day-list"></div>
+  </section>
+
+  <!-- ============ COMPLETE ============ -->
+  <section id="complete">
+    <div class="chapter">
+      <div class="ch-num">— Phase 04 —</div>
+      <h2>完　結　篇</h2>
+      <div class="ch-en">completion</div>
+    </div>
+    <div class="liner-note">
+      <strong>覚え書 </strong>退去後の最終確認・締めくくり。新生活のスタート。
+    </div>
+    <div class="task-list" id="complete-list"></div>
+  </section>
+
+  <!-- ============ COLOPHON ============ -->
+  <div class="colophon">
+    最終章 ・ 退去完了まで <span class="div">·</span> 二人の道のり <span class="div">·</span> WRITTEN WITH LOVE
+  </div>
+  <button class="reset-btn" id="reset">CHECK 全リセット</button>
+</div>
+
+<!-- ============ CELEBRATE ============ -->
+<div class="celebrate" id="celebrate">
+  <div class="celebrate-card">
+    <div class="seal">完</div>
+    <h3>最 終 章 ・ 完 結</h3>
+    <p>長い道のり、本当におつかれさま。<br>新生活を、二人で。<br>これからもよろしくね 🌿</p>
+    <button onclick="document.getElementById('celebrate').classList.remove('show')">閉じる</button>
+  </div>
+</div>
+
+<script>
+// ============================================
+// FINAL CHAPTER - TO COMPLETION
+// ============================================
+const TASKS = {
+  'after-move': [
+    // 例：
+    // {
+    //   id: 'am1',
+    //   title: 'タスクのタイトル',
+    //   assignee: 'kanan',  // 'kanan' / 'shinta' / 'both'
+    //   desc: '詳細説明（任意）',
+    //   subtasks: [
+    //     { id: 'am1-a', name: 'サブタスク1' }
+    //   ]
+    // }
+  ],
+  'before-checkout': [],
+  'checkout-day': [],
+  'complete': []
+};
+
+const TAB_CONFIG = [
+  { key: 'after-move',       badge: 'b-after-move' },
+  { key: 'before-checkout',  badge: 'b-before-checkout' },
+  { key: 'checkout-day',     badge: 'b-checkout-day' },
+  { key: 'complete',         badge: 'b-complete' }
+];
+
+const STORAGE_KEY = 'hikkoshi-final-v1';
+let state = {};
+let storageWorks = true;
+
+async function loadState() {
+  if (window.FIREBASE_READY_PROMISE) {
+    try { await window.FIREBASE_READY_PROMISE; } catch (e) {}
+  }
+  state = await SharedStorage.init(STORAGE_KEY, {
+    onUpdate: (newState) => {
+      state = newState;
+      try {
+        renderAll();
+        updateProgress();
+      } catch (e) {}
+    }
+  });
+}
+async function saveState() {
+  try { await SharedStorage.setAll(state); } catch (e) { storageWorks = false; }
+}
+window.addEventListener('unhandledrejection', (e) => {
+  const msg = String(e.reason && (e.reason.message || e.reason));
+  if (msg.includes('Storage') || msg.includes('storage')) {
+    e.preventDefault();
+    storageWorks = false;
+  }
+});
+
+const ROMAN = ['','i','ii','iii','iv','v','vi','vii','viii','ix','x','xi','xii','xiii','xiv','xv'];
+function isDone(s) { return s === 'done' || s === true; }
+function stateClass(s) { return isDone(s) ? 'done' : ''; }
+
+const ASSIGNEE_LABELS = {
+  kanan:  { name: 'かなん', cls: 'tag-kanan' },
+  shinta: { name: 'しんた', cls: 'tag-shinta' },
+  both:   { name: '二人',   cls: 'tag-both' }
+};
+
+function renderRoom(roomKey) {
+  const tasks = TASKS[roomKey];
+  const container = document.getElementById(roomKey + '-list');
+  if (!container) return;
+  if (!tasks || tasks.length === 0) {
+    container.innerHTML = '<div class="empty-note">タスクはまだ追加されていません。</div>';
+    return;
+  }
+  container.innerHTML = tasks.map((task, idx) => {
+    const num = ROMAN[idx + 1] || (idx + 1);
+    const assignee = ASSIGNEE_LABELS[task.assignee] || ASSIGNEE_LABELS.both;
+    const assigneeTag = `<span class="assignee-tag ${assignee.cls}">${assignee.name}</span>`;
+
+    if (task.subtasks && task.subtasks.length) {
+      const subDone = task.subtasks.filter(st => isDone(state[st.id])).length;
+      const allDone = subDone === task.subtasks.length ? 'all-done' : '';
+      return `
+        <div class="task-card multi ${allDone}" data-multi="${task.id}">
+          <div class="task-head no-toggle">
+            <div class="task-num">${num}.</div>
+            <div class="task-title-wrap">
+              <div class="task-title">${task.title}</div>
+              ${assigneeTag}
+            </div>
+            <div class="task-progress" data-multi-progress="${task.id}">${subDone}/${task.subtasks.length}</div>
+          </div>
+          <div class="task-detail">
+            ${task.desc ? `<p class="task-desc">${task.desc}</p>` : ''}
+            <div class="subtask-group">
+              ${task.subtasks.map(st => `
+                <div class="subtask ${stateClass(state[st.id])}" data-id="${st.id}">
+                  <div class="check-box-sm"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                  <div class="subtask-text"><span class="subtask-name">${st.name}</span></div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+    return `
+      <div class="task-card ${stateClass(state[task.id])}" data-id="${task.id}">
+        <div class="task-head">
+          <div class="task-num">${num}.</div>
+          <div class="task-title-wrap">
+            <div class="task-title">${task.title}</div>
+            ${assigneeTag}
+          </div>
+          <div class="check-box"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></div>
+        </div>
+        ${task.desc ? `<div class="task-detail"><p class="task-desc">${task.desc}</p></div>` : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+function renderAll() {
+  TAB_CONFIG.forEach(t => renderRoom(t.key));
+}
+
+function allTaskIds() {
+  const ids = [];
+  Object.values(TASKS).forEach(list => {
+    list.forEach(task => {
+      if (task.subtasks && task.subtasks.length) {
+        task.subtasks.forEach(st => ids.push(st.id));
+      } else {
+        ids.push(task.id);
+      }
+    });
+  });
+  return ids;
+}
+function roomTaskIds(roomKey) {
+  const ids = [];
+  TASKS[roomKey].forEach(task => {
+    if (task.subtasks && task.subtasks.length) {
+      task.subtasks.forEach(st => ids.push(st.id));
+    } else {
+      ids.push(task.id);
+    }
+  });
+  return ids;
+}
+
+function applyState(el, id) {
+  el.classList.remove('done', 'checked');
+  if (isDone(state[id])) el.classList.add('done');
+}
+
+function setDone(id, el) {
+  state[id] = isDone(state[id]) ? null : 'done';
+  applyState(el, id);
+  if (isDone(state[id])) {
+    el.style.transform = 'scale(0.985)';
+    setTimeout(() => el.style.transform = '', 130);
+  }
+  saveState();
+  updateProgress();
+  checkAllDone();
+}
+
+document.getElementById('tabs').addEventListener('click', (e) => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  const tab = btn.dataset.tab;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.toggle('active', b === btn));
+  document.querySelectorAll('section').forEach(s => s.classList.toggle('active', s.id === tab));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.addEventListener('click', (e) => {
+  const subtask = e.target.closest('.subtask');
+  if (subtask) { setDone(subtask.dataset.id, subtask); return; }
+  const taskCard = e.target.closest('.task-card');
+  if (taskCard && taskCard.dataset.id) {
+    const head = e.target.closest('.task-head');
+    if (head && !head.classList.contains('no-toggle')) {
+      setDone(taskCard.dataset.id, taskCard);
+    }
+  }
+});
+
+function updateProgress() {
+  const all = allTaskIds();
+  const total = all.length;
+  const done = all.filter(k => isDone(state[k])).length;
+  document.getElementById('done').textContent = done;
+  document.getElementById('total').textContent = total;
+  document.getElementById('bar').style.width = total > 0 ? (done / total * 100) + '%' : '0%';
+
+  const naiSub = document.getElementById('naiSub');
+  if (naiSub) naiSub.classList.remove('show');
+
+  TAB_CONFIG.forEach((t, i) => {
+    const ids = roomTaskIds(t.key);
+    const roomDone = ids.filter(k => isDone(state[k])).length;
+    const badge = document.getElementById(t.badge);
+    if (badge) badge.textContent = ids.length > 0 ? `${roomDone}/${ids.length}` : '0/0';
+    const tabBtn = document.querySelectorAll('nav.tabs button')[i];
+    if (tabBtn) tabBtn.classList.toggle('complete', ids.length > 0 && roomDone === ids.length);
+  });
+
+  document.querySelectorAll('[data-multi-progress]').forEach(el => {
+    const multiId = el.dataset.multiProgress;
+    let task = null;
+    Object.values(TASKS).forEach(list => list.forEach(t => { if (t.id === multiId) task = t; }));
+    if (task && task.subtasks) {
+      const sd = task.subtasks.filter(st => isDone(state[st.id])).length;
+      el.textContent = `${sd}/${task.subtasks.length}`;
+      const card = document.querySelector(`[data-multi="${multiId}"]`);
+      if (card) card.classList.toggle('all-done', sd === task.subtasks.length);
+    }
+  });
+}
+
+let alreadyCelebrated = false;
+function checkAllDone() {
+  const all = allTaskIds();
+  if (all.length === 0) return;
+  const allDone = all.every(k => isDone(state[k]));
+  if (allDone && !alreadyCelebrated) {
+    alreadyCelebrated = true;
+    document.getElementById('celebrate').classList.add('show');
+  }
+  if (!allDone) alreadyCelebrated = false;
+}
+
+document.getElementById('reset').addEventListener('click', async () => {
+  if (!confirm('チェックを全部リセット…ほんとに？')) return;
+  state = {};
+  await saveState();
+  renderAll();
+  alreadyCelebrated = false;
+  updateProgress();
+});
+
+(async () => {
+  PermissionHelper.init({ owner: 'both', label: '最終章' });
+  await loadState();
+  renderAll();
+  updateProgress();
+  setTimeout(() => PermissionHelper.updateSyncIndicator(), 1500);
+})();
+</script>
+</body>
+</html>
