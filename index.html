@@ -1125,7 +1125,7 @@
     if (!state) return 0;
     let count = 0;
     Object.values(state).forEach(v => {
-      if (v === 'done' || v === true || v === 'skipped') count++;
+      if (v === 'done' || v === true || v === 'skipped' || v === 'unavailable') count++;
     });
     return count;
   }
