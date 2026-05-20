@@ -1225,7 +1225,7 @@
     let totalDone = 0;
     let totalAll = 0;
     CHAPTERS.forEach(ch => {
-      totalDone += chapterDones[ch.key] || 0;
+      totalDone += Math.min(chapterDones[ch.key] || 0, ch.total);
       totalAll += ch.total;
     });
     const fill = document.getElementById('prog-fill-total');
