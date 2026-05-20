@@ -1196,11 +1196,12 @@
     const fill = document.getElementById('prog-fill-' + chKey);
     const count = document.getElementById('prog-count-' + chKey);
     if (!fill || !count) return;
-    const pct = total > 0 ? (done / total * 100) : 0;
+    const safeDone = Math.min(done, total);
+    const pct = total > 0 ? (safeDone / total * 100) : 0;
     fill.style.width = pct + '%';
-    count.textContent = `${done} / ${total}`;
+    count.textContent = `${safeDone} / ${total}`;
     const row = count.closest('.progress-row');
-    const isComplete = done >= total && total > 0;
+    const isComplete = safeDone >= total && total > 0;
     if (row) row.classList.toggle('complete', isComplete);
 
     // 章カードに完了スタンプを付ける/外す
